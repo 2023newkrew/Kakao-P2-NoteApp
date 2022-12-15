@@ -1,0 +1,24 @@
+.nav{
+  background: $color-navbar;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+    &__left-side{
+      margin: 0 0 0 1.7rem;
+    }
+
+    .logo{
+      margin: 1.2rem 0 0 5.8rem;
+    }
+
+    &__right-side{
+      margin: 1.5rem 1.2rem 0 0;
+
+        &--user{
+          width: 40px;
+          height: 40px;
+        }
+    }
+}

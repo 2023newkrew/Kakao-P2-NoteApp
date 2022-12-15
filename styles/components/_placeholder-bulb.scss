@@ -1,0 +1,11 @@
+.placeholder{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 10.5rem;
+    &__img{
+      align-self: center;
+      width: 10rem;
+      height: auto;
+    }
+}

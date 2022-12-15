@@ -1,0 +1,31 @@
+.body{
+  display: grid;
+  grid-template-areas:
+  'nav nav nav'
+  'sidebar main main'
+  'sidebar main main';
+  grid-template-rows: 6.4rem repeat(2, 1fr);
+  grid-template-columns: 24.1rem repeat(2, 1fr);
+}
+
+.nav{
+  grid-area: nav;
+}
+
+.aside{
+  grid-area: sidebar;
+}
+
+.main{
+  grid-area: main;
+}
+
+.body-wide-main-cont{
+  display: grid;
+  grid-template-areas:
+  'nav nav nav'
+  'main main main'
+  'main main main';
+  grid-template-rows: 6.4rem repeat(2, 1fr);
+  grid-template-columns: 24.1rem repeat(2, 1fr);
+}

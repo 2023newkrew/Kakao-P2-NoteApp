@@ -1,0 +1,12 @@
+.input{
+  margin: 2.3rem 3.1rem 0 3.1rem;
+    &__field{
+      box-sizing: border-box;
+      border: solid 1.5px $color-border;
+      height: 5.9rem;
+      width: 99.6%;
+      padding: 1.8rem 3rem;
+        &::placeholder{
+        }
+    }
+}
