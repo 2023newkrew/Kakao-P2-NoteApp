@@ -14,5 +14,6 @@ module.exports = {
             filename: 'index.html',
             template: './src/views/index.html'
         })
-    ]
+    ],
+    watch: true
 }
