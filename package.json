@@ -1,0 +1,19 @@
+{
+  "name": "kakao-p2-noteapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp/issues"
+  },
+  "homepage": "https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp#readme"
+}
