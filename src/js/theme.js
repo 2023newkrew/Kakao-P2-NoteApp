@@ -4,29 +4,51 @@ const theme = {
   DARK_THEME: 'dark',
   LIGHT_THEME: 'light',
 };
-
-const themeButton = document.querySelector('.header #theme-button');
+const STORAGE_KEY_OF_THEME = 'theme';
+const THEME_ATTRIBUTE = 'data-theme';
 
 const setTheme = theme => {
-  setItem('theme', theme);
-  document.body.setAttribute('data-theme', theme);
+  setItem(STORAGE_KEY_OF_THEME, theme);
+  document.body.setAttribute(THEME_ATTRIBUTE, theme);
+};
+
+const getTheme = () => {
+  return getItem(STORAGE_KEY_OF_THEME) || theme.LIGHT_THEME;
 };
 
 const toggleTheme = () => {
-  const currentTheme = getItem('theme') || 'light';
+  const currentTheme = getItem(STORAGE_KEY_OF_THEME) || theme.LIGHT_THEME;
   const nextTheme = currentTheme === theme.DARK_THEME ? theme.LIGHT_THEME : theme.DARK_THEME;
 
   setTheme(nextTheme);
 };
 
-const initHandler = () => {
-  themeButton.addEventListener('click', toggleTheme);
-};
+export default function useTheme(handlerElement) {
+  const initTheme = () => {
+    const theme = getTheme();
+    setTheme(theme);
+  };
+  const initHandler = () => {
+    if (!handlerElement) {
+      return;
+    }
+    handlerElement.addEventListener('click', toggleTheme);
+  };
 
-export const initTheme = () => {
-  const theme = getItem('theme') || 'light';
+  const init = () => {
+    if (!handlerElement) {
+      console.error('Not found theme handler element');
+      return;
+    }
+    initTheme();
+    initHandler();
+  };
 
-  console.log('init theme', theme);
-  setTheme(theme);
-  initHandler();
-};
+  return {
+    getTheme,
+    setTheme,
+    toggleTheme,
+    initHandler,
+    init,
+  };
+}
