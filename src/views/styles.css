@@ -1,0 +1,136 @@
+:root {
+    --icon-size: 24px;
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+button,
+input,
+select,
+textarea {
+    font-family: "Roboto";
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+}
+
+header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(250, 221, 135);
+    font-size: 20px;
+}
+
+header button {
+    border: none;
+    background-color: transparent;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+header img.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+main {
+    display: flex;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    flex-basis: 230px;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    border: 1px solid black;
+}
+
+nav menu {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+nav i img.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+nav menu span {
+    margin-left: 10px;
+}
+
+section {
+    margin: 20px;
+    width: 100%;
+}
+
+section .input-area {
+    width: 100%;
+}
+
+.input-area {
+    margin-bottom: 50px;
+}
+
+.input-area__textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+.input-area__textarea:focus::placeholder {
+    color: transparent;
+}
+
+.input-area__letter-count {
+    font-size: 10px;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    column-gap: 20px;
+    row-gap: 20px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.post {
+    width: 200px;
+    height: 200px;
+}
+
+.post__textarea {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    resize: none;
+    overflow-y: scroll;
+}

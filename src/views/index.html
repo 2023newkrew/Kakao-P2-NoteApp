@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Keep App</title>
   </head>
   <body class="body">
-
+    <header>
+      <button>
+        <img class="icon" src="../assets/hamburger.png" alt="menu toggle" />
+      </button>
+      <div class="logo-text">Keep</div>
+    </header>
+    <main class="main-container">
+      <nav>
+        <menu>
+          <i>
+            <img class="icon" src="../assets/notes.svg" alt="notes" />
+          </i>
+          <span>Notes</span>
+        </menu>
+        <menu>
+          <img class="icon" src="../assets/reminder.png" alt="reminder" />
+          <span>Reminders</span>
+        </menu>
+        <menu>
+          <img class="icon" src="../assets/settings.svg" alt="settings" />
+          <span>Settings</span>
+        </menu>
+      </nav>
+      <section>
+        <div class="input-area">
+          <textarea
+            class="input-area__textarea"
+            placeholder="내용을 입력하세요."
+          ></textarea>
+          <div class="input-area__letter-count">00/???</div>
+        </div>
+        <div class="posts">
+          <div class="post">
+            <textarea class="post__textarea">목업입니다.</textarea>
+          </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../app.js"></script>
   </body>
 </html>
