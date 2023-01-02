@@ -1,11 +1,5 @@
+import {STORAGE_KEY_OF_THEME, THEME, THEME_ATTRIBUTE} from './constants/theme';
 import {getItem, setItem} from './utils/localStorage';
-
-const theme = {
-  DARK_THEME: 'dark',
-  LIGHT_THEME: 'light',
-};
-const STORAGE_KEY_OF_THEME = 'theme';
-const THEME_ATTRIBUTE = 'data-theme';
 
 const setTheme = theme => {
   setItem(STORAGE_KEY_OF_THEME, theme);
@@ -13,12 +7,12 @@ const setTheme = theme => {
 };
 
 const getTheme = () => {
-  return getItem(STORAGE_KEY_OF_THEME) || theme.LIGHT_THEME;
+  return getItem(STORAGE_KEY_OF_THEME) || THEME.LIGHT_THEME;
 };
 
 const toggleTheme = () => {
-  const currentTheme = getItem(STORAGE_KEY_OF_THEME) || theme.LIGHT_THEME;
-  const nextTheme = currentTheme === theme.DARK_THEME ? theme.LIGHT_THEME : theme.DARK_THEME;
+  const currentTheme = getItem(STORAGE_KEY_OF_THEME) || THEME.LIGHT_THEME;
+  const nextTheme = currentTheme === THEME.DARK_THEME ? THEME.LIGHT_THEME : THEME.DARK_THEME;
 
   setTheme(nextTheme);
 };
