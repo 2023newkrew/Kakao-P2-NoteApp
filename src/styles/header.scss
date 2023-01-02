@@ -3,18 +3,28 @@
   width: 100%;
   z-index: 10;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
   color: var(--text1);
 
   .icon {
     height: 32px;
     width: 32px;
   }
-  .title {
-    font-size: 28px;
-    font-weight: 600;
+  .title-container {
+    flex: 1 auto;
+
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+    }
   }
   .buttons {
     height: 100%;
+    display: flex;
+    align-items: center;
 
     .button {
       height: 100%;
@@ -22,6 +32,9 @@
   }
   .profile {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .user {
       text-decoration: none;

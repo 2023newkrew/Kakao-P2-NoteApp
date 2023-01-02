@@ -75,31 +75,3 @@ button {
   padding-top: calc(var(--base-unit) * 2);
   padding-bottom: calc(var(--base-unit) * 2);
 }
-.flex {
-  display: flex;
-  flex-direction: row;
-}
-.flex-col {
-  flex-direction: col;
-}
-.items-center {
-  align-items: center;
-}
-.items-end {
-  align-items: flex-end;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.justify-evenly {
-  justify-content: space-evenly;
-}
-.flex-1 {
-  flex: 1 1 0%;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
