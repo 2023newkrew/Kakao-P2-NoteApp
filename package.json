@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp/issues"
   },
-  "homepage": "https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp#readme"
+  "homepage": "https://github.com/b2bcodestatesOrg/Kakao-P2-NoteApp#readme",
+  "dependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
