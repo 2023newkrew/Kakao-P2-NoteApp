@@ -28,10 +28,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/views/index.html'
+            template: './src/views/index.html',
         })
     ],
     devServer: {
+        watchFiles: [
+            "src/**"
+        ],
         port: 3000,
     },
 }
