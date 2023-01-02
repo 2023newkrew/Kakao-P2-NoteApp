@@ -37,9 +37,10 @@ header {
     align-items: center;
     background-color: rgb(250, 221, 135);
     font-size: 20px;
+    flex-shrink: 0;
 }
 
-header button {
+header .hamburger {
     border: none;
     background-color: transparent;
     margin-left: 5px;
@@ -47,6 +48,7 @@ header button {
     align-items: center;
     justify-content: center;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 header img.icon {
@@ -133,4 +135,8 @@ section .input-area {
     padding: 10px;
     resize: none;
     overflow-y: scroll;
+}
+
+.hidden {
+    display: none;
 }
