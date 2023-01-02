@@ -4,11 +4,10 @@ import './styles/main.scss';
 import './styles/header.scss';
 import './styles/sidemenu.scss';
 
-import useTheme from './js/theme';
+import ThemeController from './js/themeController';
 
 const onLoadScript = () => {
-  const {init} = useTheme(document.querySelector('.header #theme-button'));
-
-  init();
+  const themeController = new ThemeController(document.body.querySelector('.header #theme-button'));
+  themeController.init();
 };
 onLoadScript();
