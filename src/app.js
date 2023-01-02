@@ -1,6 +1,6 @@
 const $inputTextArea = document.querySelector(".input-area__textarea");
 const $inputLetterCount = document.querySelector(".input-area__letter-count");
-const $hamburgerButton = document.querySelector(".hamburger");
+const $hamburgerButton = document.querySelector(".hamburger-button");
 const $nav = document.querySelector("nav");
 
 const INPUT_TEXT_MAX_LENGTH = 10;

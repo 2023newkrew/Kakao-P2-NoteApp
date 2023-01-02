@@ -40,7 +40,7 @@ header {
     flex-shrink: 0;
 }
 
-header .hamburger {
+header button {
     border: none;
     background-color: transparent;
     margin-left: 5px;
@@ -54,6 +54,10 @@ header .hamburger {
 header img.icon {
     width: var(--icon-size);
     height: var(--icon-size);
+}
+
+header .list-button {
+    margin-left: auto;
 }
 
 main {
@@ -103,6 +107,7 @@ section .input-area {
 .input-area__textarea {
     width: 100%;
     padding: 10px;
+    overflow-y: scroll;
 }
 
 .input-area__textarea:focus::placeholder {
