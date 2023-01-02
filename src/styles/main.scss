@@ -40,6 +40,8 @@ body {
   color: var(--text1);
   transition: background 0.125s ease-in 0s;
   background-color: var(--bg-primary);
+  height: 100vh;
+  width: 100vw;
 }
 body[data-theme='dark'] img[src*='svg'] {
   filter: brightness(0) invert(1);
@@ -49,6 +51,11 @@ body[data-theme='dark'] #theme-button .light {
 }
 body[data-theme='light'] #theme-button .dark {
   display: none;
+}
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 button {
