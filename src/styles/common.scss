@@ -1,0 +1,26 @@
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.match-parent {
+  width: 100%;
+}
+
+.icon-button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cross-axis-center {
+  align-items: center;
+}
+
+.flex-gap {
+  gap: 16px;
+}
