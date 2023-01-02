@@ -44,11 +44,21 @@ body {
 body[data-theme='dark'] img[src*='svg'] {
   filter: brightness(0) invert(1);
 }
+body[data-theme='dark'] #theme-button .light {
+  display: none;
+}
+body[data-theme='light'] #theme-button .dark {
+  display: none;
+}
+
 button {
   background: none;
   border: none;
   cursor: pointer;
   color: var(--button-text);
+}
+a {
+  color: var(--text1);
 }
 
 .mr {
