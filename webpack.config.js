@@ -15,7 +15,6 @@ module.exports = {
             template: './src/views/index.html'
         })
     ],
-    watch: true,
     devServer: {
         port: 3000,
     },
