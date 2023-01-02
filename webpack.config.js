@@ -9,6 +9,22 @@ module.exports = {
         filename: '[name].[contenthash].js',
         clean: true
     },
+    module: {
+        rules: [
+            {
+                test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: './dist/',
+                            name: '[name].[ext]',
+                        },
+                    },
+                ],
+            },
+        ]
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
