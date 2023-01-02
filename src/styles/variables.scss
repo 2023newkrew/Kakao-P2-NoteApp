@@ -1,0 +1,11 @@
+$color-primary: #f5ebe0;
+$color-black: #222222;
+$color-white: #ffffff;
+// primary
+$color-primary-10: lighten($color-primary, 40%);
+$color-primary-20: lighten($color-primary, 30%);
+$color-primary-30: lighten($color-primary, 20%);
+$color-primary-40: lighten($color-primary, 10%);
+$color-primary-60: darken($color-primary, 10%);
+$solor-primary-70: darken($color-primary, 20%);
+$solor-primary-80: darken($color-primary, 30%);
