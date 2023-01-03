@@ -7,22 +7,30 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
+        assetModuleFilename: '[name][ext]',
         clean: true
     },
     module: {
         rules: [
             {
                 test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            publicPath: './dist/',
-                            name: '[name].[ext]',
-                        },
-                    },
-                ],
+                type: "asset/resource"
             },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    "style-loader",
+                    "css-loader"
+                ]
+            }
         ]
     },
     plugins: [
