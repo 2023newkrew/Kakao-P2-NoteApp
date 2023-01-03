@@ -1,6 +1,6 @@
 .header {
   padding: 8px;
-  background-color: #ffcd00;
+  background-color: $color-background;
 }
 
 .nav {
@@ -19,7 +19,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(#000000, 10%);
+      background-color: $color-hover;
     }
   }
 

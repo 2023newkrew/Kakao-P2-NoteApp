@@ -1,0 +1,8 @@
+$color-black: #000000;
+$color-white: #ffffff;
+$color-background: #ffcd00;
+$color-background-50: mix($color-background, $color-white, 50%);
+$color-background-30: mix($color-background, $color-white, 30%);
+$color-background-15: mix($color-background, $color-white, 15%);
+$color-border: #e1e1e1;
+$color-hover: rgba($color-black, 10%);

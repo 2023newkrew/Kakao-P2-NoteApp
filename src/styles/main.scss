@@ -1,4 +1,11 @@
-.main {
-  height: calc(100vh - 64px);
-  display: flex;
-}
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/base";
+
+@import "layout/header";
+@import "layout/main";
+@import "layout/aside";
+@import "layout/content";
+
+@import "components/memo";

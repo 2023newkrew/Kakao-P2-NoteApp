@@ -2,7 +2,7 @@
   width: 250px;
   padding: 16px;
   flex-shrink: 0;
-  background-color: mix(#ffcd00, #ffffff, 30%);
+  background-color: $color-background-50;
 }
 
 .side-menu {
@@ -18,7 +18,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(#000000, 10%);
+      background-color: $color-hover;
     }
   }
 
