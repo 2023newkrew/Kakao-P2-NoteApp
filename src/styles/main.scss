@@ -1,0 +1,64 @@
+@import "./general.scss";
+body > main {
+    display: flex;
+    min-height: calc(100vh - $header-height);
+    width: 100vw;
+
+    & > nav {
+        display: flex;
+        padding: 24px;
+        border-right: $gray-light-color 1px solid;
+        & > ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            & > li > button {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                & > p {
+                    font-size: $font-normal;
+                }
+                &:hover {
+                    filter: invert(0.8)
+                }
+            }
+        }
+    }
+
+    & > section {
+        width: 100%;
+        padding: 24px;
+        & > header {
+            
+            textarea {
+                width: 100%;
+                height: 80px;
+                border-radius: 8px;
+                padding: 16px;
+                box-sizing: border-box;
+            }
+            p {
+                font-size: $font-small;
+                color: $gray-color
+            }
+        }
+        & > article {
+            margin-top: 16px;
+            & > ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                & > li {
+                    height: 240px;
+                    width: 240px;
+                    padding: 16px;
+                    background-color: $green-color;
+                    color: $gray-color;
+                    border: 1px solid $gray-light-color;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}

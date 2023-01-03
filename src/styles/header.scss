@@ -1,0 +1,26 @@
+@import "./general.scss";
+body > header {
+    display: flex;
+    align-items: center;
+    height: $header-height;
+    
+    padding: 16px;
+    gap: 8px;
+    border-bottom: $gray-light-color 1px solid;
+
+    button {
+        height: 32px;
+    }
+    a {
+        margin-top: 10px;
+    }
+    img {
+        height: 32px;
+    }
+    .view-toggle-button {
+        margin-left: auto;
+    }
+    .hide {
+        display: none;
+    }
+}
