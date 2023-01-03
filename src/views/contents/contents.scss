@@ -1,0 +1,12 @@
+@import "./input-area/input-area.scss";
+@import "./posts/posts.scss";
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    .input-area {
+        width: 100%;
+    }
+}

@@ -3,45 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
     <title>Keep App</title>
   </head>
   <body class="body">
     <header>
       <button class="hamburger-button">
-        <img class="icon" src="../assets/hamburger.png" alt="menu toggle" />
+        <img class="icon hamburger-icon" alt="menu toggle" />
       </button>
       <div class="logo-text">Keep</div>
       <button class="list-button">
-        <img class="icon" src="../assets/list.png" alt="list" />
+        <img class="icon list-icon" alt="list" />
       </button>
       <button class="user-button">
-        <img class="icon" src="../assets/user.png" alt="user" />
+        <img class="icon user-icon" alt="user" />
       </button>
     </header>
     <main class="main-container">
       <nav>
         <menu>
           <i>
-            <img class="icon" src="../assets/notes.svg" alt="notes" />
+            <img class="icon notes-icon" salt="notes" />
           </i>
           <span>Notes</span>
         </menu>
         <menu>
-          <img class="icon" src="../assets/reminder.png" alt="reminder" />
+          <img class="icon reminder-icon" alt="reminder" />
           <span>Reminders</span>
         </menu>
         <menu>
-          <img class="icon" src="../assets/settings.svg" alt="settings" />
+          <img class="icon settings-icon" alt="settings" />
           <span>Settings</span>
         </menu>
       </nav>
-      <section>
+      <section class="contents">
         <div class="input-area">
-          <textarea
-            class="input-area__textarea"
-            placeholder="내용을 입력하세요."
-          ></textarea>
+          <textarea class="input-area__textarea" placeholder="내용을 입력하세요."></textarea>
           <div class="input-area__letter-count">00/???</div>
         </div>
         <div class="posts">
@@ -60,9 +56,14 @@
           <div class="post">
             <textarea class="post__textarea"></textarea>
           </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
+          <div class="post">
+            <textarea class="post__textarea"></textarea>
+          </div>
         </div>
       </section>
     </main>
-    <script src="../app.js"></script>
   </body>
 </html>

@@ -1,0 +1,14 @@
+.input-area {
+    margin-bottom: 50px;
+    .input-area__textarea {
+        width: 100%;
+        padding: 10px;
+        overflow-y: scroll;
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+    .input-area__letter-count {
+        font-size: 10px;
+    }
+}
