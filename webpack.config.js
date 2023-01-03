@@ -35,4 +35,9 @@ module.exports = {
     watchFiles: ["src/**"],
     liveReload: true,
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src/"),
+    },
+  },
 };
