@@ -6,15 +6,15 @@
     <title>Keep App</title>
   </head>
   <body class="body">
-    <header>
-      <nav class="flex space-between cross-axis-center">
-        <div class="flex cross-axis-center flex-gap">
+    <header class="header">
+      <nav class="header__content">
+        <div class="header__content-container">
           <button class="icon-button">
             <img id="menuIcon" alt="menu" />
           </button>
-          <div>Logo</div>
+          <div class="header__logo">Logo</div>
         </div>
-        <div class="flex flex-gap">
+        <div class="header__content-container">
           <button class="icon-button">
             <img id="listIcon" alt="list mode" />
           </button>
@@ -24,24 +24,24 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="main-container">
       <section class="content-container">
         <nav class="side-bar">
           <ul class="side-bar__list">
             <li class="side-bar__list-item">
-              <a href="#" class="flex flex-gap cross-axis-center">
+              <a href="#">
                 <img id="notesIcon" alt="notes" />
                 Notes
               </a>
             </li>
             <li class="side-bar__list-item">
-              <a href="#" class="flex flex-gap cross-axis-center">
+              <a href="#">
                 <img id="reminderIcon" alt="reminders" />
                 Reminders
               </a>
             </li>
             <li class="side-bar__list-item">
-              <a href="#" class="flex flex-gap cross-axis-center">
+              <a href="#">
                 <img id="settingsIcon" alt="settings" />
                 Settings
               </a>
@@ -55,12 +55,10 @@
             <div>1 / 10</div>
           </div>
           <div class="card-grid">
-            <div>Card1</div>
-            <div>Card1</div>
-            <div>Card1</div>
-            <div>Card1</div>
-            <div>Card1</div>
-            <div>Card1</div>
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
           </div>
         </div>
       </section>

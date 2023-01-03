@@ -1,0 +1,27 @@
+@import '../abstracts/_variables.scss';
+
+.side-bar {
+  border-right: 1px solid $divider-color;
+  height: 100%;
+  padding: 16px;
+  min-width: 300px;
+
+  .side-bar__list {
+    .side-bar__list-item {
+      margin-bottom: 16px;
+
+      a {
+        display: flex;
+        gap: 8px;
+        text-decoration: none;
+        color: $primary-text-color;
+        align-items: center;
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}
