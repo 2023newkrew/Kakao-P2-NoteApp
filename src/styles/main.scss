@@ -6,9 +6,13 @@ body > main {
 
     & > nav {
         display: flex;
-        padding: 24px;
+        box-sizing: content-box;
+        width: 0px;
+        overflow: hidden;
+        transition: width 0.5s;
         border-right: $gray-light-color 1px solid;
         & > ul {
+            margin: 24px 16px;
             display: flex;
             flex-direction: column;
             gap: 16px;
@@ -25,7 +29,9 @@ body > main {
             }
         }
     }
-
+    .hide { 
+        width: 264px;
+    }
     & > section {
         width: 100%;
         padding: 24px;
@@ -40,7 +46,7 @@ body > main {
             }
             p {
                 font-size: $font-small;
-                color: $gray-color
+                color: $gray-color;
             }
         }
         & > article {
@@ -51,13 +57,16 @@ body > main {
                 gap: 20px;
                 & > li {
                     height: 240px;
-                    width: 240px;
+                    width: 100%;
                     padding: 16px;
                     background-color: $green-color;
                     color: $gray-color;
                     border: 1px solid $gray-light-color;
                     border-radius: 8px;
                 }
+            }
+            .list > li {
+                width: 240px;    
             }
         }
     }
