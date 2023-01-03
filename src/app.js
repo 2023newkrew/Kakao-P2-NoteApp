@@ -16,3 +16,9 @@ import './styles/reset.css';
 import './styles/general.scss';
 import './styles/header.scss';
 import './styles/main.scss';
+
+// js
+import ArticleController from './scripts/ArticleController.js';
+import NavController from './scripts/NavController.js';
+new ArticleController();
+new NavController();
