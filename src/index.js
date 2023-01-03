@@ -16,22 +16,29 @@ import userImage from "./assets/user.svg"
 import 'suneditor/src/assets/css/suneditor.css'
 import suneditor from 'suneditor'
 
-// How to import plugins
-import image from 'suneditor/src/plugins/dialog/link'
-import list from 'suneditor/src/plugins/submenu/list'
-import { font, video } from 'suneditor/src/plugins'
-
 // How to import language files (default: en)
 import lang from 'suneditor/src/lang'
 
 
+import plugins from 'suneditor/src/plugins'
+
 suneditor.create('text-area', {
-    plugins: [font, video, image, list],
+    plugins: plugins,
     buttonList: [
-        ['font', 'video', 'image', 'list']
+        ['undo', 'redo'],
+        ['font', 'fontSize', 'formatBlock'],
+        ['paragraphStyle', 'blockquote'],
+        ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+        ['fontColor', 'hiliteColor', 'textStyle'],
+        ['removeFormat'],
+        '/',
+        ['outdent', 'indent'],
+        ['align', 'horizontalRule', 'list', 'lineHeight'],
+        ['table', 'link', 'image', 'video', 'audio'],
+        ['fullScreen', 'showBlocks', 'codeView'],
+        ['preview', 'print'],
+        ['save', 'template'],
     ],
-    lang: lang.ko,
     maxCharCount: 200,
-    className: 'sun-editor',
-    height: 100,
-});
+    value: ''
+})
