@@ -4,6 +4,9 @@
   background-color: white;
   border-bottom: 1px solid $divider-color;
   padding: 16px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   .header__content {
     display: flex;

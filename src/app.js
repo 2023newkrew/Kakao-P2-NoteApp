@@ -6,6 +6,7 @@ import notesIcon from './assets/notes.svg';
 import reminderIcon from './assets/reminder.png';
 import settingsIcon from './assets/settings.svg';
 import userIcon from './assets/user.png';
+import initSideBar from './js/sidebar';
 
 const listIconEl = document.getElementById('listIcon');
 listIconEl.src = listIcon;
@@ -24,3 +25,5 @@ settingsIconEl.src = settingsIcon;
 
 const userIconEl = document.getElementById('userIcon');
 userIconEl.src = userIcon;
+
+initSideBar();

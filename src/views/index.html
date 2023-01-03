@@ -9,7 +9,7 @@
     <header class="header">
       <nav class="header__content">
         <div class="header__content-container">
-          <button class="icon-button">
+          <button class="header__menu-button icon-button">
             <img id="menuIcon" alt="menu" />
           </button>
           <div class="header__logo">Logo</div>
@@ -26,28 +26,30 @@
     </header>
     <main class="main-container">
       <section class="content-container">
-        <nav class="side-bar">
-          <ul class="side-bar__list">
-            <li class="side-bar__list-item">
-              <a href="#">
-                <img id="notesIcon" alt="notes" />
-                Notes
-              </a>
-            </li>
-            <li class="side-bar__list-item">
-              <a href="#">
-                <img id="reminderIcon" alt="reminders" />
-                Reminders
-              </a>
-            </li>
-            <li class="side-bar__list-item">
-              <a href="#">
-                <img id="settingsIcon" alt="settings" />
-                Settings
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="side-bar-container">
+          <nav class="side-bar">
+            <ul class="side-bar__list">
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img id="notesIcon" alt="notes" />
+                  Notes
+                </a>
+              </li>
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img id="reminderIcon" alt="reminders" />
+                  Reminders
+                </a>
+              </li>
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img id="settingsIcon" alt="settings" />
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
         <div class="note-container">
           <div class="input-container">
             <!-- TODO: Replace to `ProseMirror` -->
