@@ -1,7 +1,13 @@
+@use './variables.scss';
+
 :root {
   --base-unit: 4px;
   --header-height: 60px;
   --sidemenu-width: 260px;
+  --border-radius: 10px;
+  --section-space-unit: 16px;
+  --content-padding: 8px;
+  --primary-color: #f5ebe0;
 }
 
 body[data-theme='light'] {
@@ -78,7 +84,14 @@ button {
 a {
   color: var(--text1);
 }
-
+input,
+textarea {
+  color: var(--text1);
+}
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--primary-color);
+}
 .mr {
   margin-right: calc(var(--base-unit) * 2);
 }
