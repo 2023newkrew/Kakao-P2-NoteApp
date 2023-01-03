@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, "./"),
     },
     compress: true,
     port: 3000,
@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    clean: true,
+    clean: process.env.NODE_ENV === "production",
     assetModuleFilename: "[name][ext]",
   },
   module: {
