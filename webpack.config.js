@@ -39,6 +39,16 @@ module.exports = {
             template: './src/views/index.html',
         })
     ],
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src/"),
+            "@assets": path.resolve(__dirname, "./src/assets/"),
+            "@scripts": path.resolve(__dirname, "./src/scripts/"),
+            "@styles": path.resolve(__dirname, "./src/styles/"),
+            "@view": path.resolve(__dirname, "./src/views/"),
+        },
+        extensions:[".js",".jsx",".css"]
+    },
     devServer: {
         watchFiles: [
             "src/**"
