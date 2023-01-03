@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 module.exports = {
@@ -42,11 +42,15 @@ module.exports = {
       filename: 'index.html',
       template: 'src/views/index.html',
     }),
-    // new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin(),
   ],
   devtool: process.env.NODE_ENV ? 'eval-source-map' : 'source-map',
   devServer: {
     port: 3000,
-    hot: true,
+    compress: true,
+    hot: false,
+    liveReload: true,
+    open: true,
+    watchFiles: ['src/**/*.js', 'src/**/*.scss', 'public/**/*'],
   },
 };

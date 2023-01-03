@@ -19,6 +19,10 @@
     display: none;
   }
 
+  &.active {
+    transform: translate3d(var(--sidemenu-width), 0, 0);
+  }
+
   .menus {
     display: flex;
     flex-direction: column;
@@ -46,7 +50,4 @@
       }
     }
   }
-}
-.sidemenu.active {
-  transform: translate3d(var(--sidemenu-width), 0, 0);
 }
