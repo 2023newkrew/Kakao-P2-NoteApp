@@ -86,3 +86,21 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
+
+img {
+  width: 24px;
+}
+
+li {
+  list-style: none;
+}
