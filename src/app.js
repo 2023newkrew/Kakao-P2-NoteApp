@@ -1,6 +1,6 @@
 import './styles/variables.scss';
 import './styles/reset.scss';
-import './styles/main.scss';
+import './styles/general.scss';
 import './styles/header.scss';
 import './styles/sidemenu.scss';
 
