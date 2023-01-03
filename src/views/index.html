@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Keep App</title>
   </head>
   <body class="body">
-
+    <header class="header">
+      <nav class="header__content">
+        <div class="header__content-container">
+          <button class="icon-button">
+            <img id="menuIcon" alt="menu" />
+          </button>
+          <div class="header__logo">Logo</div>
+        </div>
+        <div class="header__content-container">
+          <button class="icon-button">
+            <img id="listIcon" alt="list mode" />
+          </button>
+          <button class="icon-button">
+            <img id="userIcon" alt="user" />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="main-container">
+      <section class="content-container">
+        <nav class="side-bar">
+          <ul class="side-bar__list">
+            <li class="side-bar__list-item">
+              <a href="#">
+                <img id="notesIcon" alt="notes" />
+                Notes
+              </a>
+            </li>
+            <li class="side-bar__list-item">
+              <a href="#">
+                <img id="reminderIcon" alt="reminders" />
+                Reminders
+              </a>
+            </li>
+            <li class="side-bar__list-item">
+              <a href="#">
+                <img id="settingsIcon" alt="settings" />
+                Settings
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="note-container">
+          <div class="input-container">
+            <!-- TODO: Replace to `ProseMirror` -->
+            <input />
+            <div>1 / 10</div>
+          </div>
+          <div class="card-grid">
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
+            <div class="card">Card1</div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

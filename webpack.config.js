@@ -8,12 +8,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     clean: true,
+    assetModuleFilename: 'assets/[name][ext]',
   },
   module: {
     rules: [
       {
-        test: /\s[ac]ss$/i,
+        test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: 'asset/resource',
       },
     ],
   },
@@ -30,5 +35,7 @@ module.exports = {
     compress: true,
     port: 3000,
     open: true,
+    hot: false,
+    liveReload: true,
   },
 };
