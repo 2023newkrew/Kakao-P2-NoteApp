@@ -1,0 +1,17 @@
+%editor-section-item {
+  flex-grow: 1;
+  width: 100%;
+  padding: 4rem;
+}
+
+.editor {
+  @extend %editor-section-item;
+
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.preview {
+  @extend %editor-section-item;
+}
