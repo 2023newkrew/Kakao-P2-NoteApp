@@ -13,7 +13,7 @@
   flex-direction: column;
 
   background-color: var(--bg-primary);
-  box-shadow: 2px 4px 4px 2px var(--shadow-color);
+  border-right: 1px solid var(--border3);
 
   @media screen and (max-width: 496px) {
     display: none;
