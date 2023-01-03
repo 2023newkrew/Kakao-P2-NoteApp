@@ -10,3 +10,6 @@ import './assets/user.png';
 import './assets/notes.svg';
 import './assets/reminder.png';
 import './assets/settings.svg';
+
+// css
+import './styles/reset.css';
