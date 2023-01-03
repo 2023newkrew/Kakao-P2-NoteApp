@@ -1,7 +1,7 @@
 .contents {
   width: 100%;
 
-  .memo {
+  .memo-section {
     max-width: 496px;
     min-width: 280px;
     margin: 0 auto;
@@ -37,6 +37,32 @@
         margin-top: calc(var(--base-unit) * 2);
         text-align: right;
         color: var(--text3);
+      }
+    }
+
+    .memos {
+      padding: var(--content-padding);
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      align-items: center;
+      align-content: center;
+      justify-items: flex-start;
+
+      gap: 1rem;
+
+      .memo {
+        width: 100px;
+        height: 100px;
+
+        background-color: var(--primary-color);
+        color: #212529;
+        align-self: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

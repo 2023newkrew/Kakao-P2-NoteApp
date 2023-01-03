@@ -24,7 +24,7 @@ body[data-theme='light'] {
   --border3: #dee2e6;
   --border4: #f1f3f5;
 
-  --button-text: #ffffff;
+  --button-text: #121212;
 
   --shadow-color: rgb(0, 0, 0, 18%);
 }
@@ -43,7 +43,7 @@ body[data-theme='dark'] {
   --border3: #4d4d4d;
   --border4: #2a2a2a;
 
-  --button-text: #121212;
+  --button-text: #ffffff;
   --shadow-color: rgb(255, 255, 255 18%);
 }
 
@@ -80,6 +80,15 @@ button {
   border: none;
   cursor: pointer;
   color: var(--button-text);
+  font-size: 1rem;
+
+  &.primary {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    padding: var(--content-padding) calc(var(--content-padding) * 2);
+    color: #212529;
+  }
 }
 a {
   color: var(--text1);

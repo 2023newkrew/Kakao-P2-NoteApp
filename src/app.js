@@ -12,8 +12,9 @@ const onLoadScript = () => {
   const themeController = new ThemeController(document.body.querySelector('.header #theme-button'));
   const sidemenuController = new SidemenuController(document.body.querySelector('.header #sidemenu-button'));
   const memoController = new MemoController(
-    document.body.querySelector('.contents .memo .form .content-input'),
-    document.body.querySelector('.contents .memo .form .content-info')
+    document.body.querySelector('.contents .memo-section .form .content-input'),
+    document.body.querySelector('.contents .memo-section .form .content-info'),
+    document.body.querySelector('.contents .memo-section .memo-container .memos')
   );
 
   themeController.init();
