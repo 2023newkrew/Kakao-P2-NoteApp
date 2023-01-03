@@ -1,0 +1,33 @@
+.header {
+  padding: 8px;
+  background-color: #ffcd00;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__title {
+    padding-left: 8px;
+    flex-grow: 1;
+    font-size: 32px;
+  }
+
+  &__button {
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(#000000, 10%);
+    }
+  }
+
+  &__icon {
+    font-size: 32px;
+  }
+
+  &__img {
+    width: 32px;
+  }
+}
