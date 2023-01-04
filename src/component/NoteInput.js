@@ -1,20 +1,16 @@
 import Component from "./Component";
+import NoteInputText from "./NoteInputText";
 
 // 받은 props를 더 직관적으로 확인하는 방법은 없을지?
 export default class NoteInput extends Component {
   setup() {
-    this.$state = { text: "", textSize: 0 };
+    this.$state = { maxTextLength: 200 };
   }
+
   template() {
-    return ` <input class="note-input" type="text" maxlength="200" value="${this.$state.text}" />
-    <div class="note-input__info-text">${this.$state.textSize} / 200</div>
+    return ` <input class="note-input" type="text" autofocus />
+    <div class="note-input__info-text"></div>
     `;
-  }
-  mounted() {
-    const noteInputEl = this.$target.querySelector(".note-input");
-    noteInputEl.focus();
-    noteInputEl.value = "";
-    noteInputEl.value = this.$state.text;
   }
 
   setEvent() {
@@ -24,24 +20,37 @@ export default class NoteInput extends Component {
       this.handleOnkeydownEnter.bind(this)
     );
   }
+  mounted() {
+    this.setNoteInputText(0);
+  }
 
-  handleOnChange(event) {
-    if (event.target.classList.contains("note-input")) {
-      if (event.target.value.length < 200)
-        this.setState({
-          text: event.target.value,
-          textSize: event.target.value.length,
-        });
-      else {
-        alert("200!");
+  handleOnChange({ target }) {
+    if (target.classList.contains("note-input")) {
+      const text = target.value;
+      let textSize = text.length;
+      if (textSize > this.$state.maxTextLength) {
+        alert("200자 이내로 작성해주세요!");
+        target.value = text.slice(0, this.$state.maxTextLength);
+        textSize = this.$state.maxTextLength;
+      }
+
+      this.setNoteInputText(textSize);
+    }
+  }
+  handleOnkeydownEnter({ code, target }) {
+    if (target.classList.contains("note-input")) {
+      if (code === "Enter") {
+        this.$props.addNoteText(target.value);
       }
     }
   }
-  handleOnkeydownEnter(event) {
-    if (event.target.classList.contains("note-input")) {
-      if (event.code === "Enter") {
-        this.$props.addNoteText(event.target.value);
-      }
-    }
+
+  setNoteInputText(textSize) {
+    const noteInputTextEl = this.$target.querySelector(
+      ".note-input__info-text"
+    );
+    new NoteInputText(noteInputTextEl, {
+      textSize: textSize,
+    });
   }
 }
