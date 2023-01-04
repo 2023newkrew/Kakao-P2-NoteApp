@@ -45,10 +45,6 @@ header {
     }
 }
 
-header .title {
-
-}
-
 main {
     display: flex;
     width: 100%;
@@ -135,6 +131,8 @@ main {
         
             display: grid;
             gap: 20px;
+
+            justify-content: center;
         
             place-items: center;
             grid-template-columns: repeat(4, 300px);
@@ -145,6 +143,12 @@ main {
             padding: 10px;
 
             overflow: auto;
+
+            &.list {
+                grid-auto-rows: 100px;
+                grid-template-columns: none;
+                justify-content: unset;
+            }
         }
 
         .post {

@@ -16,10 +16,6 @@ import userImage from "./assets/user.svg"
 import 'suneditor/src/assets/css/suneditor.css'
 import suneditor from 'suneditor'
 
-// How to import language files (default: en)
-import lang from 'suneditor/src/lang'
-
-
 import plugins from 'suneditor/src/plugins'
 
 const sunEditor = suneditor.create('text-area', {
@@ -39,15 +35,15 @@ const sunEditor = suneditor.create('text-area', {
     defaultTag: "div"
 })
 
-const textAreaElement = document.querySelector('.sun-editor');
+const textAreaElement = document.body.querySelector(".sun-editor");
 
-textAreaElement.addEventListener('keypress', (event) => {
+textAreaElement.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         const textarea = event.target;
         const text = textarea.innerHTML;
 
-        if (text !== '') {
-            const postsElement = document.querySelector(".posts");
+        if (text !== "") {
+            const postsElement = document.body.querySelector(".posts");
             const postElement = document.createElement("div");
 
             postElement.innerHTML = text;
@@ -55,14 +51,21 @@ textAreaElement.addEventListener('keypress', (event) => {
             postsElement.appendChild(postElement);
         }
 
-        sunEditor.setContents('');
+        sunEditor.setContents("");
     }
 });
 
-const menuButtonElement = document.querySelector('.menu-button');
+const menuButtonElement = document.body.querySelector(".menu-button");
 
-menuButtonElement.addEventListener('click', function (event) {
-    const sideMenuElement = document.querySelector('.side-menu');
-    sideMenuElement.classList.toggle('active');
-    console.log(sideMenuElement.classList)
+menuButtonElement.addEventListener("click", function (event) {
+    const sideMenuElement = document.body.querySelector(".side-menu");
+    sideMenuElement.classList.toggle("active");
+})
+
+const listButtonElement = document.body.querySelector(".list-button");
+
+listButtonElement.addEventListener("click", function (event) {
+    const postsElement = document.body.querySelector(".posts");
+    postsElement.classList.toggle("list");
+    console.log("listButton Click")
 })
