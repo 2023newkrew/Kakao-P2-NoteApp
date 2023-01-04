@@ -1,6 +1,6 @@
-import {MAX_INPUT_LENGTH} from './constants/memo';
-import {KEY_CODE} from './constants/event';
-import Memo from './models/memo';
+import {MAX_INPUT_LENGTH} from '@constants/memo';
+import {KEY_CODE} from '@constants/event';
+import Memo from '@models/memo';
 
 export default class MemoController {
   constructor(

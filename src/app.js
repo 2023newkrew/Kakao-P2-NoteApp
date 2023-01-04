@@ -1,12 +1,12 @@
-import './styles/reset.scss';
-import './styles/general.scss';
-import './styles/header.scss';
-import './styles/sidemenu.scss';
-import './styles/main.scss';
+import '@styles/reset.scss';
+import '@styles/general.scss';
+import '@styles/header.scss';
+import '@styles/sidemenu.scss';
+import '@styles/main.scss';
 
-import ThemeController from './js/themeController';
-import SidemenuController from './js/sidemenuController';
-import MemoController from './js/memoController';
+import ThemeController from '@/themeController';
+import SidemenuController from '@/sidemenuController';
+import MemoController from '@/memoController';
 
 const onLoadScript = () => {
   const themeController = new ThemeController(document.body.querySelector('.header #theme-button'));

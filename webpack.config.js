@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    clean: process.env.NODE_ENV === 'production' ? true : false,
+    clean: true,
     assetModuleFilename: '[name][ext]',
   },
   module: {
@@ -52,5 +52,15 @@ module.exports = {
     liveReload: true,
     open: true,
     watchFiles: ['src/**/*.js', 'src/**/*.scss', 'public/**/*'],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/js/'),
+      '@views': path.resolve(__dirname, 'src/views/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@constants': path.resolve(__dirname, 'src/js/constants/'),
+      '@models': path.resolve(__dirname, 'src/js/models/'),
+      '@utils': path.resolve(__dirname, 'src/js/utils/'),
+    },
   },
 };

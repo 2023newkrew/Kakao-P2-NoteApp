@@ -1,5 +1,5 @@
-import {STORAGE_KEY_OF_THEME, THEME, THEME_ATTRIBUTE} from './constants/theme';
-import {getItem, setItem} from './utils/localStorage';
+import {STORAGE_KEY_OF_THEME, THEME, THEME_ATTRIBUTE} from '@constants/theme';
+import {getItem, setItem} from '@utils/localStorage';
 
 export default class ThemeController {
   constructor(handlerElement) {
