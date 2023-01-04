@@ -1,7 +1,6 @@
 @import "./_variable.scss";
-@import "./views/header/header.scss";
-@import "./views/nav/nav.scss";
-@import "./views/contents/contents.scss";
+@import "@Header/header.scss";
+@import "@Main/main.scss";
 
 :root {
     height: 100%;
@@ -28,12 +27,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden;
 }
-main {
-    display: flex;
-    height: 100%;
-}
+
 .hidden {
     display: none;
 }

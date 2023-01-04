@@ -48,6 +48,20 @@ module.exports = {
         compress: true,
         port: 3000,
         open: true,
+        hot: true,
     },
     devtool: "source-map",
+    resolve: {
+        alias: {
+            "@Header": path.resolve(__dirname, "src/views/header"),
+            "@Main": path.resolve(__dirname, "src/views/main"),
+            "@Nav": path.resolve(__dirname, "src/views/main/nav"),
+            "@Contents": path.resolve(__dirname, "src/views/main/contents"),
+            "@InputArea": path.resolve(
+                __dirname,
+                "src/views/main/contents/input-area"
+            ),
+            "@Posts": path.resolve(__dirname, "src/views/main/contents/posts"),
+        },
+    },
 };

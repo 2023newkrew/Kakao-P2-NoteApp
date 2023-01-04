@@ -1,11 +1,12 @@
-@import "./input-area/input-area.scss";
-@import "./posts/posts.scss";
+@import "@InputArea/input-area.scss";
+@import "@Posts/posts.scss";
 
 .contents {
     display: flex;
     flex-direction: column;
     padding: 20px;
     width: 100%;
+    height: 100%;
     .input-area {
         width: 100%;
     }

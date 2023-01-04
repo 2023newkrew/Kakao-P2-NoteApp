@@ -1,0 +1,8 @@
+@import "@Nav/nav.scss";
+@import "@Contents/contents.scss";
+@import "../../variable";
+
+main {
+    display: flex;
+    height: calc(100% - $header-size);
+}

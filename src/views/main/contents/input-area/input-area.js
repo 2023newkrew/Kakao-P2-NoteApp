@@ -2,7 +2,7 @@ const $inputTextArea = document.querySelector(".input-area__textarea");
 const $inputLetterCount = document.querySelector(".input-area__letter-count");
 const INPUT_TEXT_MAX_LENGTH = 200;
 
-const onKeyDownTextArea = (event) => {
+const handleKeyDownTextArea = (event) => {
     let contentText = event.target.value;
     let isOver = false;
 
@@ -17,7 +17,7 @@ const onKeyDownTextArea = (event) => {
     }
 };
 const attachEventHandler = () => {
-    $inputTextArea.addEventListener("input", onKeyDownTextArea);
+    $inputTextArea.addEventListener("input", handleKeyDownTextArea);
 };
 export default function setInputArea() {
     $inputLetterCount.innerHTML = `0 / ${INPUT_TEXT_MAX_LENGTH}`;
