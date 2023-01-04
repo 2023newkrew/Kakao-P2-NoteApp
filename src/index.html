@@ -39,20 +39,18 @@
           <div class="input-area__letter-count">00/???</div>
         </div>
         <div class="posts">
-          <div class="post">
-            <textarea class="post__textarea">목업입니다.</textarea>
-          </div>
-          <div class="post">
-            <textarea class="post__textarea"></textarea>
-          </div>
-          <div class="post">
-            <textarea class="post__textarea"></textarea>
-          </div>
-          <div class="post">
+          <div class="post" style="display: none">
             <textarea class="post__textarea"></textarea>
           </div>
         </div>
       </section>
     </main>
+    <div class="snackbar" data-clicked="-1">
+      <div>Delete를 눌러 삭제하거나 Undo를 눌러 되돌릴 수 있습니다.</div>
+      <button class="snackbar__delete-button">Delete</button>
+      <button class="snackbar__undo-button">Undo</button>
+      <div class="snackbar__undo-count">?</div>
+      <button class="snackbar__close-button">Close</button>
+    </div>
   </body>
 </html>

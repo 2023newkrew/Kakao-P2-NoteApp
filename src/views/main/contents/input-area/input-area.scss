@@ -4,6 +4,7 @@
         width: 100%;
         padding: 10px;
         overflow-y: scroll;
+        resize: vertical;
         &:focus::placeholder {
             color: transparent;
         }

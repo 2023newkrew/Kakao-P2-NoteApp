@@ -55,6 +55,7 @@ module.exports = {
         alias: {
             "@Header": path.resolve(__dirname, "src/views/header"),
             "@Main": path.resolve(__dirname, "src/views/main"),
+            "@Snackbar": path.resolve(__dirname, "src/views/snackbar"),
             "@Nav": path.resolve(__dirname, "src/views/main/nav"),
             "@Contents": path.resolve(__dirname, "src/views/main/contents"),
             "@InputArea": path.resolve(
