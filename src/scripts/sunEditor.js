@@ -8,7 +8,6 @@ import Post from './post';
 export default class SunEditor {
     constructor() {
         this.sunEditor = null;
-        this.post = new Post();
     }
 
     setContents(text) {
@@ -38,16 +37,27 @@ export default class SunEditor {
             width: "100%",
             defaultTag: "div",
         })
+
+        this.listenKeyPressEvent();
     }
 
     listenKeyPressEvent() {
         this.sunEditor.onKeyDown = function (event) {
+            // * 한글로 입력 시 Enter가 두 번씩 눌러지는 문제 해결
+            // ! keyPress로 하면 해결되나 sunEditor의 경우 keyPress 이벤트 부재
+            // TODO : 글자 수가 200자를 넘어갈 수 있는 문제 존재
             if (event.key === "Enter" && !event.isComposing) {
-                const text = this.sunEditor.getContents();
-                this.post.makePost(text);
+                const text = this.getContents();
+                this.makePost(text);
+
                 this.setContents("");
                 event.preventDefault();
             }
         }.bind(this);
+    }
+
+    makePost(text) {
+        const post = new Post();
+        post.makePost(text);
     }
 }

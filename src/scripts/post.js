@@ -3,7 +3,6 @@ import Snackbar from "./snackbar";
 export default class Post {
     constructor() {
         this.postsElement = document.body.querySelector(".posts");
-        this.snackBar = new Snackbar();
     }
 
     makePost(text) {
@@ -40,13 +39,13 @@ export default class Post {
         function listenCloseButtonEvent(closeButtonElement) {
             closeButtonElement.addEventListener("click", function (event) {
                 const targetPostElement = closeButtonElement.parentElement;
-                const siblingTargetPostElement = targetPostElement.nextSibling;
 
                 closeButtonElement.classList.remove("active");
-                this.postsElement.removeChild(targetPostElement);
 
-                const snackbar = new Snackbar(targetPostElement, siblingTargetPostElement, this.postsElement);
+                const snackbar = new Snackbar(targetPostElement);
                 snackbar.makeSnackbar();
+
+                this.postsElement.removeChild(targetPostElement);
             }.bind(this))
         }
     }
