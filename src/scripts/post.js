@@ -42,10 +42,10 @@ export default class Post {
                 const targetPostElement = closeButtonElement.parentElement;
                 const siblingTargetPostElement = targetPostElement.nextSibling;
 
-                this.postsElement.classList.remove("active");
+                closeButtonElement.classList.remove("active");
                 this.postsElement.removeChild(targetPostElement);
 
-                const snackbar = new Snackbar();
+                const snackbar = new Snackbar(targetPostElement, siblingTargetPostElement, this.postsElement);
                 snackbar.makeSnackbar();
             }.bind(this))
         }
