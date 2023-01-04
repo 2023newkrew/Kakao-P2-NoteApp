@@ -40,5 +40,22 @@ suneditor.create('text-area', {
         ['save', 'template'],
     ],
     maxCharCount: 200,
-    value: ''
+    value: '',
+    className: "sun-editor"
 })
+
+const textAreaElement = document.querySelector('.sun-editor');
+
+textAreaElement.addEventListener('keypress', (event) => {
+    if (event.key === "Enter") {
+        const text = event.target.innerText;
+        if (text !== '') {
+            const postsElement = document.querySelector(".posts");
+            const postElement = document.createElement("div");
+
+            postElement.innerText = text;
+            postsElement.appendChild(postElement);
+        }
+        event.target.innerHTML = '';
+    }
+});
