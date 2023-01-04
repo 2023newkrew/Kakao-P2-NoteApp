@@ -28,6 +28,7 @@ const sunEditor = suneditor.create('text-area', {
         ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
         ['fontColor', 'hiliteColor', 'textStyle'],
         ['removeFormat'],
+        ['image']
     ],
     value: "",
     maxCharCount: 200,
@@ -68,7 +69,23 @@ textAreaElement.addEventListener("keypress", (event) => {
 
             closeButtonElement.addEventListener("click", function (event) {
                 const targetPostElement = closeButtonElement.parentElement;
+                const siblingTargetPostElement = targetPostElement.nextSibling;
+                console.log(targetPostElement, siblingTargetPostElement);
+
+                const targetPostCloseButtonElement = targetPostElement.querySelector(".close-button");
+                targetPostCloseButtonElement.classList.remove("active");
                 postsElement.removeChild(targetPostElement);
+
+                const snackbar = document.body.querySelector(".snackbar");
+                snackbar.classList.add("show");
+
+                snackbar.addEventListener("click", function () {
+                    postsElement.insertBefore(targetPostElement, siblingTargetPostElement);
+                });
+
+                setTimeout(function () {
+                    snackbar.classList.remove("show")
+                }, 3000);
             })
 
             postsElement.appendChild(postElement);
