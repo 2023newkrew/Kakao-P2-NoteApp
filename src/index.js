@@ -56,14 +56,19 @@ textAreaElement.addEventListener("keypress", (event) => {
             postElement.classList.add("post");
             postElement.innerHTML = elementString;
 
+            const closeButtonElement = postElement.querySelector('.close-button');
+
             postElement.addEventListener("mouseenter", function (event) {
-                const closeButtonElement = postElement.querySelector('.close-button');
                 closeButtonElement.classList.add("active");
             })
 
             postElement.addEventListener("mouseleave", function (event) {
-                const closeButtonElement = postElement.querySelector(".close-button");
                 closeButtonElement.classList.remove("active");
+            })
+
+            closeButtonElement.addEventListener("click", function (event) {
+                const targetPostElement = closeButtonElement.parentElement;
+                postsElement.removeChild(targetPostElement);
             })
 
             postsElement.appendChild(postElement);
