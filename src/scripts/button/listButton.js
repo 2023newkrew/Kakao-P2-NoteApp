@@ -7,6 +7,7 @@ export default class ListController {
     listenClickEvent() {
         this.listButtonElement.addEventListener("click", function (event) {
             this.postsElement.classList.toggle("list");
+            this.listButtonElement.classList.toggle("list");
         }.bind(this))
 
     }
