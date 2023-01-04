@@ -6,7 +6,7 @@
   right: 0;
 
   height: var(--header-height);
-  width: calc(100% - calc(var(--base-unit) * 4));
+  width: 100%;
   padding: 0 calc(var(--base-unit) * 2);
 
   display: flex;
@@ -14,7 +14,7 @@
   justify-content: space-between;
 
   color: var(--text1);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-element);
   border-bottom: 1px solid var(--border3);
 
   .icon {

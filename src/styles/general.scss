@@ -6,13 +6,21 @@
   --sidemenu-width: 260px;
   --border-radius: 10px;
   --section-space-unit: 16px;
-  --content-padding: 8px;
+  --content-padding: 12px;
   --primary-color: #f5ebe0;
+}
+@media screen and (max-width: 496px) {
+  :root {
+    --base-unit: 3px;
+    --content-padding: 8px;
+    --section-space-utni: 12px;
+  }
 }
 
 body[data-theme='light'] {
   --bg-primary: #f8f9fa;
   --bg-element: #ffffff;
+  --bg-memo: #fff475;
 
   --text1: #212529;
   --text2: #495057;
@@ -32,6 +40,7 @@ body[data-theme='light'] {
 body[data-theme='dark'] {
   --bg-primary: #121212;
   --bg-element: #1e1e1e;
+  --bg-memo: #625d19;
 
   --text1: #ececec;
   --text2: #d9d9d9;
@@ -112,6 +121,10 @@ textarea:focus {
 }
 .mb {
   margin-bottom: calc(var(--base-unit) * 2);
+}
+.mx {
+  margin-right: calc(var(--base-unit) * 2);
+  margin-left: calc(var(--base-unit) * 2);
 }
 .my {
   margin-top: calc(var(--base-unit) * 2);
