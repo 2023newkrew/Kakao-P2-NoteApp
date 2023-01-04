@@ -38,6 +38,7 @@ const sunEditor = suneditor.create('text-area', {
 const textAreaElement = document.body.querySelector(".sun-editor");
 
 textAreaElement.addEventListener("keypress", (event) => {
+    event.preventDefault();
     if (event.key === "Enter") {
         const textarea = event.target;
         const text = textarea.innerHTML;
