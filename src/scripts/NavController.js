@@ -8,9 +8,7 @@ export default class NavController {
         this.navElement = document.querySelector('.nav');
     }
     addClickEvent() {
-        this.toggleNavElement.addEventListener('click', () => {
-            this.onNavToggle();
-        });
+        this.toggleNavElement.addEventListener('click', this.onNavToggle.bind(this));
     }
     onNavToggle() {
         this.navElement.classList.toggle('hide');
