@@ -32,7 +32,7 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            filename: 'views/index.html',
+            filename: './views/index.html',
             template: './src/views/index.html',
         })
     ],
@@ -47,7 +47,7 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, "dist")
+            directory: path.join(__dirname, "dist/views")
         },
         watchFiles: [
             "src/**"
