@@ -18,7 +18,7 @@ import '@styles/header.scss';
 import '@styles/main.scss';
 
 // js
-import ArticleController from '@scripts/ArticleController.js';
-import NavController from '@scripts/NavController.js';
+import ArticleController from '@scripts/ArticleController';
+import NavController from '@scripts/NavController';
 new ArticleController();
 new NavController();
