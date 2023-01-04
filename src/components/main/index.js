@@ -14,23 +14,31 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   };
 
   const handleClickNewNoteButton = () => {
-    addNoteComponent(createNote({ content: '새로운 노트' }));
+    const newNote = createNote({ content: '새로운 노트' });
+
+    state.notes.push(newNote);
+    addNote(newNote);
+  };
+
+  const updateEditorComponent = () => {
+    const { notes, selectedNoteId } = state;
+
+    setDisabled(!selectedNoteId);
+    if (!selectedNoteId) return;
+
+    setValue(notes.find(({ id }) => id === selectedNoteId).content);
   };
 
   const handleClickNote = (noteId) => {
-    const noteComponent = findNoteComponentById(noteId);
-    
     state.selectedNoteId = noteId;
-    setDisabled(false);
-    setValue(noteComponent.getNoteContent());
+    updateEditorComponent();
   };
 
   const handleInputEditor = (event) => {
     const { value } = event.target;
-    const noteId = state.selectedNoteId;
-    const noteComponent = findNoteComponentById(noteId);
-
-    noteComponent.setNoteContent(value);
+    const { notes, selectedNoteId } = state;
+    notes.find(({ id }) => id === selectedNoteId).content = value;
+    setNoteContent({ id: selectedNoteId, content: value });
   };
 
   const mainElement = createElement(`<main class="main"><button class="main__new-note-button">new note</button></main>`);
@@ -40,7 +48,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const { editorElement, setValue, setDisabled } = createEditorComponent({ handleInputEditor, initialText: initialSelectedNote?.content ?? EMPTY_STRING, initialDisabled: !initialSelectedNote, maxTextLength });
   mainElement.appendChild(editorElement);
 
-  const { noteListElement, findNoteComponentById, addNoteComponent } = createNoteListComponent({ initialNotes, handleClickNote });
+  const { noteListElement, setNoteContent, addNote } = createNoteListComponent({ initialNotes, handleClickNote });
   mainElement.appendChild(noteListElement);
 
   return { mainElement };

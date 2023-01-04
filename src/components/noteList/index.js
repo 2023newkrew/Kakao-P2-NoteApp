@@ -26,12 +26,12 @@ const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
 
   const findNoteComponentById = (targetId) => noteComponents.find(({ id }) => id === targetId );
 
-  const updateNoteComponent = ({ id, content }) => {
+  const setNoteContent = ({ id, content }) => {
     const noteComponent = findNoteComponentById(id);
-    noteComponent?.setNoteContent(content);
+    noteComponent.setNoteContent(content);
   };
 
-  const addNoteComponent = (note) => {
+  const addNote = (note) => {
     const noteComponent = createNoteComponent({ note });
     noteComponents.push(noteComponent);
     noteListElement.appendChild(noteComponent.noteElement);
@@ -42,7 +42,7 @@ const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
     if (noteElement) handleClickNote(noteElement.dataset.id);
   });
 
-  return { noteListElement, findNoteComponentById, updateNoteComponent, addNoteComponent };
+  return { noteListElement, setNoteContent, addNote };
 };
 
 export { createNoteListComponent };
