@@ -42,7 +42,7 @@
             </li>
             <li class="side-bar__list-item">
               <a href="#">
-                <img id="settingsIcon" alt="settings" />
+                <img src="/assets/settings.svg" alt="settings" />
                 Settings
               </a>
             </li>
@@ -50,15 +50,24 @@
         </nav>
         <div class="note-container">
           <div class="input-container">
-            <!-- TODO: Replace to `ProseMirror` -->
-            <input />
-            <div>1 / 10</div>
+            <input type="text" name="title-input" />
+            <textarea class="text-input" name="content-input"></textarea>
+            <input type="submit" class="submit-button" value="submit" />
           </div>
           <div class="card-grid">
-            <div class="card">Card1</div>
-            <div class="card">Card1</div>
-            <div class="card">Card1</div>
-            <div class="card">Card1</div>
+            <article class="memo">
+              <div class="memo__header">
+                <div class="memo__title-container">
+                  <div class="memo__title">${createdAt}</div>
+                </div>
+                <div class="memo__erase-button-container">
+                  <button class="memo__erase-button icon-button">x</button>
+                </div>
+              </div>
+              <div class="memo-body">
+                <div class="memo-content">${content}</div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
