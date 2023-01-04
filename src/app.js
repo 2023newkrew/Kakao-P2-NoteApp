@@ -20,5 +20,6 @@ import '@styles/main.scss';
 // js
 import ArticleController from '@scripts/ArticleController';
 import NavController from '@scripts/NavController';
+
 new ArticleController();
 new NavController();

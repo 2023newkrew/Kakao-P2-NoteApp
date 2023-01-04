@@ -1,9 +1,11 @@
-
+import SnackbarController from './SnackbarController';
 export default class ArticleController {
     constructor() {
         this.getElements();
         this.addClickEvent();
         this.addWriteEvent();
+        
+        this.snackbarController = new SnackbarController();
     }
     getElements() {
         this.viewToggleContainerElement = document.querySelector('.view-toggle-button');
@@ -40,6 +42,7 @@ export default class ArticleController {
         articleElement.classList.add('notes__article');
         articleElement.innerText = content;
         this.articlesContainerElement.appendChild(articleElement);
+        this.snackbarController.showSnackbar('노트 내용이 추가되었습니다.');
     }
     clearInput() {
         this.articleInputElement.value = '';
