@@ -7,8 +7,7 @@ export default class ThemeController {
       throw new Error('Must provicde theme hander element');
     }
     this.handlerElement = handlerElement;
-  }
-  init() {
+
     this._initTheme();
     this._initHandler();
   }

@@ -16,7 +16,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader' /** Create style node */,
+          // 'style-loader' /** Create style node */,
+          MiniCssExtractPlugin.loader, // js 전에 CSS 적용 위함
           'css-loader' /** Translate CSS into CommonJS */,
           'sass-loader' /** Compile SASS to CSS */,
         ], // 역순으로 로더가 작동한다. 이 순서를 지켜야한다.
