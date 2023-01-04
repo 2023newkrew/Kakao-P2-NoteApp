@@ -10,6 +10,7 @@ import notesImage from "./assets/notes.svg"
 import reminderImage from "./assets/reminder.svg"
 import settingsImage from "./assets/settings.svg"
 import userImage from "./assets/user.svg"
+import closeImage from "./assets/close.svg"
 
 // 이미지 로드
 
@@ -38,7 +39,6 @@ const sunEditor = suneditor.create('text-area', {
 const textAreaElement = document.body.querySelector(".sun-editor");
 
 textAreaElement.addEventListener("keypress", (event) => {
-    event.preventDefault();
     if (event.key === "Enter") {
         const textarea = event.target;
         const text = textarea.innerHTML;
@@ -46,13 +46,31 @@ textAreaElement.addEventListener("keypress", (event) => {
         if (text !== "") {
             const postsElement = document.body.querySelector(".posts");
             const postElement = document.createElement("div");
+            const elementString = `
+                <div class="close-button">
+                    <img src="../assets/close.svg" alt="close"/>
+                </div>
+                ${text}
+            `
 
-            postElement.innerHTML = text;
             postElement.classList.add("post");
+            postElement.innerHTML = elementString;
+
+            postElement.addEventListener("mouseenter", function (event) {
+                const closeButtonElement = postElement.querySelector('.close-button');
+                closeButtonElement.classList.add("active");
+            })
+
+            postElement.addEventListener("mouseleave", function (event) {
+                const closeButtonElement = postElement.querySelector(".close-button");
+                closeButtonElement.classList.remove("active");
+            })
+
             postsElement.appendChild(postElement);
         }
 
         sunEditor.setContents("");
+        event.preventDefault();
     }
 });
 
@@ -68,5 +86,4 @@ const listButtonElement = document.body.querySelector(".list-button");
 listButtonElement.addEventListener("click", function (event) {
     const postsElement = document.body.querySelector(".posts");
     postsElement.classList.toggle("list");
-    console.log("listButton Click")
 })

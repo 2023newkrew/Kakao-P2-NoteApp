@@ -144,6 +144,21 @@ main {
 
             overflow: auto;
 
+            .close-button {
+                float: right;
+                cursor: pointer;
+                opacity: 0;
+
+                transition: opacity 0.5s ease-in;
+                
+                &.active {
+                    // display: block;
+                    opacity: 0.99;
+                }
+            }
+
+            
+
             &.list {
                 grid-auto-rows: 100px;
                 grid-template-columns: none;
