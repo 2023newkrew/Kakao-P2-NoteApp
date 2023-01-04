@@ -58,3 +58,11 @@ textAreaElement.addEventListener('keypress', (event) => {
         sunEditor.setContents('');
     }
 });
+
+const menuButtonElement = document.querySelector('.menu-button');
+
+menuButtonElement.addEventListener('click', function (event) {
+    const sideMenuElement = document.querySelector('.side-menu');
+    sideMenuElement.classList.toggle('active');
+    console.log(sideMenuElement.classList)
+})

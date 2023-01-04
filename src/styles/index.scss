@@ -63,6 +63,10 @@ main {
         border-top: 0px;
         background-color: #FFD4B2;
 
+        &.active {
+            display: none;
+        }
+
         li {
             display: flex;
 
