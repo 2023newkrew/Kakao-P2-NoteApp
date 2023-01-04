@@ -6,13 +6,13 @@ const Attribute = {
   DISABLED: 'disabled',
 };
 
-const createEditorHTML = ({ initialText, initialDisabled, maxTextLength }) => `<div class="editor">
-  <textarea class="editor__textarea" maxlength="${maxTextLength}" ${initialDisabled ? Attribute.DISABLED : EMPTY_STRING}>${initialText}</textarea>
+const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="editor">
+  <textarea class="editor__textarea" maxlength="${maxTextLength}" ${disabled ? Attribute.DISABLED : EMPTY_STRING}>${text}</textarea>
   <div class="editor__text-counter"></div>
 </div>`;
 
 const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled, maxTextLength }) => {
-  const element = pipe(createEditorHTML, createElement)({ initialText, initialDisabled, maxTextLength });
+  const element = pipe(createEditorHTML, createElement)({ text: initialText, disabled: initialDisabled, maxTextLength });
 
   const textareaElement = element.querySelector('.editor__textarea');
   const textCounterElement = element.querySelector('.editor__text-counter');
@@ -33,13 +33,17 @@ const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled
   };
 
   const setDisabled = (disabled) => {
-    if (disabled) element.setAttribute(Attribute.DISABLED, EMPTY_STRING);
-    else element.removeAttribute(Attribute.DISABLED);
+    if (disabled) textareaElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
+    else textareaElement.removeAttribute(Attribute.DISABLED);
+  };
+
+  const focus = () => {
+    textareaElement.focus();
   };
 
   renderTextCount(initialText.length);
 
-  return { element, setValue, setDisabled };
+  return { element, setValue, setDisabled, focus };
 };
 
 export { createEditorComponent };

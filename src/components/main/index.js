@@ -6,11 +6,9 @@ import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
 const createMainComponent = ({ initialNotes, maxTextLength }) => {
-  const initialSelectedNote = initialNotes[0] ?? null;
-  
   const state = {
     notes: initialNotes,
-    selectedNoteId: initialSelectedNote?.id,
+    selectedNoteId: null,
   };
 
   const handleClickNewNoteButton = () => {
@@ -18,6 +16,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
     state.notes.push(newNote);
     noteListComponent.addNote(newNote);
+    setSelectedNoteId(newNote.id);
   };
 
   const updateEditorComponent = () => {
@@ -29,9 +28,10 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     editorComponent.setValue(notes.find(({ id }) => id === selectedNoteId).content);
   };
 
-  const handleClickNote = (noteId) => {
+  const setSelectedNoteId = (noteId) => {
     state.selectedNoteId = noteId;
     updateEditorComponent();
+    editorComponent.focus();
   };
 
   const handleInputEditor = (event) => {
@@ -45,10 +45,10 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const newNoteButton = element.querySelector('.main__new-note-button');
   newNoteButton.addEventListener('click', handleClickNewNoteButton);
 
-  const editorComponent = createEditorComponent({ handleInputEditor, initialText: initialSelectedNote?.content ?? EMPTY_STRING, initialDisabled: !initialSelectedNote, maxTextLength });
+  const editorComponent = createEditorComponent({ handleInputEditor, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
   element.appendChild(editorComponent.element);
 
-  const noteListComponent = createNoteListComponent({ initialNotes, handleClickNote });
+  const noteListComponent = createNoteListComponent({ initialNotes, handleClickNote: setSelectedNoteId });
   element.appendChild(noteListComponent.element);
 
   return { element };
