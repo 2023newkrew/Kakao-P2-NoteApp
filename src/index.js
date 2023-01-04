@@ -22,7 +22,7 @@ import lang from 'suneditor/src/lang'
 
 import plugins from 'suneditor/src/plugins'
 
-suneditor.create('text-area', {
+const sunEditor = suneditor.create('text-area', {
     plugins: plugins,
     buttonList: [
         ['undo', 'redo'],
@@ -32,16 +32,20 @@ suneditor.create('text-area', {
         ['fontColor', 'hiliteColor', 'textStyle'],
         ['removeFormat'],
     ],
+    value: "",
     maxCharCount: 200,
-    value: '',
-    className: "sun-editor"
+    className: "sun-editor",
+    width: "100%",
+    defaultTag: "div"
 })
 
 const textAreaElement = document.querySelector('.sun-editor');
 
 textAreaElement.addEventListener('keypress', (event) => {
     if (event.key === "Enter") {
-        const text = event.target.innerHTML;
+        const textarea = event.target;
+        const text = textarea.innerHTML;
+
         if (text !== '') {
             const postsElement = document.querySelector(".posts");
             const postElement = document.createElement("div");
@@ -50,6 +54,7 @@ textAreaElement.addEventListener('keypress', (event) => {
             postElement.classList.add("post");
             postsElement.appendChild(postElement);
         }
-        event.target.innerHTML = '';
+
+        sunEditor.setContents('');
     }
 });
