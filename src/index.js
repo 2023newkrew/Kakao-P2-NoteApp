@@ -31,13 +31,6 @@ suneditor.create('text-area', {
         ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
         ['fontColor', 'hiliteColor', 'textStyle'],
         ['removeFormat'],
-        '/',
-        ['outdent', 'indent'],
-        ['align', 'horizontalRule', 'list', 'lineHeight'],
-        ['table', 'link', 'image', 'video', 'audio'],
-        ['fullScreen', 'showBlocks', 'codeView'],
-        ['preview', 'print'],
-        ['save', 'template'],
     ],
     maxCharCount: 200,
     value: '',
@@ -48,12 +41,13 @@ const textAreaElement = document.querySelector('.sun-editor');
 
 textAreaElement.addEventListener('keypress', (event) => {
     if (event.key === "Enter") {
-        const text = event.target.innerText;
+        const text = event.target.innerHTML;
         if (text !== '') {
             const postsElement = document.querySelector(".posts");
             const postElement = document.createElement("div");
 
-            postElement.innerText = text;
+            postElement.innerHTML = text;
+            postElement.classList.add("post");
             postsElement.appendChild(postElement);
         }
         event.target.innerHTML = '';
