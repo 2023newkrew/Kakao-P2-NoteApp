@@ -21,25 +21,37 @@ module.exports = {
                     "style-loader",
                     "css-loader",
                     "sass-loader"
-                ]
+                ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
                 type: 'asset/resource'
-            }
+            },
         ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: 'src/index.html',
+            template: './src/views/index.html',
         })
     ],
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./src/"),
+            "@assets": path.resolve(__dirname, "./src/assets/"),
+            "@scripts": path.resolve(__dirname, "./src/scripts/"),
+            "@styles": path.resolve(__dirname, "./src/styles/"),
+            "@view": path.resolve(__dirname, "./src/views/"),
+        },
+    },
     devServer: {
         static: {
             directory: path.join(__dirname, "dist")
         },
+        watchFiles: [
+            "src/**"
+        ],
         compress: true,
         port: 3000,
         open: true,
