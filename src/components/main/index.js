@@ -6,12 +6,11 @@ import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
 const createMainComponent = ({ initialNotes, maxTextLength }) => {
-  const selectedNote = initialNotes[0] ?? null;
-
+  const initialSelectedNote = initialNotes[0] ?? null;
+  
   const state = {
     notes: initialNotes,
-    selectedNoteId: selectedNote?.id,
-    value: selectedNote?.content ?? EMPTY_STRING,
+    selectedNoteId: initialSelectedNote?.id,
   };
 
   const handleClickNewNoteButton = () => {
@@ -38,7 +37,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const newNoteButton = mainElement.querySelector('.main__new-note-button');
   newNoteButton.addEventListener('click', handleClickNewNoteButton);
 
-  const { editorElement, setValue, setDisabled } = createEditorComponent({ handleInputEditor, initialText: state.value, initialDisabled: !state.selectedNoteId, maxTextLength });
+  const { editorElement, setValue, setDisabled } = createEditorComponent({ handleInputEditor, initialText: initialSelectedNote?.content ?? EMPTY_STRING, initialDisabled: !initialSelectedNote, maxTextLength });
   mainElement.appendChild(editorElement);
 
   const { noteListElement, findNoteComponentById, addNoteComponent } = createNoteListComponent({ initialNotes, handleClickNote });
