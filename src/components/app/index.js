@@ -1,8 +1,8 @@
 import './index.scss';
 
 import { createHeaderComponent } from '../header';
-import { createMainComponent } from '../main';
 import { createNavigatorComponent } from '../navigator';
+import { createMainComponentWithDefaultProps } from '../hoc';
 
 const createAppComponent = () => {
   const appFragment = document.createDocumentFragment();
@@ -13,7 +13,7 @@ const createAppComponent = () => {
   const { navigatorElement } = createNavigatorComponent();
   appFragment.appendChild(navigatorElement);
 
-  const { mainElement } = createMainComponent();
+  const { mainElement } = createMainComponentWithDefaultProps();
   appFragment.appendChild(mainElement);
 
   return { appFragment };

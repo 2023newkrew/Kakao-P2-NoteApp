@@ -5,16 +5,8 @@ import { createElement, EMPTY_STRING } from '../../utils';
 import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
-const DEFAULT_MAX_TEXT_LENGTH = 20;
-
-const createMainComponent = () => {
-  const initialNotes = [
-    createNote({ content: '안녕하세요~' }),
-    createNote({ content: '하이루' }),
-  ];
-
+const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const selectedNote = initialNotes[0] ?? null;
-  const maxTextLength = DEFAULT_MAX_TEXT_LENGTH;
 
   const state = {
     notes: initialNotes,
