@@ -1,7 +1,7 @@
 // import 경로 절대로 변경
-import Component from "./Component"; // component 위치 변경
-import NoteInput from "./NoteInput";
-import Notes from "./Notes";
+import Component from "@/component/Component"; // component 위치 변경
+import NoteInput from "@/component/NoteInput";
+import Notes from "@/component/Notes";
 
 export default class NoteContainer extends Component {
   setup() {

@@ -1,5 +1,5 @@
-import Component from "./Component";
-import NoteInputText from "./NoteInputText";
+import Component from "@/component/Component";
+import NoteInputText from "@/component/NoteInputText";
 
 // 받은 props를 더 직관적으로 확인하는 방법은 없을지?
 export default class NoteInput extends Component {
