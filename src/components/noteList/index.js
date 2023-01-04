@@ -3,36 +3,32 @@ import { createElement, pipe } from '../../utils';
 
 const createNoteHTML = ({ id, content }) => `<li class="${className.note}" data-id="${id}"><div class="${className.noteContent}">${content}</div></li>`;
 
-const createNoteElement = (note) => pipe(createNoteHTML, createElement)(note);
-
-const createNoteComponent = ({ note }) => {
-  const element = createNoteElement(note);
+const createNoteComponent = ({ id, initialContent }) => {
+  const element = pipe(createNoteHTML, createElement)({ id, content: initialContent });
   const noteContentElement = element.querySelector(`.${className.noteContent}`);
 
-  const getNoteContent = () => noteContentElement.textContent;
-
-  const setNoteContent = (content) => {
+  const setContent = (content) => {
     noteContentElement.textContent = content;
   };
 
-  return { id: note.id, element, getNoteContent, setNoteContent };
+  return { id, element, setContent };
 };
 
 const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
   const element = createElement(`<ul class="notes"></ul>`);
 
-  const noteComponents = initialNotes.map((note) => createNoteComponent({ note }));
+  const noteComponents = initialNotes.map(({ id, content }) => createNoteComponent({ id, initialContent: content }));
   noteComponents.forEach(({ element: noteElement }) => element.appendChild(noteElement));
 
   const findNoteComponentById = (targetId) => noteComponents.find(({ id }) => id === targetId );
 
   const setNoteContent = ({ id, content }) => {
     const noteComponent = findNoteComponentById(id);
-    noteComponent.setNoteContent(content);
+    noteComponent.setContent(content);
   };
 
-  const addNote = (note) => {
-    const noteComponent = createNoteComponent({ note });
+  const addNote = ({ id, content }) => {
+    const noteComponent = createNoteComponent({ id, initialContent: content });
     noteComponents.push(noteComponent);
     element.appendChild(noteComponent.element);
   };
