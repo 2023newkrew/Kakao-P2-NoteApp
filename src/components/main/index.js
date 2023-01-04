@@ -13,9 +13,8 @@ const createMainComponent = () => {
     createNote({ content: '하이루' }),
   ];
 
+  const selectedNote = initialNotes[0] ?? null;
   const maxTextLength = DEFAULT_MAX_TEXT_LENGTH;
-
-  const selectedNote = initialNotes[0];
 
   const state = {
     notes: initialNotes,
@@ -27,9 +26,7 @@ const createMainComponent = () => {
     addNoteComponent(createNote({ content: '새로운 노트' }));
   };
 
-  const handleClickNote = (event) => {
-    const noteElement = event.target.closest('.note');
-    const noteId = noteElement.dataset.id;
+  const handleClickNote = (noteId) => {
     const noteComponent = findNoteComponentById(noteId);
     
     state.selectedNoteId = noteId;

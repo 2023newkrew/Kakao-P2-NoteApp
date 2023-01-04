@@ -1,7 +1,22 @@
-import './index.scss';
+import className from './index.scss';
+import { createElement, pipe } from '../../utils';
 
-import { createElement } from '../../utils';
-import { createNoteComponent } from '../note';
+const createNoteHTML = ({ id, content }) => `<li class="${className.note}" data-id="${id}"><div class="${className.noteContent}">${content}</div></li>`;
+
+const createNoteElement = (note) => pipe(createNoteHTML, createElement)(note);
+
+const createNoteComponent = ({ note }) => {
+  const noteElement = createNoteElement(note);
+  const noteContentElement = noteElement.querySelector(`.${className.noteContent}`);
+
+  const getNoteContent = () => noteContentElement.textContent;
+
+  const setNoteContent = (content) => {
+    noteContentElement.textContent = content;
+  };
+
+  return { id: note.id, noteElement, getNoteContent, setNoteContent };
+};
 
 const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
   const noteListElement = createElement(`<ul class="notes"></ul>`);
@@ -23,8 +38,8 @@ const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
   };
 
   noteListElement.addEventListener('click', (event) => {
-    const noteElement = event.target.closest('.note');
-    if (noteElement) handleClickNote(event);
+    const noteElement = event.target.closest(`.${className.note}`);
+    if (noteElement) handleClickNote(noteElement.dataset.id);
   });
 
   return { noteListElement, findNoteComponentById, updateNoteComponent, addNoteComponent };
