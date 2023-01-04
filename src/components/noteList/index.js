@@ -6,8 +6,8 @@ const createNoteHTML = ({ id, content }) => `<li class="${className.note}" data-
 const createNoteElement = (note) => pipe(createNoteHTML, createElement)(note);
 
 const createNoteComponent = ({ note }) => {
-  const noteElement = createNoteElement(note);
-  const noteContentElement = noteElement.querySelector(`.${className.noteContent}`);
+  const element = createNoteElement(note);
+  const noteContentElement = element.querySelector(`.${className.noteContent}`);
 
   const getNoteContent = () => noteContentElement.textContent;
 
@@ -15,14 +15,14 @@ const createNoteComponent = ({ note }) => {
     noteContentElement.textContent = content;
   };
 
-  return { id: note.id, noteElement, getNoteContent, setNoteContent };
+  return { id: note.id, element, getNoteContent, setNoteContent };
 };
 
 const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
-  const noteListElement = createElement(`<ul class="notes"></ul>`);
+  const element = createElement(`<ul class="notes"></ul>`);
 
   const noteComponents = initialNotes.map((note) => createNoteComponent({ note }));
-  noteComponents.forEach(({ noteElement }) => noteListElement.appendChild(noteElement));
+  noteComponents.forEach(({ element: noteElement }) => element.appendChild(noteElement));
 
   const findNoteComponentById = (targetId) => noteComponents.find(({ id }) => id === targetId );
 
@@ -34,15 +34,15 @@ const createNoteListComponent = ({ initialNotes, handleClickNote }) => {
   const addNote = (note) => {
     const noteComponent = createNoteComponent({ note });
     noteComponents.push(noteComponent);
-    noteListElement.appendChild(noteComponent.noteElement);
+    element.appendChild(noteComponent.element);
   };
 
-  noteListElement.addEventListener('click', (event) => {
+  element.addEventListener('click', (event) => {
     const noteElement = event.target.closest(`.${className.note}`);
     if (noteElement) handleClickNote(noteElement.dataset.id);
   });
 
-  return { noteListElement, setNoteContent, addNote };
+  return { element, setNoteContent, addNote };
 };
 
 export { createNoteListComponent };

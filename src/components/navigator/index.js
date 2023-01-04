@@ -3,9 +3,9 @@ import './index.scss';
 import { createElement } from '../../utils';
 
 const createNavigatorComponent = () => {
-  const navigatorElement = createElement(`<nav class="navigator"></nav>`);
+  const element = createElement(`<nav class="navigator"></nav>`);
 
-  return { navigatorElement };
+  return { element };
 };
 
 export { createNavigatorComponent };

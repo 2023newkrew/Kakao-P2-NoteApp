@@ -3,9 +3,9 @@ import './index.scss';
 import { createElement } from '../../utils';
 
 const createHeaderComponent = () => {
-  const headerElement = createElement(`<header class="header"></header>`);
+  const element = createElement(`<header class="header"></header>`);
 
-  return { headerElement };
+  return { element };
 };
 
 export { createHeaderComponent };

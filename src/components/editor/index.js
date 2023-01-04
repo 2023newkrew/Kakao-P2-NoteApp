@@ -12,10 +12,10 @@ const createEditorHTML = ({ initialText, initialDisabled, maxTextLength }) => `<
 </div>`;
 
 const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled, maxTextLength }) => {
-  const editorElement = pipe(createEditorHTML, createElement)({ initialText, initialDisabled, maxTextLength });
+  const element = pipe(createEditorHTML, createElement)({ initialText, initialDisabled, maxTextLength });
 
-  const textareaElement = editorElement.querySelector('.editor__textarea');
-  const textCounterElement = editorElement.querySelector('.editor__text-counter');
+  const textareaElement = element.querySelector('.editor__textarea');
+  const textCounterElement = element.querySelector('.editor__text-counter');
 
   const renderTextCount = (count) => {
     textCounterElement.style.color = count >= maxTextLength ? 'red' : 'inherit';
@@ -33,13 +33,13 @@ const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled
   };
 
   const setDisabled = (disabled) => {
-    if (disabled) editorElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
-    else editorElement.removeAttribute(Attribute.DISABLED);
+    if (disabled) element.setAttribute(Attribute.DISABLED, EMPTY_STRING);
+    else element.removeAttribute(Attribute.DISABLED);
   };
 
   renderTextCount(initialText.length);
 
-  return { editorElement, setValue, setDisabled };
+  return { element, setValue, setDisabled };
 };
 
 export { createEditorComponent };
