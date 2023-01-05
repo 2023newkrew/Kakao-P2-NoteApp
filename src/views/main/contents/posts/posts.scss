@@ -22,6 +22,9 @@
             overflow-y: scroll;
         }
     }
+    .post.dragging {
+        opacity: 0.3;
+    }
     .list-item-active {
         width: 100%;
         height: 200px;

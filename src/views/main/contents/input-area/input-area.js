@@ -24,6 +24,7 @@ const handleKeyDownTextArea = (event) => {
         if (event.target.value === "") return;
         /* 노드 복제 및 설정 */
         const $clone = $post.cloneNode(true);
+        $clone.id = "";
         const textarea = $clone.querySelector("textarea");
         textarea.innerText = event.target.value;
         $clone.style.display = "";
