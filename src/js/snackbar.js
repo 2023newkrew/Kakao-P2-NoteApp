@@ -18,8 +18,7 @@ export default class Snackbar {
 
         this.contentElement.appendChild(snackbarElement);
 
-        // * setSnackbarTimeout 실행 후 listenClickEvent 순차 실행
-        this.listenClickEvent(snackbarElement, this.setSnackbarTimeout(snackbarElement));
+        return snackbarElement;
     }
 
     setSnackbarTimeout(snackbarElement) {
@@ -35,11 +34,11 @@ export default class Snackbar {
         const postsElement = document.body.querySelector(".posts");
         const revertButtonElement = snackbarElement.querySelector("button");
 
-        revertButtonElement.addEventListener("click", function (event) {
+        revertButtonElement.addEventListener("click", (event) => {
             // ! siblingTargetPostElement가 null일 경우에는 가장 마지막 위치로 삽입
             postsElement.insertBefore(this.targetPostElement, this.siblingTargetPostElement);
             this.removeSnackbar(snackbarElement, timeout);
-        }.bind(this));
+        });
     }
 
     removeSnackbar(snackbarElement, timeout) {

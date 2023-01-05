@@ -2,7 +2,7 @@ import 'suneditor/src/assets/css/suneditor.css'
 import SUNEDITOR from 'suneditor'
 
 import plugins from 'suneditor/src/plugins'
-import Post from './post';
+import Post from '@scripts/post';
 
 
 export default class SunEditor {
@@ -37,27 +37,31 @@ export default class SunEditor {
             width: "100%",
             defaultTag: "div",
         })
-
-        this.listenKeyPressEvent();
     }
 
     listenKeyPressEvent() {
-        this.sunEditor.onKeyDown = function (event) {
+        this.sunEditor.onKeyDown = (event) => {
             // * 한글로 입력 시 Enter가 두 번씩 눌러지는 문제 해결
             // ! keyPress로 하면 해결되나 sunEditor의 경우 keyPress 이벤트 부재
-            // TODO : 글자 수가 200자를 넘어갈 수 있는 문제 존재
+            // ! 기존 Editor에 작성은 200글자를 넘을 수 없으나, 복사 붙여넣기를 통해서는 넘길 수 있음
             if (event.key === "Enter" && !event.isComposing) {
                 const text = this.getContents();
-                this.makePost(text);
+                if (text.length <= 200) {
+                    this.makePost(text);
+                    this.setContents("");
+                } else if (text.length > 200) {
+                    alert("200자를 초과할 수 없습니다 !");
+                }
 
-                this.setContents("");
                 event.preventDefault();
             }
-        }.bind(this);
+        };
     }
 
     makePost(text) {
         const post = new Post();
-        post.makePost(text);
+        const postElement = post.makePost(text);
+        post.makeCloseButton(postElement);
+        post.attachPosts(postElement);
     }
 }

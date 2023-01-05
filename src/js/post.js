@@ -17,16 +17,30 @@ export default class Post {
         postElement.classList.add("post");
         postElement.innerHTML = elementString;
 
-        this.makeCloseButton(postElement);
+        return postElement;
+    }
+
+    attachPosts(postElement) {
         this.postsElement.appendChild(postElement);
     }
 
     makeCloseButton(postElement) {
-        const closeButtonElement = postElement.querySelector(".close-button");
-        listenMouseEvent(postElement, closeButtonElement);
-        listenCloseButtonEvent.apply(this, [closeButtonElement]);
+        const listenCloseButtonEvent = () => {
+            closeButtonElement.addEventListener("click", (event) => {
+                const targetPostElement = closeButtonElement.parentElement;
 
-        function listenMouseEvent(postElement, closeButtonElement) {
+                closeButtonElement.classList.remove("active");
+
+                const snackbar = new Snackbar(targetPostElement);
+                const snackbarElement = snackbar.makeSnackbar();
+                const timeout = snackbar.setSnackbarTimeout();
+                snackbar.listenClickEvent(snackbarElement, timeout);
+
+                this.postsElement.removeChild(targetPostElement);
+            })
+        }
+
+        const listenMouseEvent = (postElement) => {
             postElement.addEventListener("mouseenter", function (event) {
                 closeButtonElement.classList.add("active");
             })
@@ -36,17 +50,8 @@ export default class Post {
             })
         }
 
-        function listenCloseButtonEvent(closeButtonElement) {
-            closeButtonElement.addEventListener("click", function (event) {
-                const targetPostElement = closeButtonElement.parentElement;
-
-                closeButtonElement.classList.remove("active");
-
-                const snackbar = new Snackbar(targetPostElement);
-                snackbar.makeSnackbar();
-
-                this.postsElement.removeChild(targetPostElement);
-            }.bind(this))
-        }
+        const closeButtonElement = postElement.querySelector(".close-button");
+        listenMouseEvent(postElement);
+        listenCloseButtonEvent();
     }
 }
