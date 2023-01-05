@@ -1,9 +1,9 @@
-import './index.scss';
+import className from './index.scss';
 
 import { createElement } from '../../utils';
 
 const createHeaderComponent = () => {
-  const element = createElement(`<header class="header"></header>`);
+  const element = createElement(`<header class="${className.header}">KEEP APPLICATION</header>`);
 
   return { element };
 };
