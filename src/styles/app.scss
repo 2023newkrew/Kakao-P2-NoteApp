@@ -95,7 +95,12 @@ body {
       background-color: rgb(195, 229, 242);
       color: $color--gray;
       border-radius: 10px;
-      overflow: scroll;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .note::-webkit-scrollbar {
+      display: none;
     }
 
     .note__content {
