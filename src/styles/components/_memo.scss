@@ -1,0 +1,58 @@
+@import '../abstracts/variables';
+
+.memo {
+  border: 1px solid $divider-color;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .memo__header {
+    width: 100%;
+    padding: 16px 8px;
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-weight: bold;
+
+    .memo__erase-button-container {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+      aspect-ratio: 1 / 1;
+
+      .memo__erase-button {
+        width: 100%;
+        height: 100%;
+      }
+
+      .memo__erase-button:hover {
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+
+  .memo-body {
+    overflow: scroll;
+    flex: 1;
+  }
+
+  .memo-content {
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+  }
+}
+
+.card-grid--grid-mode > .memo {
+  height: 300px;
+}
+
+.card-grid--list-mode > .memo {
+  min-height: 200px;
+  max-height: 300px;
+}

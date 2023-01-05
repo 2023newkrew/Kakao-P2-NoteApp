@@ -1,0 +1,17 @@
+.header__memo-mode-button-grid {
+  display: none;
+}
+
+.header__memo-mode-button-list {
+  display: unset;
+}
+
+.grid-mode-button {
+  .header__memo-mode-button-grid {
+    display: unset;
+  }
+
+  .header__memo-mode-button-list {
+    display: none;
+  }
+}
