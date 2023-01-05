@@ -1,0 +1,27 @@
+@import "../../_variable.scss";
+
+header {
+    height: $header-size;
+    display: flex;
+    align-items: center;
+    background-color: rgb(250, 221, 135);
+    font-size: 20px;
+    flex-shrink: 0;
+    button {
+        border: none;
+        background-color: transparent;
+        margin-left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    img.icon {
+        width: $icon-size;
+        height: $icon-size;
+    }
+    .list-button {
+        margin-left: auto;
+    }
+}

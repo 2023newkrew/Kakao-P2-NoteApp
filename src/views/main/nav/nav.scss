@@ -1,0 +1,24 @@
+@import "../../../_variable.scss";
+
+nav {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    flex-basis: 230px;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    border: 1px solid black;
+    menu {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    i img.icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+    menu span {
+        margin-left: 10px;
+    }
+}

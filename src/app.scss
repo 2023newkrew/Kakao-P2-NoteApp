@@ -1,0 +1,35 @@
+@import "./_variable.scss";
+@import "@Header/header.scss";
+@import "@Main/main.scss";
+@import "@Snackbar/snackbar.scss";
+
+:root {
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+button,
+input,
+select,
+textarea {
+    font-family: "Roboto";
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}

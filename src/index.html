@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keep App</title>
+  </head>
+  <body class="body">
+    <header>
+      <button class="hamburger-button">
+        <img class="icon hamburger-icon" src="hamburger.png" alt="menu toggle" />
+      </button>
+      <div class="logo-text">Keep</div>
+      <button class="list-button">
+        <img class="icon list-icon" src="list.png" alt="list" />
+      </button>
+      <button class="user-button">
+        <img class="icon user-icon" src="user.png" alt="user" />
+      </button>
+    </header>
+    <main class="main-container">
+      <nav>
+        <menu>
+          <img class="icon notes-icon" src="notes.svg" alt="notes" />
+          <span>Notes</span>
+        </menu>
+        <menu>
+          <img class="icon reminder-icon" src="reminder.png" alt="reminder" />
+          <span>Reminders</span>
+        </menu>
+        <menu>
+          <img class="icon settings-icon" src="settings.svg" alt="settings" />
+          <span>Settings</span>
+        </menu>
+      </nav>
+      <section class="contents">
+        <div class="input-area">
+          <textarea class="input-area__textarea" placeholder="내용을 입력하세요."></textarea>
+          <div class="input-area__letter-count">00/???</div>
+        </div>
+        <div class="posts">
+          <div class="post" style="display: none" draggable="true" id="mockup">
+            <textarea class="post__textarea"></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="snackbar" data-clicked="-1">
+      <div>Delete를 눌러 삭제하거나 Undo를 눌러 되돌릴 수 있습니다.</div>
+      <button class="snackbar__delete-button">Delete</button>
+      <button class="snackbar__undo-button">Undo</button>
+      <div class="snackbar__undo-count">?</div>
+      <button class="snackbar__close-button">Close</button>
+    </div>
+  </body>
+</html>
