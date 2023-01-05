@@ -1,6 +1,6 @@
-import { createElementFromHtml } from "./utils/dom";
-import { loadData, saveData } from "./utils/localStorage";
-import { MEMOS } from "./constants";
+import { createElementFromHtml } from "@/scripts/utils/dom";
+import { loadData, saveData } from "@/scripts/utils/localStorage";
+import { MEMOS } from "@/scripts/constants";
 
 function createMemoEl({ id, memo }) {
   return createElementFromHtml(`<article class="memo" data-id="${id}">

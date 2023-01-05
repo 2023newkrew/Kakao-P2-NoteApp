@@ -1,6 +1,6 @@
-import { toggleDataAttribute } from "./utils/dom";
-import { loadData, saveData } from "./utils/localStorage";
-import { HIDDEN, HIDDEN_ASIDE, LIST_VIEW, TRUE } from "./constants";
+import { toggleDataAttribute } from "@/scripts/utils/dom";
+import { loadData, saveData } from "@/scripts/utils/localStorage";
+import { HIDDEN, HIDDEN_ASIDE, LIST_VIEW, TRUE } from "@/scripts/constants";
 
 function initToggleAsideButton() {
   const toggleAsideButtonEl = document.body.querySelector(".nav__button--toggle-aside");
