@@ -56,7 +56,6 @@ const handleDragOverPosts = (event) => {
         }
     }
 
-    console.log($closest);
     if ($closest === null) {
         //
     } else {
