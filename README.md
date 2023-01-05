@@ -13,12 +13,16 @@ npm run build
 ```
 
 3. 로컬 서버 구동
-```
-npm run test
-```
+
+|환경|경로|
+|------|---|
+|sandbox|npm run sandbox|
+|cbt|npm run cbt|
+<br>
 
 ---
 
+<br>
 <h2>alias 설정 안내</h2>
 
 |이름|경로|
