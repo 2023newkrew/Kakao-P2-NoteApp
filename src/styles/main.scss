@@ -7,7 +7,7 @@
     margin: 0 auto;
 
     .form {
-      padding: var(--section-space-unit);
+      padding: var(--content-padding);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -37,7 +37,7 @@
         color: var(--text3);
       }
       button {
-        width: 120px;
+        width: 128px;
 
         @media screen and (max-width: 496px) {
           width: 100%;

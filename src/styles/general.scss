@@ -1,12 +1,12 @@
 @use './variables.scss';
 
 :root {
-  --base-unit: 4px;
+  --base-unit: 8px;
   --header-height: 60px;
   --sidemenu-width: 260px;
-  --border-radius: 10px;
-  --section-space-unit: 16px;
-  --content-padding: 12px;
+  --border-radius: 1px;
+  --section-space-unit: 32px;
+  --content-padding: 16px;
   --primary-color: #f5ebe0;
   --kakao-dark: #555;
   --kakao-dark-hover: #3b3b3b;
@@ -14,13 +14,6 @@
   --kakao-primary-hover: #e5b800;
   --kakao-text-color: #fff;
   --kakao-text-color-dark: #222;
-}
-@media screen and (max-width: 496px) {
-  :root {
-    --base-unit: 3px;
-    --content-padding: 8px;
-    --section-space-utni: 12px;
-  }
 }
 
 body[data-theme='light'] {
@@ -96,14 +89,20 @@ button {
   border: none;
   cursor: pointer;
   color: var(--button-text);
-  font-size: 1rem;
+  font-size: 14px;
 
   &.primary {
+    min-width: 76px;
+    min-height: 46px;
+
     border-radius: var(--border-radius);
-    border: 1px solid var(--primary-color);
-    background-color: var(--primary-color);
-    padding: var(--content-padding) calc(var(--content-padding) * 2);
-    color: #212529;
+    background-color: var(--kakao-primary);
+    padding: 0 var(--content-padding);
+    color: var(--kakao-text-color-dark);
+
+    &:hover {
+      background-color: var(--kakao-primary-hover);
+    }
   }
 }
 a {
