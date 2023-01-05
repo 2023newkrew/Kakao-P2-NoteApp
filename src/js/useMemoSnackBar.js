@@ -65,7 +65,7 @@ export default function useMemoSnackBar() {
 
     timeoutId = setTimeout(() => {
       removeSnackBar(snackBarEl);
-    }, 3000);
+    }, 5000);
   };
 
   return render;
