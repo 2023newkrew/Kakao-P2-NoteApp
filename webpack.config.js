@@ -2,10 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-    mode: "development",
-
     entry: path.resolve(__dirname, "src/index.js"),
-
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "main.js",
@@ -45,16 +42,5 @@ module.exports = {
             "@view": path.resolve(__dirname, "./src/views/"),
         },
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, "dist/views")
-        },
-        watchFiles: [
-            "src/**"
-        ],
-        compress: true,
-        port: 3000,
-        open: true,
-    },
-    devtool: "source-map"
+
 }

@@ -33,7 +33,7 @@ export default class Post {
 
                 const snackbar = new Snackbar(targetPostElement);
                 const snackbarElement = snackbar.makeSnackbar();
-                const timeout = snackbar.setSnackbarTimeout();
+                const timeout = snackbar.setSnackbarTimeout(snackbarElement);
                 snackbar.listenClickEvent(snackbarElement, timeout);
 
                 this.postsElement.removeChild(targetPostElement);
