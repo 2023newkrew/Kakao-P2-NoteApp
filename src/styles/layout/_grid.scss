@@ -12,10 +12,18 @@
   }
 
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
     justify-content: center;
     grid-gap: 16px;
     margin-top: 16px;
+  }
+
+  .card-grid--grid-mode {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+  }
+
+  .card-grid--list-mode {
+    display: flex;
+    flex-direction: column;
   }
 }

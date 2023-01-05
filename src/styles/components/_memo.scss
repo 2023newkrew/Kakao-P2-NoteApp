@@ -3,7 +3,6 @@
 .memo {
   border: 1px solid $divider-color;
   border-radius: 16px;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
 
   .memo__header {
@@ -34,4 +33,12 @@
       }
     }
   }
+}
+
+.card-grid--grid-mode > .memo {
+  aspect-ratio: 1 / 1;
+}
+
+.card-grid--list-mode > .memo {
+  min-height: 200px;
 }
