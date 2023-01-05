@@ -50,25 +50,11 @@
         </nav>
         <div class="note-container">
           <div class="input-container">
-            <input type="text" name="title-input" />
-            <textarea class="text-input" name="content-input"></textarea>
+            <input type="text" class="title-input" />
+            <textarea class="content-textarea"></textarea>
             <input type="submit" class="submit-button" value="submit" />
           </div>
-          <div class="card-grid">
-            <article class="memo">
-              <div class="memo__header">
-                <div class="memo__title-container">
-                  <div class="memo__title">${createdAt}</div>
-                </div>
-                <div class="memo__erase-button-container">
-                  <button class="memo__erase-button icon-button">x</button>
-                </div>
-              </div>
-              <div class="memo-body">
-                <div class="memo-content">${content}</div>
-              </div>
-            </article>
-          </div>
+          <div class="card-grid"></div>
         </div>
       </section>
     </main>
