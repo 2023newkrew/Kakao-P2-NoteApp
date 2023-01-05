@@ -1,0 +1,32 @@
+.header {
+  padding: 16px;
+  border-bottom: 2px solid $color--light-gray;
+
+  &__content {
+    @include flex-container;
+    justify-content: space-between;
+  }
+  &__buttons {
+    @include flex-container;
+    gap: 10px;
+  }
+
+  &__note-toggle-button {
+    width: 24px;
+    height: 24px;
+    background-image: url("@/assets/grid.png");
+    background-size: cover;
+
+    &.list {
+      background-image: url("@/assets/list.png");
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+}
+
+.logo-button {
+  width: 80px;
+}

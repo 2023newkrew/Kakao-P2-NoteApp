@@ -1,5 +1,5 @@
 import "@/styles/app.scss";
-import "@/styles/reset.scss";
+import "@/styles/common/reset.scss";
 import importImages from "@/image.js";
 
 import Component from "@/component/Component";
