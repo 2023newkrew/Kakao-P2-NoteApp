@@ -27,6 +27,11 @@ const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled
     renderTextCount(event.target.value.length);
   });
 
+  textareaElement.addEventListener('focusout', () => {
+    setValue(EMPTY_STRING);
+    setDisabled(true);
+  });
+
   const setValue = (value) => {
     textareaElement.value = value;
     renderTextCount(value.length);
