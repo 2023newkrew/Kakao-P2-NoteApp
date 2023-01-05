@@ -120,6 +120,27 @@
           width: calc(50% - 2 * var(--base-unit));
         }
       }
+
+      &.detail {
+        flex-direction: column;
+
+        .memo {
+          width: 100%;
+          aspect-ratio: unset;
+          min-height: 24px;
+          flex-direction: row;
+
+          .utils {
+            flex-direction: column;
+            flex-flow: column-reverse;
+            justify-content: flex-start;
+
+            width: fit-content;
+            height: 100%;
+            padding: var(--base-unit) 0;
+          }
+        }
+      }
     }
   }
 }

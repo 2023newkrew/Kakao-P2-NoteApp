@@ -1,7 +1,7 @@
 import {MAX_INPUT_LENGTH} from '@constants/memo';
 import {KEY_CODE} from '@constants/event';
 import Memo from '@models/memo';
-import useSnackBar from '@/useMemoSnackBar';
+import useSnackBar from '@/useSnackBar';
 
 const pushSnackBar = useSnackBar();
 
@@ -95,6 +95,11 @@ export default class MemoController {
     this.textInputElement.value = '';
 
     this._render();
+
+    const snackBar = {
+      content: '메모가 추가되었습니다',
+    };
+    pushSnackBar(snackBar);
   }
   _render() {
     const memos = Memo.getMemos();

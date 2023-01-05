@@ -1,13 +1,25 @@
-.snackBar {
-  z-index: 10;
+#snackBars {
+  z-index: 100;
   position: fixed;
   bottom: 20px;
-  left: 10px;
+  left: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (max-width: 496px) {
+    left: calc(2 * var(--base-unit));
+    right: calc(2 * var(--base-unit));
+  }
+}
+
+.snackBar {
+  z-index: 10;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
+  padding: var(--base-unit);
+  margin-bottom: var(--base-unit);
   width: 15rem;
   height: 3rem;
   border-radius: var(--border-radius);
@@ -40,7 +52,6 @@
   }
 
   @media screen and (max-width: 496px) {
-    width: calc(100% - 20px);
-    right: 10px;
+    width: 100%;
   }
 }

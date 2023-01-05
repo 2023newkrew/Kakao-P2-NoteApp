@@ -1,18 +1,6 @@
-const body = document.body;
+const snackBarContainer = document.body.querySelector('#snackBars');
 
-export default function useMemoSnackBar() {
-  let snackBarCount = 0;
-  let offset = 0;
-
-  const clearOffset = () => {
-    snackBarCount = snackBarCount - 1 < 0 ? 0 : snackBarCount - 1;
-    offset -= 3.5;
-  };
-  const countUp = () => {
-    offset += 3.5;
-    snackBarCount += 1;
-  };
-
+function useSnackBar() {
   const makeContentElement = content => {
     const element = document.createElement('p');
     element.className = 'content';
@@ -20,17 +8,17 @@ export default function useMemoSnackBar() {
     return element;
   };
 
-  const makeCancelButton = () => {
+  const makeCancelButton = onClick => {
     const element = document.createElement('button');
     element.className = 'cancel';
     element.textContent = '취소';
+
+    element.addEventListener('click', onClick);
     return element;
   };
 
   const addSnackBar = snackBar => {
-    countUp();
-
-    body.appendChild(snackBar);
+    snackBarContainer.appendChild(snackBar);
     snackBar.classList.add('on');
   };
 
@@ -38,9 +26,8 @@ export default function useMemoSnackBar() {
     snackBar.classList.remove('on');
 
     setTimeout(() => {
-      body.removeChild(snackBar);
-      clearOffset();
-    }, 250);
+      snackBarContainer.removeChild(snackBar);
+    }, 300);
   };
 
   const render = ({content, onCancel}) => {
@@ -49,17 +36,16 @@ export default function useMemoSnackBar() {
     snackBarEl.className = 'snackBar';
 
     const contentEl = makeContentElement(content);
-    const cancelButtonEl = makeCancelButton();
-
-    cancelButtonEl.addEventListener('click', () => {
-      clearTimeout(timeoutId);
-      onCancel();
-      removeSnackBar(snackBarEl);
-    });
-
     snackBarEl.appendChild(contentEl);
-    snackBarEl.appendChild(cancelButtonEl);
-    snackBarEl.style.transform = `translateY(${-offset}rem)`;
+
+    if (onCancel) {
+      const cancelButtonEl = makeCancelButton(() => {
+        clearTimeout(timeoutId);
+        onCancel();
+        removeSnackBar(snackBarEl);
+      });
+      snackBarEl.appendChild(cancelButtonEl);
+    }
 
     addSnackBar(snackBarEl);
 
@@ -70,3 +56,4 @@ export default function useMemoSnackBar() {
 
   return render;
 }
+export default useSnackBar;
