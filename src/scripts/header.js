@@ -5,7 +5,7 @@ import { HIDDEN, HIDDEN_ASIDE, LIST_VIEW } from "./constants";
 function initToggleAsideButton() {
   const toggleAsideButtonEl = document.body.querySelector(".nav__button--toggle-aside");
   const asideEl = document.body.querySelector(".aside");
-  const hiddenAside = loadData(HIDDEN_ASIDE);
+  const hiddenAside = !!loadData(HIDDEN_ASIDE);
 
   asideEl.dataset[HIDDEN] = hiddenAside;
 
@@ -20,10 +20,10 @@ function initToggleViewButton() {
   const listViewImgEl = toggleViewButtonEl.querySelector(".nav__img--list-view");
   const gridViewImgEl = toggleViewButtonEl.querySelector(".nav__img--grid-view");
   const memosEl = document.body.querySelector(".memos");
-  const listView = loadData(LIST_VIEW);
+  const listView = !!loadData(LIST_VIEW);
 
-  listViewImgEl.dataset[HIDDEN] = listView;
-  gridViewImgEl.dataset[HIDDEN] = !listView;
+  listViewImgEl.dataset[HIDDEN] = !listView;
+  gridViewImgEl.dataset[HIDDEN] = listView;
   memosEl.dataset[LIST_VIEW] = listView;
 
   toggleViewButtonEl.addEventListener("click", () => {
