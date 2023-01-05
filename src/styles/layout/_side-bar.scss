@@ -1,27 +1,38 @@
 @import '../abstracts/_variables.scss';
 
-.side-bar {
-  border-right: 1px solid $divider-color;
-  height: 100%;
-  padding: 16px;
-  min-width: 300px;
+.side-bar-container {
+  min-width: $side-bar-width;
+  transition: margin-left 0.5s;
 
-  .side-bar__list {
-    .side-bar__list-item {
-      margin-bottom: 16px;
+  .side-bar {
+    border: 1px solid $divider-color;
+    background-color: white;
+    padding: 24px;
+    position: fixed;
+    width: $side-bar-width;
+    height: 100%;
 
-      a {
-        display: flex;
-        gap: 8px;
-        text-decoration: none;
-        color: $primary-text-color;
-        align-items: center;
+    .side-bar__list {
+      .side-bar__list-item {
+        margin-bottom: 16px;
 
-        img {
-          width: 32px;
-          height: 32px;
+        a {
+          display: flex;
+          gap: 8px;
+          text-decoration: none;
+          color: $primary-text-color;
+          align-items: center;
+
+          img {
+            width: 32px;
+            height: 32px;
+          }
         }
       }
     }
   }
+}
+
+.side-bar-container--collapsed {
+  margin-left: -1 * $side-bar-width;
 }
