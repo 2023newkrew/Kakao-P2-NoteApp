@@ -1,14 +1,10 @@
-import "@scripts/staticLoader.js"
+import "@scripts/staticLoader.js";
 import ListController from "@scripts/button/listButton.js";
 import MenuController from "@scripts/button/menuButton.js";
 import SunEditor from "@/lib/sunEditor";
 
-const listController = new ListController();
-listController.listenClickEvent();
-
-const menuController = new MenuController();
-menuController.listenClickEvent();
+new ListController();
+new MenuController();
 
 const sunEditor = new SunEditor();
 sunEditor.createSunEditor();
-sunEditor.listenKeyPressEvent();

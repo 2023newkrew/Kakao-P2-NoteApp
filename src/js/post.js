@@ -1,57 +1,56 @@
 import Snackbar from "./snackbar";
 
 export default class Post {
-    constructor() {
-        this.postsElement = document.body.querySelector(".posts");
-    }
+  constructor() {
+    this.postsElement = document.body.querySelector(".posts");
+  }
 
-    makePost(text) {
-        const postElement = document.createElement("div");
-        const elementString = `
+  makePost(text) {
+    const postElement = document.createElement("div");
+    const elementString = `
         <div class="close-button">
             <img src="../assets/close.svg" alt="close"/>
         </div>
         ${text}
-        `
+        `;
 
-        postElement.classList.add("post");
-        postElement.innerHTML = elementString;
+    postElement.classList.add("post");
+    postElement.innerHTML = elementString;
 
-        return postElement;
-    }
+    this.makeCloseButton(postElement);
+    this.attachPostsElement(postElement);
+  }
 
-    attachPosts(postElement) {
-        this.postsElement.appendChild(postElement);
-    }
+  attachPostsElement(postElement) {
+    this.postsElement.appendChild(postElement);
+  }
 
-    makeCloseButton(postElement) {
-        const listenCloseButtonEvent = () => {
-            closeButtonElement.addEventListener("click", (event) => {
-                const targetPostElement = closeButtonElement.parentElement;
+  makeCloseButton(postElement) {
+    const listenCloseButtonEvent = () => {
+      closeButtonElement.addEventListener("click", (event) => {
+        const targetPostElement = closeButtonElement.parentElement;
 
-                closeButtonElement.classList.remove("active");
+        closeButtonElement.classList.remove("active");
 
-                const snackbar = new Snackbar(targetPostElement);
-                const snackbarElement = snackbar.makeSnackbar();
-                const timeout = snackbar.setSnackbarTimeout(snackbarElement);
-                snackbar.listenClickEvent(snackbarElement, timeout);
+        const snackbar = new Snackbar(targetPostElement);
+        snackbar.makeSnackbar();
 
-                this.postsElement.removeChild(targetPostElement);
-            })
-        }
+        this.postsElement.removeChild(targetPostElement);
+      });
+    };
 
-        const listenMouseEvent = (postElement) => {
-            postElement.addEventListener("mouseenter", function (event) {
-                closeButtonElement.classList.add("active");
-            })
+    const listenMouseEvent = (postElement) => {
+      postElement.addEventListener("mouseenter", (event) => {
+        closeButtonElement.classList.add("active");
+      });
 
-            postElement.addEventListener("mouseleave", function (event) {
-                closeButtonElement.classList.remove("active");
-            })
-        }
+      postElement.addEventListener("mouseleave", (event) => {
+        closeButtonElement.classList.remove("active");
+      });
+    };
 
-        const closeButtonElement = postElement.querySelector(".close-button");
-        listenMouseEvent(postElement);
-        listenCloseButtonEvent();
-    }
+    const closeButtonElement = postElement.querySelector(".close-button");
+    listenMouseEvent(postElement);
+    listenCloseButtonEvent();
+  }
 }
