@@ -1,8 +1,10 @@
+import { createMemoEl } from "./memo";
+
 function addMemo(memo) {
   const inputEl = document.body.querySelector(".input");
   const memos = JSON.parse(localStorage.getItem("memos")) || {};
 
-  inputEl.insertAdjacentHTML("beforebegin", `<article class="memo">${memo}</artice>`);
+  inputEl.insertAdjacentElement("beforebegin", createMemoEl(memo));
   memos[Date.now()] = memo;
   localStorage.setItem("memos", JSON.stringify(memos));
 }
