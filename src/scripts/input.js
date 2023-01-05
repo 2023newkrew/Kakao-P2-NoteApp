@@ -3,9 +3,10 @@ import { createMemoEl } from "./memo";
 function addMemo(memo) {
   const inputEl = document.body.querySelector(".input");
   const memos = JSON.parse(localStorage.getItem("memos")) || {};
+  const id = Date.now();
 
-  inputEl.insertAdjacentElement("beforebegin", createMemoEl(memo));
-  memos[Date.now()] = memo;
+  inputEl.insertAdjacentElement("beforebegin", createMemoEl({ id, memo }));
+  memos[id] = memo;
   localStorage.setItem("memos", JSON.stringify(memos));
 }
 

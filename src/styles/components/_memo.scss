@@ -18,6 +18,8 @@
   width: 200px;
   height: 200px;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
   font-size: 24px;
   border: 2px solid $color-border;
@@ -26,5 +28,23 @@
   [data-list-view="true"] & {
     width: unset;
     height: 100px;
+  }
+
+  &__text {
+    flex-grow: 1;
+  }
+
+  &__buttons {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  &__button {
+    height: 24px;
+    padding: 0 8px;
+
+    &:hover {
+      background-color: $color-background-50;
+    }
   }
 }
