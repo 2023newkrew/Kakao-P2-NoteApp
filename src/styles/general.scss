@@ -1,0 +1,127 @@
+@use './variables.scss';
+
+:root {
+  --base-unit: 4px;
+  --header-height: 60px;
+  --sidemenu-width: 260px;
+  --border-radius: 10px;
+  --section-space-unit: 16px;
+  --content-padding: 8px;
+  --primary-color: #f5ebe0;
+}
+
+body[data-theme='light'] {
+  --bg-primary: #f8f9fa;
+  --bg-element: #ffffff;
+
+  --text1: #212529;
+  --text2: #495057;
+  --text3: #868e96;
+  --text4: #ced4da;
+
+  --border1: #343a40;
+  --border2: #adb5bd;
+  --border3: #dee2e6;
+  --border4: #f1f3f5;
+
+  --button-text: #121212;
+
+  --shadow-color: rgb(0, 0, 0, 18%);
+}
+
+body[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-element: #1e1e1e;
+
+  --text1: #ececec;
+  --text2: #d9d9d9;
+  --text3: #acacac;
+  --text4: #595959;
+
+  --border1: #e0e0e0;
+  --border2: #a0a0a0;
+  --border3: #4d4d4d;
+  --border4: #2a2a2a;
+
+  --button-text: #ffffff;
+  --shadow-color: rgb(255, 255, 255 18%);
+}
+
+body {
+  color: var(--text1);
+  transition: background 0.125s ease-in 0s;
+  background-color: var(--bg-primary);
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+body[data-theme='dark'] img[src*='svg'] {
+  filter: brightness(0) invert(1);
+}
+body[data-theme='dark'] #theme-button .light {
+  display: none;
+}
+body[data-theme='light'] #theme-button .dark {
+  display: none;
+}
+main {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+  min-height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--button-text);
+  font-size: 1rem;
+
+  &.primary {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    padding: var(--content-padding) calc(var(--content-padding) * 2);
+    color: #212529;
+  }
+}
+a {
+  color: var(--text1);
+}
+input,
+textarea {
+  color: var(--text1);
+}
+input:focus,
+textarea:focus {
+  outline: 1px solid var(--primary-color);
+}
+.mr {
+  margin-right: calc(var(--base-unit) * 2);
+}
+.ml {
+  margin-left: calc(var(--base-unit) * 2);
+}
+.mt {
+  margin-top: calc(var(--base-unit) * 2);
+}
+.mb {
+  margin-bottom: calc(var(--base-unit) * 2);
+}
+.my {
+  margin-top: calc(var(--base-unit) * 2);
+  margin-bottom: calc(var(--base-unit) * 2);
+}
+.px {
+  padding-right: calc(var(--base-unit) * 2);
+  padding-left: calc(var(--base-unit) * 2);
+}
+.py {
+  padding-top: calc(var(--base-unit) * 2);
+  padding-bottom: calc(var(--base-unit) * 2);
+}
