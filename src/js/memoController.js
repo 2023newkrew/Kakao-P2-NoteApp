@@ -1,6 +1,9 @@
 import {MAX_INPUT_LENGTH} from '@constants/memo';
 import {KEY_CODE} from '@constants/event';
 import Memo from '@models/memo';
+import useSnackBar from '@/useMemoSnackBar';
+
+const pushSnackBar = useSnackBar();
 
 export default class MemoController {
   constructor(
@@ -50,20 +53,29 @@ export default class MemoController {
       this._saveMemo();
     });
   }
+  _handleDeleteMemo(memoId) {
+    const memo = Memo.getMemo(memoId);
+    memo.delete();
+
+    const snackBar = {
+      content: `메모를 삭제했습니다.`,
+      onCancel: () => {
+        Memo.create(memo.content);
+        this._render();
+      },
+    };
+    pushSnackBar(snackBar);
+
+    this._render();
+  }
   _initMemoHandler() {
     this.memoContainer.addEventListener('click', event => {
       const memoElement = event.target.parentNode.parentNode;
       const memoId = memoElement.id;
 
       if (event.target.classList.contains('delete')) {
-        const memo = Memo.getMemo(memoId);
-        memo.delete();
-        this._render();
+        this._handleDeleteMemo(memoId);
       }
-      // TODO: 메모 수정 기능
-      // if (event.target.classList.contains('edit')) {
-      //   const memo = Memo.getMemo(memoId);
-      // }
     });
   }
   _setInputInfo(infoText) {

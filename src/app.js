@@ -2,6 +2,7 @@ import '@styles/reset.scss';
 import '@styles/general.scss';
 import '@styles/header.scss';
 import '@styles/sidemenu.scss';
+import '@styles/snackbar.scss';
 import '@styles/main.scss';
 
 import ThemeController from '@/themeController';

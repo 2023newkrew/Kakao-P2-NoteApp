@@ -8,6 +8,12 @@
   --section-space-unit: 16px;
   --content-padding: 12px;
   --primary-color: #f5ebe0;
+  --kakao-dark: #555;
+  --kakao-dark-hover: #3b3b3b;
+  --kakao-primary: #ffcd00;
+  --kakao-primary-hover: #e5b800;
+  --kakao-text-color: #fff;
+  --kakao-text-color-dark: #222;
 }
 @media screen and (max-width: 496px) {
   :root {
@@ -57,6 +63,7 @@ body[data-theme='dark'] {
 }
 
 body {
+  position: relative;
   color: var(--text1);
   transition: background 0.125s ease-in 0s;
   background-color: var(--bg-primary);
