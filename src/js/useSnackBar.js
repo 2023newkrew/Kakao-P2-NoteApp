@@ -34,6 +34,10 @@ function useSnackBar() {
     let timeoutId;
     const snackBarEl = document.createElement('div');
     snackBarEl.className = 'snackBar';
+    snackBarEl.addEventListener('click', () => {
+      clearTimeout(timeoutId);
+      removeSnackBar(snackBarEl);
+    });
 
     const contentEl = makeContentElement(content);
     snackBarEl.appendChild(contentEl);
