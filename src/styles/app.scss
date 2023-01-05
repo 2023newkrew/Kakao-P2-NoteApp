@@ -7,7 +7,7 @@ $color--gray: #8c8c8c;
   align-items: center;
 }
 
-.body {
+body {
   font-size: 16px;
   color: $color--black;
 }
@@ -50,7 +50,6 @@ $color--gray: #8c8c8c;
 }
 
 .sidebar__container {
-  // visibility: visible;
   width: 280px;
   height: 100vh;
   padding: 30px 0 0 30px;
@@ -96,6 +95,7 @@ $color--gray: #8c8c8c;
       background-color: rgb(195, 229, 242);
       color: $color--gray;
       border-radius: 10px;
+      overflow: scroll;
     }
 
     .note__content {
