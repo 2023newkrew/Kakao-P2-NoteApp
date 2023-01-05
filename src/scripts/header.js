@@ -1,6 +1,6 @@
 import { toggleDataAttribute } from "./utils/dom";
 import { loadData, saveData } from "./utils/localStorage";
-import { HIDDEN, HIDDEN_ASIDE, LIST_VIEW } from "./constants";
+import { HIDDEN, HIDDEN_ASIDE, LIST_VIEW, TRUE } from "./constants";
 
 function initToggleAsideButton() {
   const toggleAsideButtonEl = document.body.querySelector(".nav__button--toggle-aside");
@@ -11,7 +11,7 @@ function initToggleAsideButton() {
 
   toggleAsideButtonEl.addEventListener("click", () => {
     toggleDataAttribute({ el: asideEl, attributeName: "hidden" });
-    saveData({ key: HIDDEN_ASIDE, data: asideEl.dataset[HIDDEN] });
+    saveData({ key: HIDDEN_ASIDE, data: asideEl.dataset[HIDDEN] === TRUE });
   });
 }
 
@@ -30,7 +30,7 @@ function initToggleViewButton() {
     toggleDataAttribute({ el: listViewImgEl, attributeName: "hidden" });
     toggleDataAttribute({ el: gridViewImgEl, attributeName: "hidden" });
     toggleDataAttribute({ el: memosEl, attributeName: "listView" });
-    saveData({ key: LIST_VIEW, data: memosEl.dataset[LIST_VIEW] });
+    saveData({ key: LIST_VIEW, data: memosEl.dataset[LIST_VIEW] === TRUE });
   });
 }
 
