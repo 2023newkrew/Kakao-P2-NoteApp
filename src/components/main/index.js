@@ -5,6 +5,8 @@ import { createElement, EMPTY_STRING } from '../../utils';
 import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
+const DELETE_KEY_CODE = 8;
+
 const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const state = {
     notes: initialNotes,
@@ -35,6 +37,13 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     editorComponent.focus();
   };
 
+  const removeNote = (noteId) => {
+    state.selectedNoteId = null;
+    state.notes = state.notes.filter(({ id }) => id !== noteId);
+    noteListComponent.removeNote(noteId);
+    updateEditorComponent();
+  };
+
   const handleInputEditor = (event) => {
     const { value } = event.target;
     const { notes, selectedNoteId } = state;
@@ -43,6 +52,12 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   };
 
   const element = createElement(`<main class="${className.main}"></main>`);
+
+  element.addEventListener('keydown', (event) => {
+    if (state.selectedNoteId && event.keyCode === DELETE_KEY_CODE && event.metaKey) {
+      removeNote(state.selectedNoteId);
+    }
+  });
 
   const editorComponent = createEditorComponent({ handleInputEditor, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
   element.appendChild(editorComponent.element);

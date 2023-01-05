@@ -47,6 +47,13 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, handleCl
     element.appendChild(newNoteButton);
   };
 
+  const removeNote = (id) => {
+    const noteComponent = findNoteComponentById(id);
+    noteComponents.splice(noteComponents.indexOf(noteComponent), 1);
+    element.removeChild(noteComponent.element);
+    if (state.selectedNoteId === id) state.selectedNoteId = null;
+  };
+
   const setSelectedNoteId = (selectedNoteId) => {
     if (state.selectedNoteId) findNoteComponentById(state.selectedNoteId).setIsSelected(false);
     state.selectedNoteId = selectedNoteId;
@@ -58,7 +65,7 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, handleCl
     if (noteElement) handleClickNote(noteElement.dataset.id);
   });
 
-  return { element, setNoteContent, addNote, setSelectedNoteId };
+  return { element, setNoteContent, addNote, removeNote, setSelectedNoteId };
 };
 
 export { createNoteListComponent };

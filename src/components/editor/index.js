@@ -18,7 +18,7 @@ const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initia
   const textCounterElement = element.querySelector(`.${className.textCounter}`);
 
   const renderTextCount = (count) => {
-    textCounterElement.style.color = count >= maxTextLength ? 'red' : 'inherit';
+    textCounterElement.style.color = count >= maxTextLength ? 'orange' : 'inherit';
     textCounterElement.innerHTML = `${count} / ${maxTextLength}`;
   };
 
