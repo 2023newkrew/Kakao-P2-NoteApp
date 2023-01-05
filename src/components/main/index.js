@@ -1,4 +1,4 @@
-import './index.scss';
+import className from './index.scss';
 
 import { createNote } from '../../entities/note';
 import { createElement, EMPTY_STRING } from '../../utils';
@@ -30,6 +30,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   const setSelectedNoteId = (noteId) => {
     state.selectedNoteId = noteId;
+    noteListComponent.setSelectedNoteId(noteId);
     updateEditorComponent();
     editorComponent.focus();
   };
@@ -41,14 +42,12 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     noteListComponent.setNoteContent({ id: selectedNoteId, content: value });
   };
 
-  const element = createElement(`<main class="main"><button class="main__new-note-button">new note</button></main>`);
-  const newNoteButton = element.querySelector('.main__new-note-button');
-  newNoteButton.addEventListener('click', handleClickNewNoteButton);
+  const element = createElement(`<main class="${className.main}"></main>`);
 
   const editorComponent = createEditorComponent({ handleInputEditor, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
   element.appendChild(editorComponent.element);
 
-  const noteListComponent = createNoteListComponent({ initialNotes, handleClickNote: setSelectedNoteId });
+  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, handleClickNote: setSelectedNoteId, handleClickNewNoteButton });
   element.appendChild(noteListComponent.element);
 
   return { element };

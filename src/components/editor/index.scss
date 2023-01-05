@@ -1,0 +1,20 @@
+.editor {
+  position: relative;
+
+  .textarea {
+    border-radius: 2px;
+    width: 100%;
+    resize: none;
+    outline: none;
+
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: initial;
+  }
+
+  .textCounter {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+}

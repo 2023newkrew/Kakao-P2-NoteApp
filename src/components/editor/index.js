@@ -1,4 +1,4 @@
-import './index.scss';
+import className from './index.scss';
 
 import { createElement, EMPTY_STRING, pipe } from '../../utils';
 
@@ -6,16 +6,16 @@ const Attribute = {
   DISABLED: 'disabled',
 };
 
-const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="editor">
-  <textarea class="editor__textarea" maxlength="${maxTextLength}" ${disabled ? Attribute.DISABLED : EMPTY_STRING}>${text}</textarea>
-  <div class="editor__text-counter"></div>
+const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="${className.editor}">
+  <textarea class="${className.textarea}" maxlength="${maxTextLength}" rows="2" ${disabled ? Attribute.DISABLED : EMPTY_STRING}>${text}</textarea>
+  <div class="${className.textCounter}"></div>
 </div>`;
 
-const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled, maxTextLength }) => {
+const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initialText, initialDisabled, maxTextLength }) => {
   const element = pipe(createEditorHTML, createElement)({ text: initialText, disabled: initialDisabled, maxTextLength });
 
-  const textareaElement = element.querySelector('.editor__textarea');
-  const textCounterElement = element.querySelector('.editor__text-counter');
+  const textareaElement = element.querySelector(`.${className.textarea}`);
+  const textCounterElement = element.querySelector(`.${className.textCounter}`);
 
   const renderTextCount = (count) => {
     textCounterElement.style.color = count >= maxTextLength ? 'red' : 'inherit';
@@ -28,8 +28,7 @@ const createEditorComponent = ({ handleInputEditor, initialText, initialDisabled
   });
 
   textareaElement.addEventListener('focusout', () => {
-    setValue(EMPTY_STRING);
-    setDisabled(true);
+    if (handleFocusoutEditor) handleFocusoutEditor();
   });
 
   const setValue = (value) => {
