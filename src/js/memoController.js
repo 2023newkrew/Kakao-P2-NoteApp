@@ -13,7 +13,6 @@ export default class MemoController {
     this.memoContainer = memoContainer;
     this.saveButton = saveButton;
     this.currentPressedKeys = [];
-    this.memos = Memo.getMemos();
 
     if (inpuInfo) {
       this.inpuInfo = inpuInfo;
@@ -23,8 +22,8 @@ export default class MemoController {
     this._init();
   }
   _init() {
+    this._render();
     this._initFormHandler();
-    this._renderMemos();
     this._initMemoHandler();
   }
   _initFormHandler() {
@@ -57,8 +56,9 @@ export default class MemoController {
       const memoId = memoElement.id;
 
       if (event.target.classList.contains('delete')) {
-        Memo.deleteMemo(memoId);
-        this._renderMemos();
+        const memo = Memo.getMemo(memoId);
+        memo.delete();
+        this._render();
       }
       // TODO: 메모 수정 기능
       // if (event.target.classList.contains('edit')) {
@@ -79,31 +79,13 @@ export default class MemoController {
       return;
     }
 
-    const memo = new Memo(content);
+    Memo.create(content);
     this.textInputElement.value = '';
-    this.memos.push(memo);
 
-    this._renderMemo(memo);
+    this._render();
   }
-  _renderMemo(memo) {
-    const memoItem = document.createElement('li');
-    memoItem.className = 'memo';
-    memoItem.id = memo.id;
-    memoItem.innerHTML = `
-      <p class="content">${memo.content}</p>
-      <div class="utils">
-        <button class="util edit">수정</button>
-        <button class="util delete">삭제</button>
-      </div>
-    `;
-
-    this.memoContainer.appendChild(memoItem);
-  }
-  _renderMemos() {
-    this.memoContainer.innerHTML = '';
+  _render() {
     const memos = Memo.getMemos();
-    memos.forEach(memo => {
-      this._renderMemo(memo);
-    });
+    this.memoContainer.innerHTML = memos.map(memo => memo.render()).join('\n');
   }
 }
