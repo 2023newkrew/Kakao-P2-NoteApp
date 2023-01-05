@@ -33,16 +33,9 @@ const handleClickDelButton = (event) => {
     setUndoCount();
 };
 
-const handleClickCloseButton = (event) => {
-    event.stopPropagation();
-
-    $snackBar.classList.remove("show");
-};
-
 const attachEventHandler = () => {
     $delButton.addEventListener("click", handleClickDelButton);
     $undoButton.addEventListener("click", handleClickUndoButton);
-    $closeButton.addEventListener("click", handleClickCloseButton);
 };
 
 export default function setSnackbar() {

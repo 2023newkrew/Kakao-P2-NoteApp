@@ -1,3 +1,4 @@
+const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
     require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -38,6 +39,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: "src/index.html",
+        }),
+        new CopyPlugin({
+            patterns: [{ from: "src/assets" }],
         }),
         //new BundleAnalyzerPlugin(),
     ],

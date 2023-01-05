@@ -10,7 +10,6 @@
 
     overflow-y: scroll;
     flex-direction: row;
-
     .post {
         width: 200px;
         height: 200px;
@@ -24,6 +23,12 @@
     }
     .post.dragging {
         opacity: 0.3;
+    }
+    textarea:hover {
+        border-width: 2px;
+    }
+    textarea.drag-hover {
+        border-width: 2px;
     }
     .list-item-active {
         width: 100%;
