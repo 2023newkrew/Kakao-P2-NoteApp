@@ -7,7 +7,7 @@
 
   height: var(--header-height);
   width: 100%;
-  padding: 0 calc(var(--base-unit) * 2);
+  padding: 0 var(--content-padding);
 
   display: flex;
   align-items: center;
@@ -16,6 +16,12 @@
   color: var(--text1);
   background-color: var(--bg-element);
   border-bottom: 1px solid var(--border3);
+
+  @media screen and (max-width: 496px) {
+    #sidemenu-button {
+      display: none;
+    }
+  }
 
   .icon {
     height: 32px;

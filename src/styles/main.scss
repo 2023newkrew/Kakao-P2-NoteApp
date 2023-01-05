@@ -1,6 +1,10 @@
 .contents {
   width: 100%;
 
+  @media screen and (max-width: 496px) {
+    padding-bottom: var(--header-height);
+  }
+
   .memo-section {
     max-width: 800px;
     min-width: 280px;
@@ -53,14 +57,14 @@
 
       .memo {
         position: relative;
-        width: calc(25% - 2 * var(--content-padding));
+        width: calc(25% - 2 * var(--base-unit));
         aspect-ratio: 1 / 1;
 
         background-color: var(--bg-memo);
         border-radius: var(--border-radius);
         color: var(--text1);
 
-        margin: var(--content-padding);
+        margin: var(--base-unit);
         font-size: 1.6rem;
         display: flex;
         flex-direction: column;
@@ -109,11 +113,11 @@
           overflow-y: auto;
         }
         @media screen and (max-width: 650px) {
-          width: calc(33% - 2 * var(--content-padding));
+          width: calc(33% - 2 * var(--base-unit));
         }
 
         @media screen and (max-width: 500px) {
-          width: calc(50% - 2 * var(--content-padding));
+          width: calc(50% - 2 * var(--base-unit));
         }
       }
     }
