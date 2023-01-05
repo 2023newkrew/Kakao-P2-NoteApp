@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import Memo from '../model/memo';
 import typeCheck from '../util/type-check';
 
@@ -16,7 +17,26 @@ export default class MemoGridViewModel {
     this.#memos.push(memo);
   }
 
-  deleteMemo(memoId) {
-    this.#memos = this.#memos.filter((memo) => memo.id !== memoId);
+  deleteMemo(createdAt) {
+    this.#memos = this.#memos.filter(
+      (memo) => memo.getData().createdAt.getTime().toString() !== createdAt,
+    );
+  }
+
+  *diffMemos() {
+    let lastMemos = [];
+
+    while (true) {
+      const addedMemosArray = this.#memos.filter(
+        (memo) => lastMemos.indexOf(memo) === -1,
+      );
+
+      const deletedMemosArray = lastMemos.filter(
+        (memo) => this.#memos.indexOf(memo) === -1,
+      );
+
+      lastMemos = [...this.#memos];
+      yield { addedMemosArray, deletedMemosArray };
+    }
   }
 }

@@ -1,9 +1,10 @@
-import { NO_NAME_MEMO_TITLE } from './constants/message';
-import Memo from './model/memo';
-import MemoGridView from './view/memo-grid-view';
-import MemoGridViewModel from './viewmodel/memo-grid-view-model';
+import Binder from '../abstract/binder';
+import { NO_NAME_MEMO_TITLE } from '../constants/message';
+import Memo from '../model/memo';
+import MemoGridView from '../view/memo-grid-view';
+import MemoGridViewModel from '../viewmodel/memo-grid-view-model';
 
-export default class MemoApp {
+export default class MemoBinder extends Binder {
   #memoGridView;
 
   #memoGridViewModel;
@@ -13,6 +14,7 @@ export default class MemoApp {
   #contentTextAreaEl;
 
   constructor() {
+    super();
     this.#memoGridViewModel = new MemoGridViewModel();
     this.#memoGridView = new MemoGridView(this.#memoGridViewModel);
     this.#titleInputEl = document.querySelector('.title-input');
@@ -23,9 +25,16 @@ export default class MemoApp {
 
   _bindEvents() {
     const submitButtonEl = document.querySelector('.submit-button');
+    const cardGridEl = document.querySelector('.card-grid');
+
     submitButtonEl.addEventListener(
       'click',
       this.#onAddNoteButtonClick.bind(this),
+    );
+
+    cardGridEl.addEventListener(
+      'click',
+      this.#onDeleteNoteButtonClick.bind(this),
     );
   }
 
@@ -38,6 +47,15 @@ export default class MemoApp {
     const memo = new Memo({ title, content });
 
     this.#memoGridViewModel.appendMemo(memo);
+    this.#memoGridView.render();
+  }
+
+  #onDeleteNoteButtonClick({ target }) {
+    if (target.className !== 'memo__erase-button icon-button') return;
+
+    const { createdAt } = target.closest('.memo').dataset;
+
+    this.#memoGridViewModel.deleteMemo(createdAt);
     this.#memoGridView.render();
   }
 }
