@@ -1,0 +1,25 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__item {
+    padding: 16px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-hover;
+    }
+  }
+
+  &__img {
+    width: 32px;
+  }
+
+  &__text {
+    font-size: 24px;
+  }
+}

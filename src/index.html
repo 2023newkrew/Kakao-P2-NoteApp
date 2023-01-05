@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keep App</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <nav class="nav">
+        <button class="nav__button nav__button--toggle-aside">
+          <img src="assets/menu.png" alt="Menu" class="nav__img" />
+        </button>
+        <h1 class="nav__title">Keep</h1>
+        <button class="nav__button nav__button--toggle-view-mode">
+          <img src="assets/list.png" alt="List" class="nav__img" data-hidden="true" />
+          <img src="assets/grid.png" alt="Grid" class="nav__img" />
+        </button>
+        <button class="nav__button nav__button--user">
+          <img src="assets/user.png" alt="User" class="nav__img" />
+        </button>
+      </nav>
+    </header>
+    <main class="main">
+      <aside class="aside">
+        <ul class="side-menu">
+          <li class="side-menu__item">
+            <img src="assets/notes.svg" alt="Notes" class="side-menu__img" />
+            <div class="side-menu__text">Notes</div>
+          </li>
+          <li class="side-menu__item">
+            <img src="assets/reminder.png" alt="Reminders" class="side-menu__img" />
+            <div class="side-menu__text">Reminders</div>
+          </li>
+          <li class="side-menu__item">
+            <img src="assets/settings.svg" alt="Settings" class="side-menu__img" />
+            <div class="side-menu__text">Settings</div>
+          </li>
+        </ul>
+      </aside>
+      <section class="memos">
+        <article class="memo">Sample Memo</article>
+        <article class="memo">Sample Memo</article>
+        <article class="memo">Sample Memo</article>
+        <article class="memo memo--input">
+          <textarea class="input__textarea"></textarea>
+          <div class="input__counter"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
