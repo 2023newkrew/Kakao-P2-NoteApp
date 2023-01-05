@@ -22,7 +22,7 @@ class App extends Component {
     const sidebarEl = this.$target.querySelector(".sidebar__container");
     const noteEl = this.$target.querySelector(".note__container");
 
-    new Header(headerEl, { sidebarEl: sidebarEl });
+    new Header(headerEl, { sidebarEl: sidebarEl, noteEl: noteEl });
     new Sidebar(sidebarEl);
     new NoteContainer(noteEl);
 

@@ -1,7 +1,5 @@
 import sidebarImg from "@/assets/menu.png";
 import logoImg from "@/assets/logo.png";
-import toggleGridImg from "@/assets/grid.png";
-import toggleListImg from "@/assets/list.png";
 import userImg from "@/assets/user.png";
 import notesImg from "@/assets/notes.svg";
 import reminderImg from "@/assets/reminder.png";
@@ -13,12 +11,6 @@ export default function importImages() {
 
   const logoButton = document.querySelector(".logo-button");
   logoButton.src = logoImg;
-
-  const toggleGridButton = document.querySelector(".note-toggle-button--grid");
-  toggleGridButton.src = toggleGridImg;
-
-  const toggleListButton = document.querySelector(".note-toggle-button--list");
-  toggleListButton.src = toggleListImg;
 
   const userButton = document.querySelector(".user-button");
   userButton.src = userImg;

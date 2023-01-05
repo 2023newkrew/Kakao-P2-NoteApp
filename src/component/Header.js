@@ -15,16 +15,6 @@ export default class Header extends Component {
       </div>
       <div class="header__buttons">
         <button class="header__note-toggle-button">
-          <img
-            class="note-toggle-button--grid"
-            src=""
-            alt="note toggle grid"
-          />
-          <img
-            class="note-toggle-button--list hide"
-            src=""
-            alt="note toggle list"
-          />
         </button>
         <button class="header__user-button">
           <img class="user-button" src="" alt="user" />
@@ -35,11 +25,22 @@ export default class Header extends Component {
   }
   setEvent() {
     this.$target.addEventListener("click", this.toggleSidebar.bind(this));
+    this.$target.addEventListener("click", this.toggleNoteStyle.bind(this));
   }
 
   toggleSidebar({ target }) {
-    if (target.classList.contains("header__sidebar-button")) {
+    if (
+      target.classList.contains("header__sidebar-button") ||
+      target.classList.contains("sidebar-button")
+    ) {
       this.$props.sidebarEl.classList.toggle("hide");
+    }
+  }
+
+  toggleNoteStyle({ target }) {
+    if (target.classList.contains("header__note-toggle-button")) {
+      this.$props.noteEl.classList.toggle("list");
+      target.classList.toggle("list");
     }
   }
 }

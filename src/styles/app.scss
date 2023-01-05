@@ -1,5 +1,6 @@
 $color--black: #000000;
 $color--light-gray: #dbdbdb;
+$color--gray: #8c8c8c;
 
 @mixin flex-container {
   display: flex;
@@ -22,6 +23,17 @@ $color--light-gray: #dbdbdb;
   &__buttons {
     @include flex-container;
     gap: 10px;
+  }
+
+  &__note-toggle-button {
+    width: 24px;
+    height: 24px;
+    background-image: url("@/assets/grid.png");
+    background-size: cover;
+
+    &.list {
+      background-image: url("@/assets/list.png");
+    }
   }
 
   .hide {
@@ -74,12 +86,35 @@ $color--light-gray: #dbdbdb;
     @include flex-container;
     padding: 40px 118px;
     flex-wrap: wrap;
+    gap: 40px;
+
     .note {
       width: 200px;
       height: 200px;
       border: 1px solid $color--light-gray;
-      margin: 20px;
       padding: 20px;
+      background-color: rgb(195, 229, 242);
+      color: $color--gray;
+      border-radius: 10px;
+    }
+
+    .note__content {
+      margin: 10px;
+    }
+  }
+
+  &.list {
+    .notes {
+      display: block;
+      padding: 40px 118px;
+
+      .note {
+        width: auto;
+        height: 100px;
+        border: 1px solid $color--light-gray;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
     }
   }
 }
