@@ -1,4 +1,5 @@
 import { createElementFromHtml } from "./utils/dom";
+import { loadData, saveData } from "./utils/localStorage";
 
 function createMemoEl({ id, memo }) {
   return createElementFromHtml(`<article class="memo" data-id="${id}">
@@ -11,25 +12,25 @@ function createMemoEl({ id, memo }) {
 
 function addMemo(memo) {
   const inputEl = document.body.querySelector(".input");
-  const memos = JSON.parse(localStorage.getItem("memos")) || {};
+  const memos = loadData("memos") || {};
   const id = Date.now();
 
   inputEl.insertAdjacentElement("beforebegin", createMemoEl({ id, memo }));
   memos[id] = memo;
-  localStorage.setItem("memos", JSON.stringify(memos));
+  saveData({ key: "memos", data: memos });
 }
 
 function removeMemo(id) {
-  const memos = JSON.parse(localStorage.getItem("memos")) || {};
+  const memos = loadData("memos") || {};
 
   delete memos[id];
-  localStorage.setItem("memos", JSON.stringify(memos));
+  saveData({ key: "memos", data: memos });
 }
 
 function initMemos() {
   const memosEl = document.body.querySelector(".memos");
   const inputEl = document.body.querySelector(".input");
-  const memos = JSON.parse(localStorage.getItem("memos")) || {};
+  const memos = loadData("memos") || {};
 
   Object.entries(memos).forEach(([id, memo]) => {
     inputEl.insertAdjacentElement("beforebegin", createMemoEl({ id, memo }));
