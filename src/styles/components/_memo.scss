@@ -5,14 +5,26 @@
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 8px;
+  overflow: auto;
   background-color: $color-background-15;
+
+  &[data-list-view="true"] {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 }
 
 .memo {
   width: 200px;
   height: 200px;
   padding: 8px;
+  flex-shrink: 0;
   font-size: 24px;
   border: 2px solid $color-border;
   background-color: $color-background-30;
+
+  [data-list-view="true"] & {
+    width: unset;
+    height: 100px;
+  }
 }
