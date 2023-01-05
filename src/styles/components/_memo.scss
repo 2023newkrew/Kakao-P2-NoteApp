@@ -4,6 +4,8 @@
   border: 1px solid $divider-color;
   border-radius: 16px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   .memo__header {
     width: 100%;
@@ -33,12 +35,24 @@
       }
     }
   }
+
+  .memo-body {
+    overflow: scroll;
+    flex: 1;
+  }
+
+  .memo-content {
+    padding: 16px;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+  }
 }
 
 .card-grid--grid-mode > .memo {
-  aspect-ratio: 1 / 1;
+  height: 300px;
 }
 
 .card-grid--list-mode > .memo {
   min-height: 200px;
+  max-height: 300px;
 }
