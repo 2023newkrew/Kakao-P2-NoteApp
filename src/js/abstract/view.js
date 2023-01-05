@@ -6,9 +6,7 @@ import {
 export default class View {
   constructor() {
     if (new.target === View) {
-      throw new DirectlyConstructedAbstractException(
-        'Cannot construct Abstract instances directly',
-      );
+      throw new DirectlyConstructedAbstractException();
     }
   }
 

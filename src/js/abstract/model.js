@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import {
   AbstractMethodNotImplementedException,
   DirectlyConstructedAbstractException,
@@ -7,9 +6,7 @@ import {
 export default class Model {
   constructor() {
     if (new.target === Model) {
-      throw new DirectlyConstructedAbstractException(
-        'Cannot construct Abstract instances directly',
-      );
+      throw new DirectlyConstructedAbstractException();
     }
   }
 
