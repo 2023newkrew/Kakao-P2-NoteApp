@@ -1,10 +1,11 @@
 import className from './index.scss';
-import { createDocumentFragment, EMPTY_STRING, pipe } from '../../utils';
+import { createDocumentFragment, EMPTY_STRING } from '../../utils';
 
 const createNoteHTML = ({ id, content, isSelected }) => `<li class="${className.note} ${isSelected ? className.selected : EMPTY_STRING}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
 
 const createNoteComponent = ({ id, initialContent, initialIsSelected }) => {
-  const documentFragment = pipe(createNoteHTML, createDocumentFragment)({ id, content: initialContent, isSelected: initialIsSelected });
+  const noteHTML = createNoteHTML({ id, content: initialContent, isSelected: initialIsSelected });
+  const documentFragment = createDocumentFragment(noteHTML);
   const noteElement = documentFragment.querySelector(`.${className.note}`);
   const noteContentElement = documentFragment.querySelector(`.${className.content}`);
 

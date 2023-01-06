@@ -1,6 +1,6 @@
 import className from './index.scss';
 
-import { createDocumentFragment, EMPTY_STRING, pipe } from '../../utils';
+import { createDocumentFragment, EMPTY_STRING } from '../../utils';
 
 const Attribute = {
   DISABLED: 'disabled',
@@ -12,7 +12,8 @@ const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="${c
 </div>`;
 
 const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initialText, initialDisabled, maxTextLength }) => {
-  const documentFragment = pipe(createEditorHTML, createDocumentFragment)({ text: initialText, disabled: initialDisabled, maxTextLength });
+  const editorHTML = createEditorHTML({ text: initialText, disabled: initialDisabled, maxTextLength });
+  const documentFragment = createDocumentFragment(editorHTML);
 
   const textareaElement = documentFragment.querySelector(`.${className.textarea}`);
   const textCounterElement = documentFragment.querySelector(`.${className.textCounter}`);
