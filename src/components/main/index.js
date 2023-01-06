@@ -13,7 +13,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     selectedNoteId: null,
   };
 
-  const handleClickNewNoteButton = () => {
+  const handleNewNoteButtonClick = () => {
     const newNote = createNote({ content: '새로운 노트' });
 
     state.notes.push(newNote);
@@ -44,7 +44,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     updateEditorComponent();
   };
 
-  const handleInputEditor = (event) => {
+  const handleEditorInput = (event) => {
     const { value } = event.target;
     const { notes, selectedNoteId } = state;
     notes.find(({ id }) => id === selectedNoteId).content = value;
@@ -61,10 +61,10 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     }
   });
 
-  const editorComponent = createEditorComponent({ handleInputEditor, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
+  const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
   mainElement.appendChild(editorComponent.documentFragment);
 
-  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, handleClickNote: setSelectedNoteId, handleClickNewNoteButton });
+  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: setSelectedNoteId, onNewNoteButtonClick: handleNewNoteButtonClick });
   mainElement.appendChild(noteListComponent.documentFragment);
 
   return { documentFragment };

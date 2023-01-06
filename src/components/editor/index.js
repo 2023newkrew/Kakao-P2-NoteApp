@@ -11,7 +11,7 @@ const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="${c
   <div class="${className.textCounter}"></div>
 </div>`;
 
-const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initialText, initialDisabled, maxTextLength }) => {
+const createEditorComponent = ({ onInput, onFocusout, initialText, initialDisabled, maxTextLength }) => {
   const editorHTML = createEditorHTML({ text: initialText, disabled: initialDisabled, maxTextLength });
   const documentFragment = createDocumentFragment(editorHTML);
 
@@ -24,12 +24,12 @@ const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initia
   };
 
   textareaElement.addEventListener('input', (event) => {
-    handleInputEditor(event);
+    onInput(event);
     renderTextCount(event.target.value.length);
   });
 
   textareaElement.addEventListener('focusout', () => {
-    if (handleFocusoutEditor) handleFocusoutEditor();
+    if (onFocusout) onFocusout();
   });
 
   const setValue = (value) => {

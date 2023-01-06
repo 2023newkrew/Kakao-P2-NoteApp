@@ -21,12 +21,12 @@ const createNoteComponent = ({ id, initialContent, initialIsSelected }) => {
   return { id, documentFragment, noteElement, setContent, setIsSelected };
 };
 
-const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, handleClickNote, handleClickNewNoteButton }) => {
+const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteClick, onNewNoteButtonClick }) => {
   const documentFragment = createDocumentFragment(`<ul class="${className.notes}"><button class="${className.newNoteButton}">+</button></ul>`);
   const noteListElment = documentFragment.querySelector(`.${className.notes}`);
 
   const newNoteButton = documentFragment.querySelector(`.${className.newNoteButton}`);
-  newNoteButton.addEventListener('click', handleClickNewNoteButton);
+  newNoteButton.addEventListener('click', onNewNoteButtonClick);
 
   const state = {
     selectedNoteId: initialSelectedNoteId,
@@ -65,7 +65,7 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, handleCl
 
   noteListElment.addEventListener('click', (event) => {
     const noteElement = event.target.closest(`.${className.note}`);
-    if (noteElement) handleClickNote(noteElement.dataset.id);
+    if (noteElement) onNoteClick(noteElement.dataset.id);
   });
 
   return { documentFragment, setNoteContent, addNote, removeNote, setSelectedNoteId };
