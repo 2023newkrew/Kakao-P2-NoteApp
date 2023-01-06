@@ -42,7 +42,7 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
 
   const findNoteComponentById = (targetId) => noteComponents.find(({ id }) => id === targetId );
 
-  const setNoteContent = ({ id, content }) => {
+  const editNote = ({ id, content }) => {
     const noteComponent = findNoteComponentById(id);
     noteComponent.setContent(content);
   };
@@ -54,17 +54,17 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
     noteListElment.appendChild(newNoteButton);
   };
 
-  const removeNote = (id) => {
+  const removeNoteById = (id) => {
     const noteComponent = findNoteComponentById(id);
     noteComponents.splice(noteComponents.indexOf(noteComponent), 1);
     noteListElment.removeChild(noteComponent.noteElement);
     if (state.selectedNoteId === id) state.selectedNoteId = null;
   };
 
-  const setSelectedNoteId = (selectedNoteId) => {
+  const selectNoteById = (id) => {
     if (state.selectedNoteId) findNoteComponentById(state.selectedNoteId).setEmphasisStatus(false);
-    state.selectedNoteId = selectedNoteId;
-    findNoteComponentById(selectedNoteId).setEmphasisStatus(true);
+    state.selectedNoteId = id;
+    findNoteComponentById(id).setEmphasisStatus(true);
   };
 
   noteListElment.addEventListener('click', (event) => {
@@ -72,7 +72,7 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
     if (noteElement) onNoteClick(noteElement.dataset.id);
   });
 
-  return { documentFragment, setNoteContent, addNote, removeNote, setSelectedNoteId };
+  return { documentFragment, editNote, addNote, removeNoteById, selectNoteById };
 };
 
 export { createNoteListComponent };

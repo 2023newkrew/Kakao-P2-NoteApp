@@ -32,7 +32,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   const setSelectedNoteId = (noteId) => {
     state.selectedNoteId = noteId;
-    noteListComponent.setSelectedNoteId(noteId);
+    noteListComponent.selectNoteById(noteId);
     updateEditorComponent();
     editorComponent.focus();
   };
@@ -40,7 +40,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const removeNote = (noteId) => {
     state.selectedNoteId = null;
     state.notes = state.notes.filter(({ id }) => id !== noteId);
-    noteListComponent.removeNote(noteId);
+    noteListComponent.removeNoteById(noteId);
     updateEditorComponent();
   };
 
@@ -48,7 +48,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     const { value } = event.target;
     const { notes, selectedNoteId } = state;
     notes.find(({ id }) => id === selectedNoteId).content = value;
-    noteListComponent.setNoteContent({ id: selectedNoteId, content: value });
+    noteListComponent.editNote({ id: selectedNoteId, content: value });
   };
 
   const documentFragment = createDocumentFragment(`<main class="${className.main}"></main>`);
