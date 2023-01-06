@@ -24,7 +24,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const updateEditorComponent = () => {
     const { notes, selectedNoteId } = state;
 
-    editorComponent.setDisability(!selectedNoteId);
+    editorComponent.setDisabled(!selectedNoteId);
     if (!selectedNoteId) return;
 
     editorComponent.setValue(notes.find(({ id }) => id === selectedNoteId).content);
