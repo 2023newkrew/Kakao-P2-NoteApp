@@ -4,6 +4,4 @@ const createDocumentFragment = (html) => {
   return templateElement.content;
 };
 
-const EMPTY_STRING = '';
-
-export { createDocumentFragment, EMPTY_STRING };
+export { createDocumentFragment };

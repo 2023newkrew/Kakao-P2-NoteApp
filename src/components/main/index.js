@@ -1,7 +1,7 @@
 import className from './index.scss';
 
 import { createNote } from '../../entities/note';
-import { createDocumentFragment, EMPTY_STRING } from '../../utils';
+import { createDocumentFragment } from '../../utils';
 import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
@@ -61,7 +61,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     }
   });
 
-  const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
+  const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: '', initialDisabled: true, maxTextLength });
   mainElement.appendChild(editorComponent.documentFragment);
 
   const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: selectNoteById, onNewNoteButtonClick: handleNewNoteButtonClick });

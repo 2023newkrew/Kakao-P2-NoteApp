@@ -1,7 +1,7 @@
 import className from './index.scss';
-import { createDocumentFragment, EMPTY_STRING } from '../../utils';
+import { createDocumentFragment } from '../../utils';
 
-const createNoteHTML = ({ id, content, emphasisStatus }) => `<li class="${className.note} ${emphasisStatus ? className.empasis : EMPTY_STRING}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
+const createNoteHTML = ({ id, content, emphasisStatus }) => `<li class="${className.note} ${emphasisStatus ? className.empasis : ''}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
 
 const createNoteComponent = ({ id, initialContent, initialEmphasisStatus }) => {
   const noteHTML = createNoteHTML({ id, content: initialContent, emphasisStatus: initialEmphasisStatus });

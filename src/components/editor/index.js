@@ -1,13 +1,13 @@
 import className from './index.scss';
 
-import { createDocumentFragment, EMPTY_STRING } from '../../utils';
+import { createDocumentFragment } from '../../utils';
 
 const Attribute = {
   DISABLED: 'disabled',
 };
 
 const createEditorHTML = ({ text, disabled, maxTextLength }) => `<div class="${className.editor}">
-  <textarea class="${className.textarea}" maxlength="${maxTextLength}" rows="2" ${disabled ? Attribute.DISABLED : EMPTY_STRING}>${text}</textarea>
+  <textarea class="${className.textarea}" maxlength="${maxTextLength}" rows="2" ${disabled ? Attribute.DISABLED : ''}>${text}</textarea>
   <div class="${className.textCounter}"></div>
 </div>`;
 
@@ -39,7 +39,7 @@ const createEditorComponent = ({ onInput, onFocusout, initialText, initialDisabl
 
   const setDisability = (disability) => {
     if (disability) {
-      textareaElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
+      textareaElement.setAttribute(Attribute.DISABLED, '');
     } else {
       textareaElement.removeAttribute(Attribute.DISABLED);
     }
