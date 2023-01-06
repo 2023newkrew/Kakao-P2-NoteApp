@@ -1,11 +1,12 @@
 import className from './index.scss';
 import { createDocumentFragment, EMPTY_STRING } from '../../utils';
 
-const createNoteHTML = ({ id, content, isSelected }) => `<li class="${className.note} ${isSelected ? className.selected : EMPTY_STRING}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
+const createNoteHTML = ({ id, content, emphasisStatus }) => `<li class="${className.note} ${emphasisStatus ? className.empasis : EMPTY_STRING}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
 
-const createNoteComponent = ({ id, initialContent, initialIsSelected }) => {
-  const noteHTML = createNoteHTML({ id, content: initialContent, isSelected: initialIsSelected });
+const createNoteComponent = ({ id, initialContent, initialEmphasisStatus }) => {
+  const noteHTML = createNoteHTML({ id, content: initialContent, emphasisStatus: initialEmphasisStatus });
   const documentFragment = createDocumentFragment(noteHTML);
+
   const noteElement = documentFragment.querySelector(`.${className.note}`);
   const noteContentElement = documentFragment.querySelector(`.${className.content}`);
 
@@ -13,12 +14,15 @@ const createNoteComponent = ({ id, initialContent, initialIsSelected }) => {
     noteContentElement.textContent = content;
   };
 
-  const setIsSelected = (isSelected) => {
-    if (isSelected) noteElement.classList.add(className.selected);
-    else noteElement.classList.remove(className.selected);
+  const setEmphasisStatus = (emphasisStatus) => {
+    if (emphasisStatus) {
+      noteElement.classList.add(className.empasis);
+    } else {
+      noteElement.classList.remove(className.empasis);
+    }
   };
 
-  return { id, documentFragment, noteElement, setContent, setIsSelected };
+  return { id, documentFragment, noteElement, setContent, setEmphasisStatus };
 };
 
 const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteClick, onNewNoteButtonClick }) => {
@@ -32,7 +36,7 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
     selectedNoteId: initialSelectedNoteId,
   };
 
-  const noteComponents = initialNotes.map(({ id, content }) => createNoteComponent({ id, initialContent: content, initialIsSelected: id === initialSelectedNoteId }));
+  const noteComponents = initialNotes.map(({ id, content }) => createNoteComponent({ id, initialContent: content, initialEmphasisStatus: id === initialSelectedNoteId }));
   noteComponents.forEach(({ documentFragment }) => noteListElment.appendChild(documentFragment));
   noteListElment.appendChild(newNoteButton);
 
@@ -58,9 +62,9 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
   };
 
   const setSelectedNoteId = (selectedNoteId) => {
-    if (state.selectedNoteId) findNoteComponentById(state.selectedNoteId).setIsSelected(false);
+    if (state.selectedNoteId) findNoteComponentById(state.selectedNoteId).setEmphasisStatus(false);
     state.selectedNoteId = selectedNoteId;
-    findNoteComponentById(selectedNoteId).setIsSelected(true);
+    findNoteComponentById(selectedNoteId).setEmphasisStatus(true);
   };
 
   noteListElment.addEventListener('click', (event) => {
