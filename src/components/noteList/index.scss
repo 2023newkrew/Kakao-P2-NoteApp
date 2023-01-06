@@ -9,18 +9,20 @@
     cursor: pointer;
     width: 8rem;
     height: 8rem;
-    overflow: hidden;
     word-wrap: break-word;
     word-break: keep-all;
 
     padding: 1rem;
     border-radius: 8px;
-    border: 2px solid #fe8;
     background-color: #fe8;
+    overflow: scroll;
+
+    .content {
+      color: inherit;
+    }
   }
 
   .emphasis {
-    border: 2px solid orange;
     background-color: orange;
 
     transform: scale(112.5%);
