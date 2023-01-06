@@ -5,7 +5,12 @@ import { createDocumentFragment } from '../../utils';
 import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
-const DELETE_KEY_CODE = 8;
+const KeyCode = {
+  BACKSPACE: 'Backspace',
+  KEY_K: 'KeyK',
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_RIGHT: 'ArrowRight',
+};
 
 const createMainComponent = ({ initialNotes, maxTextLength }) => {
   const state = {
@@ -13,9 +18,10 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     selectedNoteId: null,
   };
 
-  const handleNewNoteButtonClick = () => {
-    const newNote = createNote({ content: '새로운 노트' });
+  const getSelectedNote = () => state.notes.find(({ id }) => id === state.selectedNoteId);
 
+  const addNewNote = () => {
+    const newNote = createNote({ content: '새로운 노트' });
     state.notes.push(newNote);
     noteListComponent.addNote(newNote);
     selectNoteById(newNote.id);
@@ -55,16 +61,46 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   const mainElement = documentFragment.querySelector(`.${className.main}`);
 
-  mainElement.addEventListener('keydown', (event) => {
-    if (state.selectedNoteId && event.keyCode === DELETE_KEY_CODE && event.metaKey) {
-      removeNoteById(state.selectedNoteId);
+  const getPreviousNote = () => {
+    const { notes } = state;
+    return notes[notes.indexOf(getSelectedNote()) - 1] ?? notes[notes.length - 1];
+  };
+
+  const getNextNote = () => {
+    const { notes } = state;
+    return notes[notes.indexOf(getSelectedNote()) + 1] ?? notes[0];
+  };
+
+  const handleWindowKeydown = (event) => {
+    if (!event.metaKey) return;
+
+    switch (event.code) {
+      case KeyCode.BACKSPACE:
+        if (state.selectedNoteId) removeNoteById(state.selectedNoteId);
+        break;
+
+      case KeyCode.KEY_K:
+        addNewNote();
+        break;
+
+      case KeyCode.ARROW_LEFT:
+        selectNoteById(getPreviousNote().id);
+        event.preventDefault();
+        break;
+
+      case KeyCode.ARROW_RIGHT:
+        selectNoteById(getNextNote().id);
+        event.preventDefault();
+        break;
     }
-  });
+  };
+
+  window.addEventListener('keydown', handleWindowKeydown);
 
   const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: '', initialDisabled: true, maxTextLength });
   mainElement.appendChild(editorComponent.documentFragment);
 
-  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: selectNoteById, onNewNoteButtonClick: handleNewNoteButtonClick });
+  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: selectNoteById, onNewNoteButtonClick: addNewNote });
   mainElement.appendChild(noteListComponent.documentFragment);
 
   return { documentFragment };
