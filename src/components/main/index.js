@@ -18,7 +18,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
     state.notes.push(newNote);
     noteListComponent.addNote(newNote);
-    setSelectedNoteId(newNote.id);
+    selectNoteById(newNote.id);
   };
 
   const updateEditorComponent = () => {
@@ -30,14 +30,14 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     editorComponent.setValue(notes.find(({ id }) => id === selectedNoteId).content);
   };
 
-  const setSelectedNoteId = (noteId) => {
+  const selectNoteById = (noteId) => {
     state.selectedNoteId = noteId;
     noteListComponent.selectNoteById(noteId);
     updateEditorComponent();
     editorComponent.focus();
   };
 
-  const removeNote = (noteId) => {
+  const removeNoteById = (noteId) => {
     state.selectedNoteId = null;
     state.notes = state.notes.filter(({ id }) => id !== noteId);
     noteListComponent.removeNoteById(noteId);
@@ -57,14 +57,14 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   mainElement.addEventListener('keydown', (event) => {
     if (state.selectedNoteId && event.keyCode === DELETE_KEY_CODE && event.metaKey) {
-      removeNote(state.selectedNoteId);
+      removeNoteById(state.selectedNoteId);
     }
   });
 
   const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
   mainElement.appendChild(editorComponent.documentFragment);
 
-  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: setSelectedNoteId, onNewNoteButtonClick: handleNewNoteButtonClick });
+  const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: selectNoteById, onNewNoteButtonClick: handleNewNoteButtonClick });
   mainElement.appendChild(noteListComponent.documentFragment);
 
   return { documentFragment };
