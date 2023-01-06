@@ -8,8 +8,6 @@ import { createNoteListComponent } from '../noteList';
 const KeyCode = {
   BACKSPACE: 'Backspace',
   KEY_K: 'KeyK',
-  ARROW_LEFT: 'ArrowLeft',
-  ARROW_RIGHT: 'ArrowRight',
 };
 
 const createMainComponent = ({ initialNotes, maxTextLength }) => {
@@ -17,8 +15,6 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     notes: initialNotes,
     selectedNoteId: null,
   };
-
-  const getSelectedNote = () => state.notes.find(({ id }) => id === state.selectedNoteId);
 
   const addNewNote = () => {
     const newNote = createNote({ content: '새로운 노트' });
@@ -61,16 +57,6 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   const mainElement = documentFragment.querySelector(`.${className.main}`);
 
-  const getPreviousNote = () => {
-    const { notes } = state;
-    return notes[notes.indexOf(getSelectedNote()) - 1] ?? notes[notes.length - 1];
-  };
-
-  const getNextNote = () => {
-    const { notes } = state;
-    return notes[notes.indexOf(getSelectedNote()) + 1] ?? notes[0];
-  };
-
   const handleWindowKeydown = (event) => {
     if (!event.metaKey) return;
 
@@ -81,16 +67,6 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
       case KeyCode.KEY_K:
         addNewNote();
-        break;
-
-      case KeyCode.ARROW_LEFT:
-        selectNoteById(getPreviousNote().id);
-        event.preventDefault();
-        break;
-
-      case KeyCode.ARROW_RIGHT:
-        selectNoteById(getNextNote().id);
-        event.preventDefault();
         break;
     }
   };
