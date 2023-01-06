@@ -1,7 +1,6 @@
-import { createNote } from "../../entities/note";
-import { createMainComponent } from "../main";
-
-const withDefaultProps = (createComponent, defaultProps) => (props) => createComponent({ ...defaultProps, ...props });
+import { createNote } from '../../entities/note';
+import { withDefaultProps } from '../../hoc';
+import { createMainComponent } from '../main';
 
 const DEFAULT_MAX_TEXT_LENGTH = 20;
 

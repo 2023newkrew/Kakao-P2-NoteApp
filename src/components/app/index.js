@@ -2,7 +2,7 @@ import './index.scss';
 
 import { createHeaderComponent } from '../header';
 import { createNavigatorComponent } from '../navigator';
-import { createMainComponentWithDefaultProps } from '../hoc';
+import { createMainComponentWithDefaultProps } from '../mainWithDefaultProps';
 
 const createAppComponent = () => {
   const documentFragment = document.createDocumentFragment();
