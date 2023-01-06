@@ -11,19 +11,19 @@ import Snackbar from "./component/Snackbar";
 
 class App extends Component {
   template() {
-    return `<header class="header"></header>
-    <main class="main__container">
-      <aside class="sidebar__container"></aside>
-      <section class="note__container"></section>
-      <section class="snackbar__container"></section>
+    return `<header id="header-container"></header>
+    <main id="main__container">
+      <aside id="sidebar__container"></aside>
+      <section id="note__container"></section>
+      <section id="snackbar__container"></section>
     </main>
     `;
   }
   mounted() {
-    const headerEl = this.$target.querySelector(".header");
-    const sidebarEl = this.$target.querySelector(".sidebar__container");
-    const noteEl = this.$target.querySelector(".note__container");
-    const snackbarEl = this.$target.querySelector(".snackbar__container");
+    const headerEl = this.$target.querySelector("#header-container");
+    const sidebarEl = this.$target.querySelector("#sidebar__container");
+    const noteEl = this.$target.querySelector("#note__container");
+    const snackbarEl = this.$target.querySelector("#snackbar__container");
 
     const snackbar = new Snackbar(snackbarEl);
 
@@ -35,5 +35,5 @@ class App extends Component {
   }
 }
 
-const appEl = document.querySelector(".body");
+const appEl = document.querySelector("#app");
 new App(appEl);

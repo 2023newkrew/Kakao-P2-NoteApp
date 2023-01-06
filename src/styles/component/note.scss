@@ -1,7 +1,7 @@
-.note__container {
+#note__container {
   width: 100%;
 
-  .note-input {
+  #note-input {
     width: 100%;
     height: 50px;
     &__wrapper {
@@ -10,7 +10,7 @@
     }
   }
 
-  .notes {
+  #notes {
     @include flex-container;
     padding: 40px 118px;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@
   }
 
   &.list {
-    .notes {
+    #notes {
       display: block;
       padding: 40px 118px;
 

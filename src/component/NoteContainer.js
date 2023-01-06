@@ -9,13 +9,15 @@ export default class NoteContainer extends Component {
     console.log(this.addNoteText);
   }
   template() {
-    return `<div class="note-input__wrapper"></div>
-        <ul class="notes"></ul>
+    return `<div id="note-input__wrapper"></div>
+        <ul id="notes"></ul>
     `;
   }
   mounted() {
-    const noteInputWrapperEl = document.querySelector(".note-input__wrapper");
-    const notesEl = document.querySelector(".notes");
+    const noteInputWrapperEl = this.$target.querySelector(
+      "#note-input__wrapper"
+    );
+    const notesEl = this.$target.querySelector("#notes");
     new NoteInput(noteInputWrapperEl, {
       addNoteText: this.addNoteText.bind(this),
     });

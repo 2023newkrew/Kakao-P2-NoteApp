@@ -6,13 +6,13 @@ import reminderImg from "@/assets/reminder.png";
 import settingsImg from "@/assets/settings.svg";
 
 export default function importImages() {
-  const sidebarButton = document.querySelector(".sidebar-button");
+  const sidebarButton = document.querySelector("#sidebar-button");
   sidebarButton.src = sidebarImg;
 
-  const logoButton = document.querySelector(".logo-button");
+  const logoButton = document.querySelector("#logo-button");
   logoButton.src = logoImg;
 
-  const userButton = document.querySelector(".user-button");
+  const userButton = document.querySelector("#user-button");
   userButton.src = userImg;
 
   const notesButton = document.querySelector(".menu__icon.menu--notes");

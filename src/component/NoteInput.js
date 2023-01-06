@@ -8,8 +8,8 @@ export default class NoteInput extends Component {
   }
 
   template() {
-    return ` <input class="note-input" type="text" autofocus />
-    <div class="note-input__info-text"></div>
+    return ` <input id="note-input" type="text" autofocus />
+    <div id="note-input__info-text"></div>
     `;
   }
 
@@ -25,7 +25,7 @@ export default class NoteInput extends Component {
   }
 
   handleOnChange({ target }) {
-    if (target.classList.contains("note-input")) {
+    if (target.id === "note-input") {
       const text = target.value;
       let textSize = text.length;
       if (textSize > this.$state.maxTextLength) {
@@ -38,7 +38,7 @@ export default class NoteInput extends Component {
     }
   }
   handleOnkeydownEnter({ code, target }) {
-    if (target.classList.contains("note-input")) {
+    if (target.id === "note-input") {
       if (code === "Enter") {
         this.$props.addNoteText(target.value);
       }
@@ -47,7 +47,7 @@ export default class NoteInput extends Component {
 
   setNoteInputText(textSize) {
     const noteInputTextEl = this.$target.querySelector(
-      ".note-input__info-text"
+      "#note-input__info-text"
     );
     new NoteInputText(noteInputTextEl, {
       textSize: textSize,

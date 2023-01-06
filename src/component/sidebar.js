@@ -3,7 +3,7 @@ import Component from "@/component/Component"; // component 위치 변경
 export default class Sidebar extends Component {
   template() {
     return `
-    <ul class="sidebar__menu-list">
+    <ul id="sidebar__menu-list">
       <li class="sidebar__menu">
         <a class="menu__wrapper">
           <img class="menu__icon menu--notes" src="" alt="notes menu" />

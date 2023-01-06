@@ -4,20 +4,20 @@ import Component from "@/component/Component"; // component 위치 변경
 export default class Header extends Component {
   template() {
     return `
-    <nav class="header__content">
+    <nav id="header__content">
       <div class="header__buttons">
-        <button class="header__sidebar-button">
-          <img class="sidebar-button" src="" alt="side bar" />
+        <button id="header__sidebar-button">
+          <img id="sidebar-button" src="" alt="side bar" />
         </button>
-        <button class="header__logo-button">
-          <img class="logo-button" src="" alt="logo" />
+        <button id="header__logo-button">
+          <img id="logo-button" src="" alt="logo" />
         </button>
       </div>
       <div class="header__buttons">
-        <button class="header__note-toggle-button">
+        <button id="header__note-toggle-button">
         </button>
-        <button class="header__user-button">
-          <img class="user-button" src="" alt="user" />
+        <button id="header__user-button">
+          <img id="user-button" src="" alt="user" />
         </button>
       </div>
     </nav>
@@ -30,15 +30,15 @@ export default class Header extends Component {
 
   toggleSidebar({ target }) {
     if (
-      target.classList.contains("header__sidebar-button") ||
-      target.classList.contains("sidebar-button")
+      target.id === "header__sidebar-button" ||
+      target.id === "sidebar-button"
     ) {
       this.$props.sidebarEl.classList.toggle("hide");
     }
   }
 
   toggleNoteStyle({ target }) {
-    if (target.classList.contains("header__note-toggle-button")) {
+    if (target.id === "header__note-toggle-button") {
       this.$props.noteEl.classList.toggle("list");
       target.classList.toggle("list");
     }

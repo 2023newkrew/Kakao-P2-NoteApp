@@ -1,17 +1,17 @@
-.header {
+#header-container {
   padding: 16px;
   border-bottom: 2px solid $color--light-gray;
 
-  &__content {
+  #header__content {
     @include flex-container;
     justify-content: space-between;
   }
-  &__buttons {
+  .header__buttons {
     @include flex-container;
     gap: 10px;
   }
 
-  &__note-toggle-button {
+  #header__note-toggle-button {
     width: 24px;
     height: 24px;
     background-image: url("@/assets/grid.png");
@@ -22,11 +22,11 @@
     }
   }
 
+  #logo-button {
+    width: 80px;
+  }
+
   .hide {
     display: none;
   }
-}
-
-.logo-button {
-  width: 80px;
 }

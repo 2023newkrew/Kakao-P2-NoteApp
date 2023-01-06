@@ -6,7 +6,7 @@ export default class Snackbar extends Component {
   }
   template() {
     return `
-    <div class="snackbar__text">${this.$state.text}</div>
+    <div id="snackbar__text">${this.$state.text}</div>
     `;
   }
 
