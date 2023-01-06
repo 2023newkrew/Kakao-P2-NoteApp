@@ -38,8 +38,11 @@ const createEditorComponent = ({ handleInputEditor, handleFocusoutEditor, initia
   };
 
   const setDisabled = (disabled) => {
-    if (disabled) textareaElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
-    else textareaElement.removeAttribute(Attribute.DISABLED);
+    if (disabled) {
+      textareaElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
+    } else {
+      textareaElement.removeAttribute(Attribute.DISABLED);
+    }
   };
 
   const focus = () => {
