@@ -37,8 +37,8 @@ const createEditorComponent = ({ onInput, onFocusout, initialText, initialDisabl
     renderTextCount(value.length);
   };
 
-  const setDisabled = (disabled) => {
-    if (disabled) {
+  const setDisability = (disability) => {
+    if (disability) {
       textareaElement.setAttribute(Attribute.DISABLED, EMPTY_STRING);
     } else {
       textareaElement.removeAttribute(Attribute.DISABLED);
@@ -51,7 +51,7 @@ const createEditorComponent = ({ onInput, onFocusout, initialText, initialDisabl
 
   renderTextCount(initialText.length);
 
-  return { documentFragment, setValue, setDisabled, focus };
+  return { documentFragment, setValue, setDisability, focus };
 };
 
 export { createEditorComponent };
