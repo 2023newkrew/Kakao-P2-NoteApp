@@ -23,9 +23,8 @@ export default class NoteContainer extends Component {
   }
 
   addNoteText(text) {
-    console.log(this);
     const newNoteTexts = this.$state.noteTexts.concat(text);
-
+    this.$props.snackbar.showSnackbar("노트를 추가했습니다.");
     this.setState({ noteTexts: newNoteTexts });
   }
 }
