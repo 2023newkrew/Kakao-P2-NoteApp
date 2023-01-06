@@ -1,7 +1,7 @@
 import className from './index.scss';
 import { createDocumentFragment } from '../../utils';
 
-const createNoteHTML = ({ id, content, emphasisStatus }) => `<li class="${className.note} ${emphasisStatus ? className.empasis : ''}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
+const createNoteHTML = ({ id, content, emphasisStatus }) => `<li class="${className.note} ${emphasisStatus ? className.emphasis : ''}" data-id="${id}"><div class="${className.content}">${content}</div></li>`;
 
 const createNoteComponent = ({ id, initialContent, initialEmphasisStatus }) => {
   const noteHTML = createNoteHTML({ id, content: initialContent, emphasisStatus: initialEmphasisStatus });
@@ -16,9 +16,9 @@ const createNoteComponent = ({ id, initialContent, initialEmphasisStatus }) => {
 
   const setEmphasisStatus = (emphasisStatus) => {
     if (emphasisStatus) {
-      noteElement.classList.add(className.empasis);
+      noteElement.classList.add(className.emphasis);
     } else {
-      noteElement.classList.remove(className.empasis);
+      noteElement.classList.remove(className.emphasis);
     }
   };
 
