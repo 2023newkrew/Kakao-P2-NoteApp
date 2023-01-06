@@ -1,5 +1,5 @@
 import { createAppComponent } from './components/app';
 
-const { fragment } = createAppComponent();
+const { documentFragment } = createAppComponent();
 
-document.body.appendChild(fragment);
+document.body.appendChild(documentFragment);

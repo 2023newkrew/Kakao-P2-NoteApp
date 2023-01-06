@@ -1,7 +1,7 @@
 import className from './index.scss';
 
 import { createNote } from '../../entities/note';
-import { createElement, EMPTY_STRING } from '../../utils';
+import { createDocumentFragment, EMPTY_STRING } from '../../utils';
 import { createEditorComponent } from '../editor';
 import { createNoteListComponent } from '../noteList';
 
@@ -51,21 +51,23 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     noteListComponent.setNoteContent({ id: selectedNoteId, content: value });
   };
 
-  const element = createElement(`<main class="${className.main}"></main>`);
+  const documentFragment = createDocumentFragment(`<main class="${className.main}"></main>`);
 
-  element.addEventListener('keydown', (event) => {
+  const mainElement = documentFragment.querySelector(`.${className.main}`);
+
+  mainElement.addEventListener('keydown', (event) => {
     if (state.selectedNoteId && event.keyCode === DELETE_KEY_CODE && event.metaKey) {
       removeNote(state.selectedNoteId);
     }
   });
 
   const editorComponent = createEditorComponent({ handleInputEditor, initialText: EMPTY_STRING, initialDisabled: true, maxTextLength });
-  element.appendChild(editorComponent.element);
+  mainElement.appendChild(editorComponent.documentFragment);
 
   const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, handleClickNote: setSelectedNoteId, handleClickNewNoteButton });
-  element.appendChild(noteListComponent.element);
+  mainElement.appendChild(noteListComponent.documentFragment);
 
-  return { element };
+  return { documentFragment };
 };
 
 export { createMainComponent };

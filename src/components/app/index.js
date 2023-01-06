@@ -5,18 +5,18 @@ import { createNavigatorComponent } from '../navigator';
 import { createMainComponentWithDefaultProps } from '../hoc';
 
 const createAppComponent = () => {
-  const fragment = document.createDocumentFragment();
+  const documentFragment = document.createDocumentFragment();
 
   const headerComponent = createHeaderComponent();
-  fragment.appendChild(headerComponent.element);
+  documentFragment.appendChild(headerComponent.documentFragment);
 
   const navigatorComponent = createNavigatorComponent();
-  fragment.appendChild(navigatorComponent.element);
+  documentFragment.appendChild(navigatorComponent.documentFragment);
 
   const mainComponent = createMainComponentWithDefaultProps();
-  fragment.appendChild(mainComponent.element);
+  documentFragment.appendChild(mainComponent.documentFragment);
 
-  return { fragment };
+  return { documentFragment };
 };
 
 export { createAppComponent };

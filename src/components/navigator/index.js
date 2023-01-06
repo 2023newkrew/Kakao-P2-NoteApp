@@ -1,11 +1,11 @@
 import './index.scss';
 
-import { createElement } from '../../utils';
+import { createDocumentFragment } from '../../utils';
 
 const createNavigatorComponent = () => {
-  const element = createElement(`<nav class="navigator"></nav>`);
+  const documentFragment = createDocumentFragment(`<nav class="navigator"></nav>`);
 
-  return { element };
+  return { documentFragment };
 };
 
 export { createNavigatorComponent };

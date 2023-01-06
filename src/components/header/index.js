@@ -1,11 +1,11 @@
 import className from './index.scss';
 
-import { createElement } from '../../utils';
+import { createDocumentFragment } from '../../utils';
 
 const createHeaderComponent = () => {
-  const element = createElement(`<header class="${className.header}">KEEP APPLICATION</header>`);
+  const documentFragment = createDocumentFragment(`<header class="${className.header}">KEEP APPLICATION</header>`);
 
-  return { element };
+  return { documentFragment };
 };
 
 export { createHeaderComponent };
