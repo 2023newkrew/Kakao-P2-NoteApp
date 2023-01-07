@@ -2,7 +2,7 @@ import className from './index.scss';
 
 import { createDocumentFragment } from '../../utils';
 
-const SNACK_BAR_DISPLAY_MS = 2000;
+const SNACK_BAR_DISPLAY_MS = 5000;
 
 const createSnackBarContainerComponent = () => {
   const documentFragment = createDocumentFragment(`<div class="${className.snackBarContainer}"></div>`);

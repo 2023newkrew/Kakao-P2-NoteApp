@@ -32,21 +32,6 @@ const createAppComponent = () => {
   const snackBarContainerComponent = createSnackBarContainerComponent();
   documentFragment.appendChild(snackBarContainerComponent.documentFragment);
 
-  document.body.dispatchEvent(new CustomEvent('snack-bar-request', {
-    detail: {
-      content: '안녕하세요',
-      buttonValue: '해해',
-      handleButtonClick: () => { console.log('clicked') },
-    },
-    bubbles: true,
-  }));
-
-  document.body.dispatchEvent(new CustomEvent('snack-bar-request', {
-    detail: {
-      content: '안녕하세요'
-    },
-  }));
-
   return { documentFragment };
 };
 

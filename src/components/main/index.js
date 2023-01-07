@@ -18,9 +18,21 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
 
   const addNewNote = () => {
     const newNote = createNote({ content: '새로운 노트' });
-    state.notes.push(newNote);
-    noteListComponent.addNote(newNote);
-    selectNoteById(newNote.id);
+    addNote(newNote);
+
+    mainElement.dispatchEvent(new CustomEvent('snack-bar-request', {
+      detail: {
+        content: '노트가 생성됐습니다.',
+      },
+      bubbles: true,
+    }));
+  };
+
+  const addNote = (note) => {
+    if (state.notes.find(({ id }) => id === note.id)) return;
+    state.notes.push(note);
+    noteListComponent.addNote(note);
+    selectNoteById(note.id);
   };
 
   const updateEditorComponent = () => {
@@ -40,10 +52,22 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   };
 
   const removeNoteById = (noteId) => {
+    const targetNote = state.notes.find((({ id }) => id === noteId));
     state.selectedNoteId = null;
     state.notes = state.notes.filter(({ id }) => id !== noteId);
     noteListComponent.removeNoteById(noteId);
     updateEditorComponent();
+
+    mainElement.dispatchEvent(new CustomEvent('snack-bar-request', {
+      detail: {
+        content: '노트가 삭제됐습니다.',
+        buttonValue: '취소하기',
+        handleButtonClick: () => {
+          addNote(targetNote);
+        },
+      },
+      bubbles: true,
+    }));
   };
 
   const handleEditorInput = (event) => {
