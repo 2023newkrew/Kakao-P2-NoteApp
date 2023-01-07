@@ -53,3 +53,13 @@
     @extend %item;
   }
 }
+
+.notes.animation {
+  animation: 0.2s blur ease;
+}
+
+@keyframes blur {
+  50% {
+    filter: blur(8px);
+  }
+}

@@ -31,6 +31,10 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
 
   documentFragment.addEventListener('note-view-set', ({ detail }) => { // Observable의 notify 핸들링
     noteListElment.dataset.noteView = detail.noteView;
+    noteListElment.classList.add(`${className.animation}`);
+    noteListElment.addEventListener('animationend', () => {
+      noteListElment.classList.remove(`${className.animation}`);
+    });
   });
 
   const newNoteButton = documentFragment.querySelector(`.${className.newNoteButton}`);
