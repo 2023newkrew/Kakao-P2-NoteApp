@@ -53,7 +53,13 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
     noteListComponent.editNote({ id: selectedNoteId, content: value });
   };
 
-  const documentFragment = createDocumentFragment(`<main class="${className.main}"></main>`);
+  const documentFragment = createDocumentFragment(`<main class="${className.main}"><hr class=${className.breakLine}></main>`);
+
+  documentFragment.addEventListener('note-view-set', ({ detail }) => { // 단순한 이벤트 중개...
+    const noteViewSetEvent = new CustomEvent('note-view-set', { detail });
+
+    noteListComponent.documentFragment.dispatchEvent(noteViewSetEvent);
+  });
 
   const mainElement = documentFragment.querySelector(`.${className.main}`);
 
@@ -74,7 +80,7 @@ const createMainComponent = ({ initialNotes, maxTextLength }) => {
   window.addEventListener('keydown', handleWindowKeydown);
 
   const editorComponent = createEditorComponent({ onInput: handleEditorInput, initialText: '', initialDisabled: true, maxTextLength });
-  mainElement.appendChild(editorComponent.documentFragment);
+  mainElement.prepend(editorComponent.documentFragment);
 
   const noteListComponent = createNoteListComponent({ initialNotes, initialSelectedNoteId: state.selectedNoteId, onNoteClick: selectNoteById, onNewNoteButtonClick: addNewNote });
   mainElement.appendChild(noteListComponent.documentFragment);

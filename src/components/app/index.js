@@ -7,6 +7,13 @@ import { createMainComponentWithDefaultProps } from '../mainWithDefaultProps';
 const createAppComponent = () => {
   const documentFragment = document.createDocumentFragment();
 
+  document.body.addEventListener('note-view-set', ({ detail }) => {
+    const noteViewSetEvent = new CustomEvent('note-view-set', { detail });
+
+    headerComponent.documentFragment.dispatchEvent(noteViewSetEvent);
+    mainComponent.documentFragment.dispatchEvent(noteViewSetEvent);
+  });
+
   const headerComponent = createHeaderComponent();
   documentFragment.appendChild(headerComponent.documentFragment);
 

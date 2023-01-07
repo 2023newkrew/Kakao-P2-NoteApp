@@ -4,16 +4,19 @@
   list-style: none;
   gap: 1rem;
 
-  .note {
+  %item {
     transition: 0.2s;
     cursor: pointer;
     width: 8rem;
     height: 8rem;
-    word-wrap: break-word;
-    word-break: keep-all;
-
     padding: 1rem;
     border-radius: 8px;
+  }
+
+  .note {
+    @extend %item;
+    word-wrap: break-word;
+    word-break: keep-all;
     background-color: #fe8;
     overflow: overlay;
 
@@ -22,22 +25,31 @@
     }
   }
 
-  .emphasis {
+  .note.emphasis {
     background-color: orange;
-
-    transform: scale(112.5%);
+    transform: scale(106.25%);
   }
 
   .newNoteButton {
-    transition: 0.2s;
-    cursor: pointer;
-    width: 8rem;
-    height: 8rem;
-
+    @extend %item;
     font-size: large;
     color: white;
-    border-radius: 8px;
-    border: 2px solid lightgray;
+    border: none;
     background-color: lightgray;
+  }
+}
+
+.notes[data-note-view='list'] {
+  %item {
+    width: 100%;
+    height: 4rem;
+  }
+
+  .note {
+    @extend %item;
+  }
+
+  .newNoteButton {
+    @extend %item;
   }
 }

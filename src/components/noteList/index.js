@@ -29,6 +29,10 @@ const createNoteListComponent = ({ initialNotes, initialSelectedNoteId, onNoteCl
   const documentFragment = createDocumentFragment(`<ul class="${className.notes}"><button class="${className.newNoteButton}">+</button></ul>`);
   const noteListElment = documentFragment.querySelector(`.${className.notes}`);
 
+  documentFragment.addEventListener('note-view-set', ({ detail }) => { // Observable의 notify 핸들링
+    noteListElment.dataset.noteView = detail.noteView;
+  });
+
   const newNoteButton = documentFragment.querySelector(`.${className.newNoteButton}`);
   newNoteButton.addEventListener('click', onNewNoteButtonClick);
 
