@@ -38,6 +38,7 @@
 @keyframes expand {
   from {
     height: 0;
+    filter: blur(1rem) brightness(0);
   }
 
   to {
@@ -48,5 +49,6 @@
 @keyframes compress {
   to {
      height: 0;
+     filter: blur(1rem) brightness(0);
   }
 }
