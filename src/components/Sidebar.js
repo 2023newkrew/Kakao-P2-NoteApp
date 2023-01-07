@@ -1,5 +1,4 @@
-// import 경로 절대로 변경
-import Component from "@/component/Component"; // component 위치 변경
+import Component from "@/components/Component";
 export default class Sidebar extends Component {
   template() {
     return `
