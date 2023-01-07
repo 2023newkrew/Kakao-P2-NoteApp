@@ -6,6 +6,7 @@
   color: inherit;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 
   .snackBar {
     overflow: hidden;
@@ -26,6 +27,7 @@
       color: orange;
       font-size: inherit;
       font-weight: bold;
+      pointer-events: all;
     }
   }
 
