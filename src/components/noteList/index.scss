@@ -5,7 +5,7 @@
   gap: 1rem;
 
   %item {
-    transition: 0.2s;
+    transition: 0.2s ease;
     cursor: pointer;
     width: 8rem;
     height: 8rem;
@@ -60,6 +60,6 @@
 
 @keyframes blur {
   50% {
-    filter: blur(8px);
+    filter: blur(1rem) brightness(0);
   }
 }
