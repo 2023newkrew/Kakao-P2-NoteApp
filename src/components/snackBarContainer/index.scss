@@ -11,6 +11,7 @@
     overflow: hidden;
     margin: auto;
     display: flex;
+    animation: 0.2s expand;
     height: 2rem;
     justify-content: space-between;
     gap: 0.5rem;
@@ -31,6 +32,16 @@
 
   .snackBar.remove {
     animation: 0.2s compress;
+  }
+}
+
+@keyframes expand {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 2rem;
   }
 }
 
