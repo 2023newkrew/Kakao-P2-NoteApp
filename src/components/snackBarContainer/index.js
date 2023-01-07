@@ -11,9 +11,15 @@ const createSnackBarContainerComponent = () => {
   documentFragment.addEventListener('snack-bar-request', ({ detail }) => {
     const documentFragment = createDocumentFragment(`<div class="${className.snackBar}">${detail.content}<button class="${className.button}">${detail.buttonValue}</button></div>`);
     const snackBarElement = documentFragment.querySelector(`.${className.snackBar}`);
+
     const snackBarButton = snackBarElement.querySelector(`.${className.button}`);
 
-    snackBarButton.addEventListener('click', detail.handleButtonClick);
+    if (detail.handleButtonClick) {
+      snackBarButton.addEventListener('click', detail.handleButtonClick);
+    } else {
+      snackBarButton.remove();
+    }
+
     snackBarContainerElement.appendChild(documentFragment);
 
     let timeoutId = null;
