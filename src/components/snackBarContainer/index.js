@@ -18,17 +18,20 @@ const createSnackBarContainerComponent = () => {
 
     let timeoutId = null;
 
+    const remove = () => {
+      snackBarElement.classList.add(className.remove);
+      snackBarElement.addEventListener('animationend', () => {
+        snackBarContainerElement.removeChild(snackBarElement);
+      });
+    };
+
     const clearSnackBarTimeout = () => {
       clearTimeout(timeoutId);
-    }
+    };
 
     const setSnackBarTimout = () => {
-      timeoutId = setTimeout(() => {
-
-        snackBarContainerElement.removeChild(snackBarElement);
-
-      }, SNACK_BAR_DISPLAY_MS);
-    }
+      timeoutId = setTimeout(remove, SNACK_BAR_DISPLAY_MS);
+    };
 
     snackBarElement.addEventListener('mouseenter', clearSnackBarTimeout);
     snackBarElement.addEventListener('mouseleave', setSnackBarTimout);
