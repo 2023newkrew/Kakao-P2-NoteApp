@@ -8,6 +8,11 @@
       margin: 40px auto;
       width: 50vw;
     }
+
+    &__info-text {
+      color: $color--gray;
+      margin-top: 10px;
+    }
   }
 
   #notes {

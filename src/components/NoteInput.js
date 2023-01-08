@@ -1,5 +1,5 @@
 import Component from "@/components/Component";
-import NoteInputText from "@/components/NoteInputText";
+import TextLimitInfo from "@/components/TextLimitInfo";
 
 // 받은 props를 더 직관적으로 확인하는 방법은 없을지?
 export default class NoteInput extends Component {
@@ -27,14 +27,9 @@ export default class NoteInput extends Component {
   handleOnChange({ target }) {
     if (target.id === "note-input") {
       const text = target.value;
-      let textSize = text.length;
-      if (textSize > this.$state.maxTextLength) {
-        alert("200자 이내로 작성해주세요!");
-        target.value = text.slice(0, this.$state.maxTextLength);
-        textSize = this.$state.maxTextLength;
-      }
-
-      this.setNoteInputText(textSize);
+      const curSize = text.length;
+      target.value = text.slice(0, this.$state.maxTextLength);
+      this.setNoteInputText(curSize);
     }
   }
   handleOnkeydownEnter({ code, target }) {
@@ -45,12 +40,13 @@ export default class NoteInput extends Component {
     }
   }
 
-  setNoteInputText(textSize) {
+  setNoteInputText(curSize) {
     const noteInputTextEl = this.$target.querySelector(
       "#note-input__info-text"
     );
-    new NoteInputText(noteInputTextEl, {
-      textSize: textSize,
+    new TextLimitInfo(noteInputTextEl, {
+      curSize: curSize,
+      maxSize: this.$state.maxTextLength,
     });
   }
 }
