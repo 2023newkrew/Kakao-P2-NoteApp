@@ -2,21 +2,22 @@
   width: 100%;
   padding: 16px;
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
   gap: 8px;
   overflow: auto;
   background-color: $color-background-15;
 
-  &[data-list-view="true"] {
+  &.grid-view {
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &.list-view {
     flex-direction: column;
     flex-wrap: nowrap;
   }
 }
 
 .memo {
-  width: 200px;
-  height: 200px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -25,7 +26,12 @@
   border: 2px solid $color-border;
   background-color: $color-background-30;
 
-  [data-list-view="true"] & {
+  .grid-view & {
+    width: 200px;
+    height: 200px;
+  }
+
+  .list-view & {
     width: unset;
     height: 100px;
   }

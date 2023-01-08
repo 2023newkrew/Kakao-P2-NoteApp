@@ -1,6 +1,6 @@
 export const TRUE = "true";
 
-export const HIDDEN = "hidden";
-export const HIDDEN_ASIDE = "hiddenAside";
-export const LIST_VIEW = "listView";
+export const HIDES_ASIDE = "hides-aside";
+export const LIST_VIEW = "list-view";
+export const GRID_VIEW = "grid-view";
 export const MEMOS = "memos";

@@ -26,3 +26,17 @@
     width: 32px;
   }
 }
+
+.nav__button--toggle-view {
+  &.grid-view {
+    .nav__img--list-view {
+      display: none;
+    }
+  }
+
+  &.list-view {
+    .nav__img--list-view {
+      display: none;
+    }
+  }
+}
