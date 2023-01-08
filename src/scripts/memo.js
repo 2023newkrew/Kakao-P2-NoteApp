@@ -1,6 +1,6 @@
 import { createElementFromHtml } from "@/scripts/utils/dom";
 import { loadData, saveData } from "@/scripts/utils/localStorage";
-import { MEMOS } from "@/scripts/constants";
+import { MEMOS, TEMP_MEMO } from "@/scripts/constants";
 
 function createMemoEl({ id, memo }) {
   return createElementFromHtml(`<article class="memo" data-id="${id}">
@@ -70,6 +70,8 @@ function initEditor() {
   const textareaEl = document.body.querySelector(".editor__textarea");
   const currentLengthEl = document.body.querySelector(".editor__current-length");
 
+  textareaEl.value = loadData(TEMP_MEMO) ?? "";
+
   textareaEl.addEventListener("input", (event) => {
     currentLengthEl.innerText = event.target.value.length;
   });
@@ -82,6 +84,10 @@ function initEditor() {
 
     event.target.value = "";
     currentLengthEl.innerText = 0;
+  });
+
+  window.addEventListener("beforeunload", () => {
+    saveData({ key: TEMP_MEMO, data: textareaEl.value });
   });
 }
 
