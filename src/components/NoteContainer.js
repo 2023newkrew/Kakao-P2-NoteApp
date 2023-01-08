@@ -3,8 +3,7 @@ import { NoteInput, Notes } from "@/components";
 
 export default class NoteContainer extends Component {
   setup() {
-    this.$state = { noteTexts: ["test", "test"] };
-    console.log(this.addNoteText);
+    this.$state = { noteTexts: ["test 노트 입니다~!"] };
   }
   template() {
     return `<div id="note-input__wrapper"></div>
