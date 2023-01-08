@@ -1,7 +1,11 @@
-.snackbar {
+.snackbar-container {
   position: fixed;
   bottom: 16px;
   right: 16px;
+}
+
+.snackbar {
+  margin-top: 8px;
   padding: 16px;
   color: $color-white;
   background-color: $color-snackbar;

@@ -1,4 +1,5 @@
 import { createElementFromHtml } from "@/scripts/utils/dom";
+import { snackbar } from "@/scripts/utils/snackbar";
 import { loadData, saveData } from "@/scripts/utils/localStorage";
 import { MEMOS } from "@/scripts/constants";
 
@@ -40,6 +41,7 @@ function handleAddMemo(memo) {
 
   insertMemoEl({ id, memo });
   saveMemo({ id, memo });
+  snackbar.pushSnackbar("메모가 추가되었습니다.");
 }
 
 function handleRemoveMemo(memoEl) {
@@ -47,6 +49,7 @@ function handleRemoveMemo(memoEl) {
 
   memoEl.remove();
   deleteMemo(id);
+  snackbar.pushSnackbar("메모가 삭제되었습니다.");
 }
 
 function initMemos() {
