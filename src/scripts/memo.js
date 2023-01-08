@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { createElementFromHtml } from "@/scripts/utils/dom";
 import { snackbar } from "@/scripts/utils/snackbar";
 import { loadData, saveData } from "@/scripts/utils/localStorage";
@@ -37,7 +38,7 @@ function deleteMemo(id) {
 }
 
 function handleAddMemo(memo) {
-  const id = Date.now();
+  const id = uuidv4();
 
   insertMemoEl({ id, memo });
   saveMemo({ id, memo });

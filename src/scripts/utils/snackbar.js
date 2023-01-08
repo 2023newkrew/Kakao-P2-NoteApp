@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { createElementFromHtml } from "@/scripts/utils/dom";
 
 function initSnackbar() {
@@ -12,7 +13,7 @@ function initSnackbar() {
 
   function pushSnackbar(message) {
     const snackbarEl = createElementFromHtml(
-      `<div class="snackbar" data-id=${Date.now()}>${message}</div>`
+      `<div class="snackbar" data-id=${uuidv4()}>${message}</div>`
     );
     containerEl.appendChild(snackbarEl);
 
