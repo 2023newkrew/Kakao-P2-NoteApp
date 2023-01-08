@@ -5,7 +5,7 @@ export default class Notes extends Component {
     const notes = this.$props.noteTexts;
     return `
       ${notes
-        .map(
+        ?.map(
           (note) => `<li class="note">
         <div class="note__content">${note}</div>
       </li>`

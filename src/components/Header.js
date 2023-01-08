@@ -1,22 +1,26 @@
 import { Component } from "@/components/common";
 
+import sidebarImg from "@/assets/menu.png";
+import logoImg from "@/assets/logo.png";
+import userImg from "@/assets/user.png";
+
 export default class Header extends Component {
   template() {
     return `
     <nav id="header__content">
       <div class="header__buttons">
         <button id="header__sidebar-button">
-          <img id="sidebar-button" src="" alt="side bar" />
+          <img id="sidebar-button" src="${sidebarImg}" alt="side bar" />
         </button>
         <button id="header__logo-button">
-          <img id="logo-button" src="" alt="logo" />
+          <img id="logo-button" src="${logoImg}" alt="logo" />
         </button>
       </div>
       <div class="header__buttons">
         <button id="header__note-toggle-button">
         </button>
         <button id="header__user-button">
-          <img id="user-button" src="" alt="user" />
+          <img id="user-button" src="${userImg}" alt="user" />
         </button>
       </div>
     </nav>

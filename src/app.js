@@ -1,6 +1,5 @@
 import "@/styles/app.scss";
 import "@/styles/common/reset.scss";
-import importImages from "@/image.js";
 
 import { Component } from "@/components/common";
 import { Header, Sidebar, NoteContainer, Snackbar } from "@/components";
@@ -26,8 +25,6 @@ class App extends Component {
     new Header(headerEl, { sidebarEl: sidebarEl, noteEl: noteEl });
     new Sidebar(sidebarEl);
     new NoteContainer(noteEl, { snackbar: snackbar });
-
-    importImages();
   }
 }
 
