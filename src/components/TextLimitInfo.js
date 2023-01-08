@@ -1,4 +1,5 @@
-import Component from "@/components/Component";
+import { Component } from "@/components/common";
+
 export default class TextLimitInfo extends Component {
   template() {
     return `<span id="note-input__limit-counter">

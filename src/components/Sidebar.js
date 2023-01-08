@@ -1,4 +1,5 @@
-import Component from "@/components/Component";
+import { Component } from "@/components/common";
+
 export default class Sidebar extends Component {
   template() {
     return `

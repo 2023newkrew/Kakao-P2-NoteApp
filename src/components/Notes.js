@@ -1,4 +1,4 @@
-import Component from "@/components/Component";
+import { Component } from "@/components/common";
 
 export default class Notes extends Component {
   template() {

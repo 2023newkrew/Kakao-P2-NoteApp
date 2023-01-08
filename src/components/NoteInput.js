@@ -1,7 +1,6 @@
-import Component from "@/components/Component";
-import TextLimitInfo from "@/components/TextLimitInfo";
+import { Component } from "@/components/common";
+import { TextLimitInfo } from "@/components";
 
-// 받은 props를 더 직관적으로 확인하는 방법은 없을지?
 export default class NoteInput extends Component {
   setup() {
     this.$state = { maxTextLength: 200 };

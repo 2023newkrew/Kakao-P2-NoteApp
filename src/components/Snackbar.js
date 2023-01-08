@@ -1,4 +1,4 @@
-import Component from "@/components/Component"; // component 위치 변경
+import { Component } from "@/components/common";
 
 export default class Snackbar extends Component {
   setup() {

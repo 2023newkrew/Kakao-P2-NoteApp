@@ -2,12 +2,8 @@ import "@/styles/app.scss";
 import "@/styles/common/reset.scss";
 import importImages from "@/image.js";
 
-import Component from "@/components/Component";
-
-import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
-import NoteContainer from "@/components/NoteContainer";
-import Snackbar from "./components/Snackbar";
+import { Component } from "@/components/common";
+import { Header, Sidebar, NoteContainer, Snackbar } from "@/components";
 
 class App extends Component {
   template() {
