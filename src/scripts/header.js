@@ -4,9 +4,9 @@ import { HIDES_ASIDE, LIST_VIEW, GRID_VIEW } from "@/scripts/constants";
 function initToggleAsideButton() {
   const toggleAsideButtonEl = document.body.querySelector(".nav__button--toggle-aside");
   const asideClassList = document.body.querySelector(".aside").classList;
-  const hiddenAside = !!loadData(HIDES_ASIDE);
+  const hidesAside = !!loadData(HIDES_ASIDE);
 
-  if (hiddenAside) asideClassList.add(HIDES_ASIDE);
+  if (hidesAside) asideClassList.add(HIDES_ASIDE);
 
   toggleAsideButtonEl.addEventListener("click", () => {
     asideClassList.toggle(HIDES_ASIDE);

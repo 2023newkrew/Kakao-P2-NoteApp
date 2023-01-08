@@ -12,9 +12,9 @@ function createMemoEl({ id, memo }) {
 }
 
 function insertMemoEl({ id, memo }) {
-  const inputEl = document.body.querySelector(".input");
+  const editorEl = document.body.querySelector(".editor");
 
-  inputEl.insertAdjacentElement("beforebegin", createMemoEl({ id, memo }));
+  editorEl.insertAdjacentElement("beforebegin", createMemoEl({ id, memo }));
 }
 
 function loadMemos() {
@@ -66,9 +66,9 @@ function initMemos() {
   });
 }
 
-function initInput() {
-  const textareaEl = document.body.querySelector(".input__textarea");
-  const currentLengthEl = document.body.querySelector(".input__current-length");
+function initEditor() {
+  const textareaEl = document.body.querySelector(".editor__textarea");
+  const currentLengthEl = document.body.querySelector(".editor__current-length");
 
   textareaEl.addEventListener("input", (event) => {
     currentLengthEl.innerText = event.target.value.length;
@@ -87,5 +87,5 @@ function initInput() {
 
 export function initMemo() {
   initMemos();
-  initInput();
+  initEditor();
 }
