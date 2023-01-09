@@ -10,45 +10,6 @@
     min-width: 280px;
     margin: 0 auto;
 
-    .form {
-      padding: var(--content-padding);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: var(--bg-element);
-
-      .content-label {
-        display: block;
-        width: 100%;
-        padding: var(--content-padding) 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-      .content-input {
-        padding: var(--content-padding);
-        background-color: var(--bg-element);
-        font-size: 1rem;
-        width: calc(100% - var(--content-padding) * 2);
-        resize: none;
-        border: 1px solid var(--border2);
-        border-radius: var(--border-radius);
-      }
-      .content-info {
-        display: block;
-        width: 100%;
-        font-size: 0.875rem;
-        text-align: right;
-        color: var(--text3);
-      }
-      button {
-        width: 128px;
-
-        @media screen and (max-width: 496px) {
-          width: 100%;
-        }
-      }
-    }
-
     .memos {
       display: flex;
       flex-wrap: wrap;
@@ -125,7 +86,7 @@
         flex-direction: column;
 
         .memo {
-          width: 100%;
+          width: calc(100% - 2 * var(--base-unit));
           aspect-ratio: unset;
           min-height: 24px;
           flex-direction: row;

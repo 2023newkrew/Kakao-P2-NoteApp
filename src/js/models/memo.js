@@ -17,6 +17,9 @@ export default class Memo {
   }
 
   update(content) {
+    if (content.trim().length === 0) {
+      return;
+    }
     this.content = content;
     this.updatedAt = new Date().toLocaleString();
 
