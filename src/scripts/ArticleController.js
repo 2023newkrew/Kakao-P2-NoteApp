@@ -1,9 +1,12 @@
-
+import SnackbarController from '@scripts/SnackbarController';
 export default class ArticleController {
     constructor() {
+        this.NOTE_MAX_LENGTH = 200;
         this.getElements();
         this.addClickEvent();
         this.addWriteEvent();
+        
+        this.snackbarController = new SnackbarController();
     }
     getElements() {
         this.viewToggleContainerElement = document.querySelector('.view-toggle-button');
@@ -26,8 +29,8 @@ export default class ArticleController {
         this.articlesContainerElement.classList.toggle('list');
     }
     onWriteNote(event) {
-        if (event.target.value.length > 200) {
-            event.target.value = event.target.value.slice(0, 200);
+        if (event.target.value.length > this.NOTE_MAX_LENGTH) {
+            event.target.value = event.target.value.slice(0, this.NOTE_MAX_LENGTH);
         }
         if (event.inputType === 'insertLineBreak') {
             this.addNote(this.articleInputElement.value);
@@ -40,11 +43,12 @@ export default class ArticleController {
         articleElement.classList.add('notes__article');
         articleElement.innerText = content;
         this.articlesContainerElement.appendChild(articleElement);
+        this.snackbarController.showSnackbar('노트 내용이 추가되었습니다.');
     }
     clearInput() {
         this.articleInputElement.value = '';
     }
     updateLength(length) {
-        this.articleLengthElement.innerText = `${length}/200`;
+        this.articleLengthElement.innerText = `${length}/${this.NOTE_MAX_LENGTH}`;
     }
 }
