@@ -3,7 +3,9 @@ import '@styles/general.scss';
 import '@styles/header.scss';
 import '@styles/sidemenu.scss';
 import '@styles/snackbar.scss';
+import '@styles/form.scss';
 import '@styles/main.scss';
+import '@styles/modal.scss';
 
 import ThemeController from '@/themeController';
 import SidemenuController from '@/sidemenuController';
@@ -16,11 +18,16 @@ const onLoadScript = () => {
 
   new ThemeController(header.querySelector('.header #theme-button'));
   new SidemenuController(header.querySelector('.header #sidemenu-button'));
-  new MemoController(
+  const memoController = new MemoController(
     memoForm.querySelector('.content-input'),
     memoForm.querySelector('.content-info'),
     memoForm.querySelector('button'),
     memoSection.querySelector('.memo-container .memos')
   );
+
+  const listTypeButton = header.querySelector('.list-type');
+  listTypeButton.addEventListener('click', () => {
+    memoController.changeMemoType();
+  });
 };
 onLoadScript();

@@ -105,4 +105,7 @@ export default class MemoController {
     const memos = Memo.getMemos();
     this.memoContainer.innerHTML = memos.map(memo => memo.render()).join('\n');
   }
+  changeMemoType() {
+    this.memoContainer.classList.toggle('detail');
+  }
 }
