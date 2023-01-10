@@ -1,0 +1,58 @@
+#snackBars {
+  z-index: 100;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (max-width: 496px) {
+    left: calc(2 * var(--base-unit));
+    right: calc(2 * var(--base-unit));
+  }
+}
+
+.snackBar {
+  z-index: 10;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--base-unit);
+  margin-bottom: var(--base-unit);
+  width: 15rem;
+  height: 3rem;
+  border-radius: var(--border-radius);
+  background-color: var(--kakao-dark);
+  color: var(--kakao-text-color);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(calc(-1 * (15rem + 10px)));
+  transition: transform 250ms ease-in, opacity 400ms linear, visibility 300ms linear 300ms;
+
+  &.on {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .content {
+    padding: 0 10px;
+  }
+  .cancel {
+    background-color: var(--kakao-primary);
+    color: var(--kakao-text-color-dark);
+    border-radius: 4px;
+    height: 100%;
+    width: 60px;
+  }
+  .cancel:hover {
+    background-color: var(--kakao-primary-hover);
+  }
+
+  @media screen and (max-width: 496px) {
+    width: 100%;
+  }
+}

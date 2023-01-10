@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@views": ["src/views/"],
+      "@styles": ["src/styles/"],
+      "@constants": ["src/js/constants/"],
+      "@models": ["src/js/models/"],
+      "@": ["src/js/*"],
+      "@utils": ["src/js/utils/"]
+    }
+  },
+  "exclude": ["dist", "node_modules"]
+}

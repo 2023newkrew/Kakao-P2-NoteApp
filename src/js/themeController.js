@@ -1,5 +1,5 @@
-import {STORAGE_KEY_OF_THEME, THEME, THEME_ATTRIBUTE} from './constants/theme';
-import {getItem, setItem} from './utils/localStorage';
+import {STORAGE_KEY_OF_THEME, THEME, THEME_ATTRIBUTE} from '@constants/theme';
+import {getItem, setItem} from '@utils/localStorage';
 
 export default class ThemeController {
   constructor(handlerElement) {
@@ -7,8 +7,7 @@ export default class ThemeController {
       throw new Error('Must provicde theme hander element');
     }
     this.handlerElement = handlerElement;
-  }
-  init() {
+
     this._initTheme();
     this._initHandler();
   }
@@ -24,11 +23,11 @@ export default class ThemeController {
     document.body.setAttribute(THEME_ATTRIBUTE, theme);
   }
   static getTheme() {
-    return getItem(STORAGE_KEY_OF_THEME) || THEME.LIGHT_THEME;
+    return getItem(STORAGE_KEY_OF_THEME) || THEME.LIGHT;
   }
   static toggleTheme() {
     const currentTheme = ThemeController.getTheme();
-    const nextTheme = currentTheme === THEME.DARK_THEME ? THEME.LIGHT_THEME : THEME.DARK_THEME;
+    const nextTheme = currentTheme === THEME.DARK ? THEME.LIGHT : THEME.DARK;
 
     ThemeController.setTheme(nextTheme);
   }

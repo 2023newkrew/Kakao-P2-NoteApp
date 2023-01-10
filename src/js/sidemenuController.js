@@ -6,8 +6,7 @@ export default class SidemenuController {
       throw new Error('Must provide sidemnu and handler element');
     }
     this.handlerElement = handlerElement;
-  }
-  init() {
+
     this._initHandler();
   }
   _initHandler() {

@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    clean: process.env.NODE_ENV === 'production' ? true : false,
+    clean: true,
     assetModuleFilename: '[name][ext]',
   },
   module: {
@@ -16,7 +16,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader' /** Create style node */,
+          // 'style-loader' /** Create style node */,
+          MiniCssExtractPlugin.loader, // js 전에 CSS 적용 위함
           'css-loader' /** Translate CSS into CommonJS */,
           'sass-loader' /** Compile SASS to CSS */,
         ], // 역순으로 로더가 작동한다. 이 순서를 지켜야한다.
@@ -52,5 +53,15 @@ module.exports = {
     liveReload: true,
     open: true,
     watchFiles: ['src/**/*.js', 'src/**/*.scss', 'public/**/*'],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/js/'),
+      '@views': path.resolve(__dirname, 'src/views/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@constants': path.resolve(__dirname, 'src/js/constants/'),
+      '@models': path.resolve(__dirname, 'src/js/models/'),
+      '@utils': path.resolve(__dirname, 'src/js/utils/'),
+    },
   },
 };
