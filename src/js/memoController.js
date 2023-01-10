@@ -45,7 +45,7 @@ export default class MemoController {
     });
 
     this.textInputElement.addEventListener('keypress', event => {
-      // // Enter => Save memo
+      // Enter => Save memo
       if (event.keyCode === KEY_CODE.Enter) {
         this._saveMemo();
         event.preventDefault();

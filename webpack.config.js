@@ -16,7 +16,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // 'style-loader' /** Create style node */,
           MiniCssExtractPlugin.loader, // js 전에 CSS 적용 위함
           'css-loader' /** Translate CSS into CommonJS */,
           'sass-loader' /** Compile SASS to CSS */,
