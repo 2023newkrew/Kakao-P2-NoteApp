@@ -2,8 +2,10 @@ import {MAX_INPUT_LENGTH} from '@constants/memo';
 import {KEY_CODE} from '@constants/event';
 import Memo from '@models/memo';
 import useSnackBar from '@/useSnackBar';
+import useModal from '@/useModal';
 
 const pushSnackBar = useSnackBar();
+const {renderModal, closeModal} = useModal();
 
 export default class MemoController {
   constructor(
@@ -43,7 +45,7 @@ export default class MemoController {
     });
 
     this.textInputElement.addEventListener('keypress', event => {
-      // // Enter => Save memo
+      // Enter => Save memo
       if (event.keyCode === KEY_CODE.Enter) {
         this._saveMemo();
         event.preventDefault();
@@ -75,6 +77,8 @@ export default class MemoController {
 
       if (event.target.classList.contains('delete')) {
         this._handleDeleteMemo(memoId);
+      } else if (event.target.classList.contains('edit')) {
+        this._handleEditMemo(memoId);
       }
     });
   }
@@ -100,6 +104,49 @@ export default class MemoController {
       content: '메모가 추가되었습니다',
     };
     pushSnackBar(snackBar);
+  }
+  _handleEditMemo(id) {
+    const currentMemo = Memo.getMemo(id);
+
+    const modalContent = `
+      <label for="edit-memo" class="content-label">메모 수정</label>
+      <textarea
+        name="edit-memo"
+        class="content-input"
+        type="text"
+        maxlength="200"
+        placeholder="메모를 남겨보세요."
+        rows="5"
+        cols="40"
+      >${currentMemo.content}</textarea>
+      <p class="content-info mt"></p>
+      <button class="primary mt submit">저장</button>`;
+
+    const content = document.createElement('div');
+    content.className = 'form mb';
+    content.innerHTML = modalContent;
+
+    const textArea = content.querySelector('.content-input');
+
+    const handleSave = () => {
+      currentMemo.update(textArea.value);
+      closeModal();
+      pushSnackBar({
+        content: '메모를 수정하였습니다',
+      });
+      this._render();
+    };
+
+    textArea.addEventListener('keypress', event => {
+      if (event.keyCode === KEY_CODE.Enter) {
+        handleSave();
+      }
+    });
+
+    const saveButton = content.querySelector('.submit');
+    saveButton.addEventListener('click', handleSave);
+
+    renderModal(content);
   }
   _render() {
     const memos = Memo.getMemos();
