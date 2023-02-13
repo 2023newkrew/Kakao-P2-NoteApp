@@ -11,7 +11,7 @@
 
   &__button {
     padding: 8px;
-    cursor: pointer;
+    line-height: 0;
 
     &:hover {
       background-color: $color-hover;
@@ -24,5 +24,19 @@
 
   &__img {
     width: 32px;
+  }
+}
+
+.nav__button--toggle-view {
+  &.grid-view {
+    .nav__img--list-view {
+      display: none;
+    }
+  }
+
+  &.list-view {
+    .nav__img--list-view {
+      display: none;
+    }
   }
 }

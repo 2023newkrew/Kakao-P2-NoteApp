@@ -2,14 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "./"),
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
     },
-    compress: true,
-    port: 3000,
-    open: true,
   },
   entry: path.resolve(__dirname, "src/index.js"),
   output: {

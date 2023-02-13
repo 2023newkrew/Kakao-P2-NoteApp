@@ -12,9 +12,9 @@
           <img src="assets/menu.png" alt="Menu" class="nav__img" />
         </button>
         <h1 class="nav__title">Keep</h1>
-        <button class="nav__button nav__button--toggle-view-mode">
-          <img src="assets/list.png" alt="List" class="nav__img" data-hidden="true" />
-          <img src="assets/grid.png" alt="Grid" class="nav__img" />
+        <button class="nav__button nav__button--toggle-view">
+          <img src="assets/list.png" alt="List" class="nav__img nav__img--list-view" />
+          <img src="assets/grid.png" alt="Grid" class="nav__img nav__img--grid-view" />
         </button>
         <button class="nav__button nav__button--user">
           <img src="assets/user.png" alt="User" class="nav__img" />
@@ -39,12 +39,9 @@
         </ul>
       </aside>
       <section class="memos">
-        <article class="memo">Sample Memo</article>
-        <article class="memo">Sample Memo</article>
-        <article class="memo">Sample Memo</article>
-        <article class="memo memo--input">
-          <textarea class="input__textarea"></textarea>
-          <div class="input__counter"></div>
+        <article class="memo editor">
+          <textarea class="editor__textarea" placeholder="Take a memo" maxlength="200"></textarea>
+          <div class="editor__counter"><span class="editor__current-length">0</span> / 200</div>
         </article>
       </section>
     </main>

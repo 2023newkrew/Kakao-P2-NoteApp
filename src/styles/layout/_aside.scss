@@ -3,4 +3,8 @@
   padding: 16px;
   flex-shrink: 0;
   background-color: $color-background-50;
+
+  &.hides-aside {
+    display: none;
+  }
 }
