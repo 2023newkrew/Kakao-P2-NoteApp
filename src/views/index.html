@@ -1,11 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Keep App</title>
   </head>
   <body class="body">
-
+    <header class="header">
+      <nav class="header__content">
+        <div class="header__content-container">
+          <button class="header__menu-button icon-button">
+            <img src="./assets/menu-icon.svg" alt="menu" />
+          </button>
+          <div class="header__logo">Logo</div>
+        </div>
+        <div class="header__content-container">
+          <button class="icon-button header__memo-mode-button">
+            <img
+              class="header__memo-mode-button-grid"
+              src="./assets/grid.png"
+              alt="grid mode"
+            />
+            <img
+              class="header__memo-mode-button-list"
+              src="./assets/list.png"
+              id="listIcon"
+              alt="list mode"
+            />
+          </button>
+          <button class="icon-button">
+            <img src="./assets/user.png" alt="user" />
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="main-container">
+      <section class="content-container">
+        <div class="side-bar-container">
+          <nav class="side-bar">
+            <ul class="side-bar__list">
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img src="./assets/notes.svg" alt="notes" />
+                  Notes
+                </a>
+              </li>
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img src="./assets/reminder.png" alt="reminders" />
+                  Reminders
+                </a>
+              </li>
+              <li class="side-bar__list-item">
+                <a href="#">
+                  <img src="./assets/settings.svg" alt="settings" />
+                  Settings
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="note-container">
+          <div class="input-container">
+            <input
+              type="text"
+              class="title-input"
+              placeholder="제목을 입력하세요"
+            />
+            <textarea
+              class="content-textarea"
+              placeholder="내용을 입력하세요"
+            ></textarea>
+            <div class="content-length-container">0/0</div>
+            <input type="submit" class="submit-button" value="submit" />
+          </div>
+          <div class="card-grid card-grid--grid-mode"></div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

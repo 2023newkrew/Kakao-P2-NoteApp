@@ -1,0 +1,31 @@
+@import '../abstracts/_variables.scss';
+
+.header {
+  background-color: white;
+  border-bottom: 1px solid $divider-color;
+  padding: 16px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__content-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header__logo {
+      font-weight: bold;
+    }
+  }
+
+  button > img {
+    width: 32px;
+    height: 32px;
+  }
+}
