@@ -1,3 +1,9 @@
-body {
-  background-color: #ccc;
+@import "@/styles/common/constants.scss";
+@import "@/styles/component/header.scss";
+@import "@/styles/component/note.scss";
+@import "@/styles/component/sidebar.scss";
+@import "@/styles/component/snackbar.scss";
+
+#main__container {
+  display: flex;
 }
